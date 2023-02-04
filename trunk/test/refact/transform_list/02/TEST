@@ -1,0 +1,5 @@
+Title: keyfind, new key in tuple
+Goal: Simple map pattern matching with correct variables and new key extracted
+Parameters: [{file,"test.erl"},{position,87}].
+Documentation: First, extract the key into the new key variable,
+and then do a map pattern matching.

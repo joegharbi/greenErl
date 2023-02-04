@@ -1,0 +1,6 @@
+Title: keystore with no tuple complex
+Goal: create a map update expression
+Parameters: [{file,"test.erl"},{position,95}].
+Documentation: lists:keystore/4 is used by providing a complex expression as the fourth argument.
+The fourth argument is extracted and then key1 is removed, key2 is extracted from the variable and value 
+is also extracted from the variable.

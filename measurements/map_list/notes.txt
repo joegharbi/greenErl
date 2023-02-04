@@ -1,0 +1,69 @@
+Az osszes findnal 100-szor kereste meg az adott elemet!!!
+A buildelesnel csak 1-szer epiti fel a mapet/listat!!!
+
+
+A grafikonokban az ugralas azert van mert mindig randomadik elemet keresunk,
+neha az elejen hamar megtalalja, neha a vegen van.
+Ez az ugralas a map-nel nincs.
+
+maps:find a leggyorsabb es a legkevesebb energiat fogyasztja
+	ok: valoszinuleg az, hogy a mapet a hatterben rendezetten/keresofaban tarolja
+	Ha sokszor keresunk erdemes map-et csinalni
+
+A listat (nem rendezett) hasznalo fuggvenyek kozul a
+lists:keyfind a leghatekonyabb.
+A proplists:get_value es egy sima rekurziv linearis kereses majdnem ugyanolyanok,
+a rekurziv altalaban picit jobb
+
+
+Suggested input descriptions for quick measurement:
+100, 1000, 10000, 100000, 1000000, 10000000
+
+Suggested input descriptions for medium measurement:
+100, 500, 1000, 5000, 10000, 50000, 100000, 500000, 1000000, 5000000, 10000000
+
+Middle input better:
+10000, 50000, 100000, 500000, 750000, 1000000, 2500000, 5000000, 7500000, 10000000
+
+Maybe better:
+50000, 100000, 200000, 300000, 400000, 500000, 1000000, 2000000, 3000000, 4000000, 5000000, 6000000, 7000000, 8000000, 9000000, 10000000
+
+Suggested input descriptions for final measurement:
+100, 500, 1000, 5000, 10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000, 90000, 100000, 200000, 300000, 400000, 500000, 600000, 700000, 800000, 900000, 1000000, 2000000, 3000000, 4000000, 5000000, 6000000, 7000000, 8000000, 9000000, 10000000
+
+
+dict:
+100, 500, 1000, 5000, 10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000, 90000, 100000, 200000, 300000, 400000, 500000, 600000, 700000, 800000, 900000, 1000000
+
+TODO:	update sok elemre (map, fold, rekurziv, foreach)
+		torles
+		arrays
+
+- results
+ - geri_find
+ - geri_build
+ - geri_update_one
+ - geri_update_all
+ - geri_delete 
+
+
+Map-ben keresesnel a pattern matching gyorsabb 
+de a find kevesebb energiat fogyaszt!
+
+a rekurziv updateles a listaban a leghatekonyabb (idoben is)
+map updatenel a pattern match a legjobb, idoben az overwrite is jo, de energiaban nem
+
+
+TODO:
+arrays
+dicts measurement (dict_find, dict_build, etc (minden ami dict-el kezd, nincs kimerve))
+gb_trees?
+
+install refactorerl
+
+map_find,
+dict_find,
+map_delete,
+dict_delete,???
+map_update_one,
+dict_update_one,???

@@ -1,0 +1,16 @@
+\begin{tikzpicture}
+\begin{axis}[legend style={at={(0,1)},anchor=north west}, ylabel=Consumption (J), xlabel=N Values, width=\textwidth, height=0.4\textheight]
+\addplot table [x=N, y=build/map-from-list]{/home/nagygeri97/Documents/Egyetem/TDK/SVN/green_erlang/measurements/map_list/results/geri_build/latex/build.tex_time.dat};
+\addlegendentry{build/map-from-list}
+\addplot table [x=N, y=build/dict-from-list]{/home/nagygeri97/Documents/Egyetem/TDK/SVN/green_erlang/measurements/map_list/results/geri_build/latex/build.tex_time.dat};
+\addlegendentry{build/dict-from-list}
+\addplot table [x=N, y=build/map-put]{/home/nagygeri97/Documents/Egyetem/TDK/SVN/green_erlang/measurements/map_list/results/geri_build/latex/build.tex_time.dat};
+\addlegendentry{build/map-put}
+\addplot table [x=N, y=build/dict-store]{/home/nagygeri97/Documents/Egyetem/TDK/SVN/green_erlang/measurements/map_list/results/geri_build/latex/build.tex_time.dat};
+\addlegendentry{build/dict-store}
+\addplot table [x=N, y=build/map-pattern]{/home/nagygeri97/Documents/Egyetem/TDK/SVN/green_erlang/measurements/map_list/results/geri_build/latex/build.tex_time.dat};
+\addlegendentry{build/map-pattern}
+\addplot table [x=N, y=build/list-recursive]{/home/nagygeri97/Documents/Egyetem/TDK/SVN/green_erlang/measurements/map_list/results/geri_build/latex/build.tex_time.dat};
+\addlegendentry{build/list-recursive}
+\end{axis}
+\end{tikzpicture}

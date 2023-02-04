@@ -1,0 +1,6 @@
+Title: proplists functions imported, invalid position
+Goal: do nothing
+Parameters: [{file,"getvalue.erl"},{position,0}].
+Documentation: The get_value functions are imported, so no modulename specified.
+Selected position is invalid.
+Do nothing.

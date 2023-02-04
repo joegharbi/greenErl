@@ -1,0 +1,32 @@
+Szukseges: 	
+		# python3, 
+		# matplotlib
+		# latex
+		sudo apt-get install python-scipy
+		pip install scipy
+
+
+Hasznalat: 	
+		pl. : python vis.py -m [methods] -t [type] -f [FILES] -o [OUTPUT] [-l] 
+		kapcsolok: 	
+					# -m / --method : a meres modja {sysfs,msr,perf_event,time}, egyszerre tobb is ki lehet valasztva, ha semmi sincs akkor msr
+					# -f / --files : az meresi adatokat tartalmazo file-ok neve, egyszerre lehet tobb, legalabb egy
+					# -o / --output : latex output file
+					# -t / --type : az meresi tipus {pkg,ram,core,gpu,all}, egyszerre csak egy, all=pkg + ram
+					# -l / --logscale: az abrazolt grafikon y tengelye logaritmikus lesz
+					# -c / --correlation: a korreláció és egyéb számítások logolásához a fájlnév pl. ./log.txt
+		Fajlokban az irasnal az elso method adatait irja ki.
+Latex megjelenites 2 lehetoseg:
+	-data fajl
+	-matplotlib exportja:
+		Python:
+			plt.rc('text', usetex=True)
+			plt.rc('font', family='serif')
+			plt.savefig('example.pgf')
+		Latex:
+			\begin{figure}
+				\begin{center}
+					\input{path/to/example.pgf}
+				\end{center}
+				\caption{Example figure proudly made with matplotlib's PGF backend.}
+			\end{figure}

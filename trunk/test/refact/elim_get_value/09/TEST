@@ -1,0 +1,5 @@
+Title: own get_value defined
+Goal: own get_value does not get replaced
+Parameters: [{file,"getvalue.erl"},{position,36}].
+Documentation: Own get_value function is deifned,
+but calls to it should not be replaced

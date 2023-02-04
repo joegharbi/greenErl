@@ -1,0 +1,5 @@
+Title: invalid variable selected (not a parameter)
+Goal: No refactoring is done
+Parameters: [{file,"test.erl"},{position,95}].
+Documentation: The selected list variable is not a parameter of the recursive 
+function. Because of this no refactoring is done.

@@ -1,0 +1,12 @@
+\begin{tikzpicture}
+\begin{axis}[legend style={at={(0,1)},anchor=north west}, ylabel=Consumption (J), xlabel=N Values, width=\textwidth, height=0.4\textheight]
+\addplot table [x=N, y=map-find/find-pattern-match]{/home/nagygeri97/Documents/Egyetem/TDK/SVN/green_erlang/measurements/map_list/results/geri_find_rep/mapdictall.tex_all.dat};
+\addlegendentry{map-find/find-pattern-match}
+\addplot table [x=N, y=dict-find/fetch]{/home/nagygeri97/Documents/Egyetem/TDK/SVN/green_erlang/measurements/map_list/results/geri_find_rep/mapdictall.tex_all.dat};
+\addlegendentry{dict-find/fetch}
+\addplot table [x=N, y=map-find/find]{/home/nagygeri97/Documents/Egyetem/TDK/SVN/green_erlang/measurements/map_list/results/geri_find_rep/mapdictall.tex_all.dat};
+\addlegendentry{map-find/find}
+\addplot table [x=N, y=dict-find/find]{/home/nagygeri97/Documents/Egyetem/TDK/SVN/green_erlang/measurements/map_list/results/geri_find_rep/mapdictall.tex_all.dat};
+\addlegendentry{dict-find/find}
+\end{axis}
+\end{tikzpicture}

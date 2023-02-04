@@ -1,0 +1,23 @@
+%%% This file has -*- Erlang -*- syntax.
+#invoke{dir="referl_gen"}.
+#invoke{dir="referl_core"}.
+#invoke{dir="referl_lib"}.
+#invoke{dir="referl_user"}.
+#invoke{dir="referl_ui", 
+             precond = 
+             case os:getenv("REFERL_SKIP_UI_COMPILATION") of 
+                 "skip" -> false;
+                      _ -> true
+             end}.
+#invoke{dir="referl_cluster"}.
+#invoke{dir="referl_test"}.
+#invoke{dir="referl_slicer"}.
+
+#invoke{dir = "egg",
+        precond =
+            {module,proper} =:= code:ensure_loaded(proper) orelse
+            {module,eqc} =:= code:ensure_loaded(eqc)}.
+#invoke{dir = "referl_qc",
+        precond =
+            {module,proper} =:= code:ensure_loaded(proper) orelse
+            {module,eqc} =:= code:ensure_loaded(eqc)}.

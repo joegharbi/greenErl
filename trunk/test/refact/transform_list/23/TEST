@@ -1,0 +1,5 @@
+Title: new list is used illegally after take
+Goal: do not perform any transformation
+Parameters: [{file,"test.erl"},{position,77}].
+Documentation: The result of lists:keytake/3 is used in other expressions,
+which are not supported, therefore no transformation should be done.

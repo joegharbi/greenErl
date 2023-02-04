@@ -1,0 +1,46 @@
+c("measure/energy_consumption").
+c("algorithms/test_functions").
+c("algorithms/n_queens").
+
+energy_consumption:measure("./rapl-read.out",{n_queens, queens_nohof, [13]},5,result,avg,"log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_acc, [24]},10,result,avg,"log.txt").
+
+Other usage:
+for complex inputs!
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_acc, [24], 24},10,result,avg,"log.txt").
+
+energy_consumption:measure("./rapl-read.out",{n_queens, queens_list, [7]},10,"results/Geri/queens_res","results/Geri/queens_avg"","results/Geri/queens_log.txt").
+
+Tarolas dets-ben:
+result:
+    {{Module,Function,[Args]},"Method","Type",Value}
+avg:
+    {{{Module,Function,[Args]},"Method","Type"},Value}
+Az atlagnal a modszer es a tipus is a kulcshoz tartozik, igy hasznalhato set, es nem kerul
+be ketszer ugyanahhoz a mereshez eredmeny.
+A result-ban viszont lehet ugyanahhoz tobb eredmeny, akar egyformak is (duplicate_bag).
+
+Dets megnyitasa:
+dets:open_file(result,[{type,duplicate_bag}]).
+dets:open_file(avg,[{type,set}]).
+
+Lekerdezes pl.:
+dets:match(avg,{{{test_functions,fib_acc,[24]},'$1',"energy-pkg"},'$2'}).
+
+Torles:
+dets:delete_all_objects(avg).
+
+Max process szam allitas: erlang inditasakor +P [process_szam], Number must be in the range 16..134217727. Default is 32768. 
+
+Az Erlang Shell-t sudo-val kell inditani, kulonben nem tudja az msr-t hasznalni!
+rapl-read -nek argumentumban megadva -m kikapcsolja az MSR merest, -p kikapcsolja a perf-es merest
+
+MSR-hez kell: modprobe msr
+perf-hez kell: echo 0 > /proc/sys/kernel/perf_event_paranoid
+
+------
+
+gcc -O2 -Wall -o rapl-read.out rapl-read.c -lm
+
+
+

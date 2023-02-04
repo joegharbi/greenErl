@@ -1,0 +1,5 @@
+Title: keyfind, joker in tuple
+Goal: Simple map pattern matching with correct variables
+Parameters: [{file,"test.erl"},{position,83}].
+Documentation: Ignore joker pattern in the key part of the tuple,
+create a simple map pattern matching.

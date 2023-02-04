@@ -1,0 +1,6 @@
+Title: standalone keyfind with complex key
+Goal: Using maps find to simulate keyfind behaviour
+Parameters: [{file,"test.erl"},{position,75}].
+Documentation: First, bind the complex key to a new variable, so that it is only computet once.
+Create the tuple that keyfind creates, from the result of maps:find.
+Handle error case as well.

@@ -1,0 +1,5 @@
+Title: lists:map to list_comp, implicit fun without modname
+Goal: Eliminate HOF with list comprehension
+Parameters: [{file,"test.erl"},{hof_mode, list_comp},{position,66}].
+Documentation: lists:map used with implicit function is transformed to
+a list comprehension. 

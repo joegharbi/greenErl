@@ -1,0 +1,38 @@
+Osszes mindenhol parhuzamos process poolos
+python3 vis.py -f ../results/Aron/ppool/sparse_result_par_12_20_30.txt ../results/Aron/ppool/sparse_result_par_6_20_30.txt ../results/Aron/ppool/sparse_result_par_2_20_30.txt ../results/Aron/ppool/sparse_result_par_12_2000_30.txt ../results/Aron/ppool/sparse_result_par_6_2000_30.txt ../results/Aron/ppool/sparse_result_par_2_2000_30.txt ../results/Aron/ppool/sparse_result_par_12_4_30.txt ../results/Aron/ppool/sparse_result_par_6_4_30.txt ../results/Aron/ppool/sparse_result_par_2_4_30.txt
+
+Process poolosok vs sima, nem process poolos
+python3 vis.py -f ../results/Aron/ppool/sparse_result_par_12_20_30.txt ../results/Aron/ppool/sparse_result_par_6_20_30.txt ../results/Aron/ppool/sparse_result_par_2_20_30.txt ../results/Aron/ppool/sparse_result_par_12_2000_30.txt ../results/Aron/ppool/sparse_result_par_6_2000_30.txt ../results/Aron/ppool/sparse_result_par_2_2000_30.txt ../results/Aron/ppool/sparse_result_par_12_4_30.txt ../results/Aron/ppool/sparse_result_par_6_4_30.txt ../results/Aron/ppool/sparse_result_par_2_4_30.txt ../results/Aron/sparse/sparse_result_par_1230.txt ../results/Aron/sparse/sparse_result_par_630.txt ../results/Aron/sparse/sparse_result_par_230.txt
+
+magonkent
+2:
+python3 vis.py -f ../results/Aron/ppool/sparse_result_par_2_20_30.txt ../results/Aron/ppool/sparse_result_par_2_2000_30.txt  ../results/Aron/ppool/sparse_result_par_2_4_30.txt ../results/Aron/sparse/sparse_result_par_230.txt
+
+6:
+python3 vis.py -f ../results/Aron/ppool/sparse_result_par_6_20_30.txt ../results/Aron/ppool/sparse_result_par_6_2000_30.txt  ../results/Aron/ppool/sparse_result_par_6_4_30.txt ../results/Aron/sparse/sparse_result_par_630.txt
+
+12:
+python3 vis.py -f ../results/Aron/ppool/sparse_result_par_12_20_30.txt ../results/Aron/ppool/sparse_result_par_12_2000_30.txt  ../results/Aron/ppool/sparse_result_par_12_4_30.txt ../results/Aron/sparse/sparse_result_par_1230.txt
+
+
+Csak kivul parhuzamosak
+python3 vis.py -f ../results/Aron/parseq/sparse_result_parseq_12_20_30.txt ../results/Aron/parseq/sparse_result_parseq_6_20_30.txt ../results/Aron/parseq/sparse_result_parseq_2_20_30.txt ../results/Aron/parseq/sparse_result_parseq_12_2000_30.txt ../results/Aron/parseq/sparse_result_parseq_6_2000_30.txt ../results/Aron/parseq/sparse_result_parseq_2_2000_30.txt
+
+Csak kivul parhuzamos vs sima, nem process poolos
+python3 vis.py -f ../results/Aron/parseq/sparse_result_parseq_12_20_30.txt ../results/Aron/parseq/sparse_result_parseq_6_20_30.txt ../results/Aron/parseq/sparse_result_parseq_2_20_30.txt ../results/Aron/parseq/sparse_result_parseq_12_2000_30.txt ../results/Aron/parseq/sparse_result_parseq_6_2000_30.txt ../results/Aron/parseq/sparse_result_parseq_2_2000_30.txt ../results/Aron/sparse/sparse_result_par_1230.txt ../results/Aron/sparse/sparse_result_par_630.txt ../results/Aron/sparse/sparse_result_par_230.txt
+
+Kivul parhuzamos vs mindenhol parhuzamos vs sima
+
+magonkent
+2:
+python3 vis.py -f ../results/Aron/ppool/sparse_result_par_2_20_30.txt ../results/Aron/ppool/sparse_result_par_2_2000_30.txt  ../results/Aron/ppool/sparse_result_par_2_4_30.txt ../results/Aron/sparse/sparse_result_par_230.txt ../results/Aron/parseq/sparse_result_parseq_2_20_30.txt ../results/Aron/parseq/sparse_result_parseq_2_2000_30.txt
+
+6:
+python3 vis.py -f ../results/Aron/ppool/sparse_result_par_6_20_30.txt ../results/Aron/ppool/sparse_result_par_6_2000_30.txt  ../results/Aron/ppool/sparse_result_par_6_4_30.txt ../results/Aron/sparse/sparse_result_par_630.txt ../results/Aron/parseq/sparse_result_parseq_6_20_30.txt ../results/Aron/parseq/sparse_result_parseq_6_2000_30.txt
+
+12:
+python3 vis.py -f ../results/Aron/ppool/sparse_result_par_12_20_30.txt ../results/Aron/ppool/sparse_result_par_12_2000_30.txt  ../results/Aron/ppool/sparse_result_par_12_4_30.txt ../results/Aron/sparse/sparse_result_par_1230.txt ../results/Aron/parseq/sparse_result_parseq_12_20_30.txt ../results/Aron/parseq/sparse_result_parseq_12_2000_30.txt
+
+egyben:
+python3 vis.py -f ../results/Aron/ppool/sparse_result_par_2_20_30.txt ../results/Aron/ppool/sparse_result_par_2_2000_30.txt  ../results/Aron/ppool/sparse_result_par_2_4_30.txt ../results/Aron/sparse/sparse_result_par_230.txt ../results/Aron/parseq/sparse_result_parseq_2_20_30.txt ../results/Aron/parseq/sparse_result_parseq_2_2000_30.txt ../results/Aron/ppool/sparse_result_par_6_20_30.txt ../results/Aron/ppool/sparse_result_par_6_2000_30.txt  ../results/Aron/ppool/sparse_result_par_6_4_30.txt ../results/Aron/sparse/sparse_result_par_630.txt ../results/Aron/parseq/sparse_result_parseq_6_20_30.txt ../results/Aron/parseq/sparse_result_parseq_6_2000_30.txt ../results/Aron/ppool/sparse_result_par_12_20_30.txt ../results/Aron/ppool/sparse_result_par_12_2000_30.txt  ../results/Aron/ppool/sparse_result_par_12_4_30.txt ../results/Aron/sparse/sparse_result_par_1230.txt ../results/Aron/parseq/sparse_result_parseq_12_20_30.txt ../results/Aron/parseq/sparse_result_parseq_12_2000_30.txt
+

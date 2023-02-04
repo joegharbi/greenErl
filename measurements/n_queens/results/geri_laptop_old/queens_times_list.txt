@@ -1,0 +1,25 @@
+n_queens queens_list [6] time time 0001.1977500 
+n_queens queens_list [7] time time 0004.8957500 
+n_queens queens_list [8] time time 0009.2300000 
+n_queens queens_list [9] time time 0024.8327500 
+n_queens queens_list [10] time time 0105.1052500 
+n_queens queens_list [11] time time 0542.2587500 
+n_queens queens_list [12] time time 3124.5670000 
+
+
+energy_consumption:measure("./rapl-read.out",{n_queens, queens_sleep,[1.1977500],6},10,"results/Geri/queens/queens_res_sleep","results/Geri/queens/queens_avg_sleep","results/Geri/queens/queens_log_sleep.txt"). 
+energy_consumption:measure("./rapl-read.out",{n_queens, queens_sleep,[4.8957500],7},10,"results/Geri/queens/queens_res_sleep","results/Geri/queens/queens_avg_sleep","results/Geri/queens/queens_log_sleep.txt"). 
+energy_consumption:measure("./rapl-read.out",{n_queens, queens_sleep,[9.2300000],8},10,"results/Geri/queens/queens_res_sleep","results/Geri/queens/queens_avg_sleep","results/Geri/queens/queens_log_sleep.txt"). 
+energy_consumption:measure("./rapl-read.out",{n_queens, queens_sleep,[24.8327500],9},10,"results/Geri/queens/queens_res_sleep","results/Geri/queens/queens_avg_sleep","results/Geri/queens/queens_log_sleep.txt"). 
+energy_consumption:measure("./rapl-read.out",{n_queens, queens_sleep,[105.1052500],10},10,"results/Geri/queens/queens_res_sleep","results/Geri/queens/queens_avg_sleep","results/Geri/queens/queens_log_sleep.txt"). 
+energy_consumption:measure("./rapl-read.out",{n_queens, queens_sleep,[542.2587500],11},10,"results/Geri/queens/queens_res_sleep","results/Geri/queens/queens_avg_sleep","results/Geri/queens/queens_log_sleep.txt"). 
+energy_consumption:measure("./rapl-read.out",{n_queens, queens_sleep,[3124.5670000],12},10,"results/Geri/queens/queens_res_sleep","results/Geri/queens/queens_avg_sleep","results/Geri/queens/queens_log_sleep.txt"). 
+
+python3 vis.py -f "../results/Geri/queens/queens_log_list.txt" "../results/Geri/queens/queens_log_sleep.txt" -l -t all
+
+
+list/sleep aranyok:
+n = 9  -> 2.898
+n = 10 -> 3.709
+n = 11 -> 3.017
+n = 12 -> 4.165

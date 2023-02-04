@@ -1,0 +1,33 @@
+python3 vis.py -f ../results/Aron/sum/sum_recursion_log.txt ../results/Aron/sum/sum_acc_log.txt ../results/Aron/sum/sum_accvar_log.txt ../results/Aron/sum/sum_hof_log.txt
+
+energy_consumption:measure("./rapl-read.out",{test_functions, sum_recursion, [lists:seq(1,10000000)], 10000000},10,"results/Aron/sum/sum_recursion_res","results/Aron/sum/sum_recursion_avg","results/Aron/sum/sum_recursion_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, sum_recursion, [lists:seq(1,20000000)], 20000000},10,"results/Aron/sum/sum_recursion_res","results/Aron/sum/sum_recursion_avg","results/Aron/sum/sum_recursion_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, sum_recursion, [lists:seq(1,30000000)], 30000000},10,"results/Aron/sum/sum_recursion_res","results/Aron/sum/sum_recursion_avg","results/Aron/sum/sum_recursion_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, sum_recursion, [lists:seq(1,40000000)], 40000000},10,"results/Aron/sum/sum_recursion_res","results/Aron/sum/sum_recursion_avg","results/Aron/sum/sum_recursion_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, sum_recursion, [lists:seq(1,50000000)], 50000000},10,"results/Aron/sum/sum_recursion_res","results/Aron/sum/sum_recursion_avg","results/Aron/sum/sum_recursion_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, sum_recursion, [lists:seq(1,60000000)], 60000000},10,"results/Aron/sum/sum_recursion_res","results/Aron/sum/sum_recursion_avg","results/Aron/sum/sum_recursion_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, sum_recursion, [lists:seq(1,70000000)], 70000000},10,"results/Aron/sum/sum_recursion_res","results/Aron/sum/sum_recursion_avg","results/Aron/sum/sum_recursion_log.txt").
+
+energy_consumption:measure("./rapl-read.out",{test_functions, sum_acc, [lists:seq(1,10000000)], 10000000},10,"results/Aron/sum/sum_acc_res","results/Aron/sum/sum_acc_avg","results/Aron/sum/sum_acc_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, sum_acc, [lists:seq(1,20000000)], 20000000},10,"results/Aron/sum/sum_acc_res","results/Aron/sum/sum_acc_avg","results/Aron/sum/sum_acc_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, sum_acc, [lists:seq(1,30000000)], 30000000},10,"results/Aron/sum/sum_acc_res","results/Aron/sum/sum_acc_avg","results/Aron/sum/sum_acc_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, sum_acc, [lists:seq(1,40000000)], 40000000},10,"results/Aron/sum/sum_acc_res","results/Aron/sum/sum_acc_avg","results/Aron/sum/sum_acc_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, sum_acc, [lists:seq(1,50000000)], 50000000},10,"results/Aron/sum/sum_acc_res","results/Aron/sum/sum_acc_avg","results/Aron/sum/sum_acc_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, sum_acc, [lists:seq(1,60000000)], 60000000},10,"results/Aron/sum/sum_acc_res","results/Aron/sum/sum_acc_avg","results/Aron/sum/sum_acc_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, sum_acc, [lists:seq(1,70000000)], 70000000},10,"results/Aron/sum/sum_acc_res","results/Aron/sum/sum_acc_avg","results/Aron/sum/sum_acc_log.txt").
+
+energy_consumption:measure("./rapl-read.out",{test_functions, sum_accvar, [lists:seq(1,10000000)], 10000000},10,"results/Aron/sum/sum_accvar_res","results/Aron/sum/sum_accvar_avg","results/Aron/sum/sum_accvar_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, sum_accvar, [lists:seq(1,20000000)], 20000000},10,"results/Aron/sum/sum_accvar_res","results/Aron/sum/sum_accvar_avg","results/Aron/sum/sum_accvar_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, sum_accvar, [lists:seq(1,30000000)], 30000000},10,"results/Aron/sum/sum_accvar_res","results/Aron/sum/sum_accvar_avg","results/Aron/sum/sum_accvar_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, sum_accvar, [lists:seq(1,40000000)], 40000000},10,"results/Aron/sum/sum_accvar_res","results/Aron/sum/sum_accvar_avg","results/Aron/sum/sum_accvar_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, sum_accvar, [lists:seq(1,50000000)], 50000000},10,"results/Aron/sum/sum_accvar_res","results/Aron/sum/sum_accvar_avg","results/Aron/sum/sum_accvar_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, sum_accvar, [lists:seq(1,60000000)], 60000000},10,"results/Aron/sum/sum_accvar_res","results/Aron/sum/sum_accvar_avg","results/Aron/sum/sum_accvar_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, sum_accvar, [lists:seq(1,70000000)], 70000000},10,"results/Aron/sum/sum_accvar_res","results/Aron/sum/sum_accvar_avg","results/Aron/sum/sum_accvar_log.txt").
+
+energy_consumption:measure("./rapl-read.out",{test_functions, sum_hod, [lists:seq(1,10000000)], 10000000},10,"results/Aron/sum/sum_hod_res","results/Aron/sum/sum_hod_avg","results/Aron/sum/sum_hod_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, sum_hod, [lists:seq(1,20000000)], 20000000},10,"results/Aron/sum/sum_hod_res","results/Aron/sum/sum_hod_avg","results/Aron/sum/sum_hod_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, sum_hod, [lists:seq(1,30000000)], 30000000},10,"results/Aron/sum/sum_hod_res","results/Aron/sum/sum_hod_avg","results/Aron/sum/sum_hod_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, sum_hod, [lists:seq(1,40000000)], 40000000},10,"results/Aron/sum/sum_hod_res","results/Aron/sum/sum_hod_avg","results/Aron/sum/sum_hod_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, sum_hod, [lists:seq(1,50000000)], 50000000},10,"results/Aron/sum/sum_hod_res","results/Aron/sum/sum_hod_avg","results/Aron/sum/sum_hod_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, sum_hod, [lists:seq(1,60000000)], 60000000},10,"results/Aron/sum/sum_hod_res","results/Aron/sum/sum_hod_avg","results/Aron/sum/sum_hod_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, sum_hod, [lists:seq(1,70000000)], 70000000},10,"results/Aron/sum/sum_hod_res","results/Aron/sum/sum_hod_avg","results/Aron/sum/sum_hod_log.txt").

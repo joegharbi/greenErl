@@ -1,0 +1,6 @@
+Title: lists:map to recursion, fun_expr shadowing, multiple clauses
+Goal: Eliminate HOF with recursion
+Parameters: [{file,"test.erl"},{hof_mode, recursive},{position,49}].
+Documentation: lists:map used with fun_expr is transformed to
+a recursion. The fun_expr has multiple clauses. One clause uses the
+outside variable, while another shadows it.

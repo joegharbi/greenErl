@@ -1,0 +1,195 @@
+Fibonacci:
+
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_acc, [10]},10,"results/Aron/fibonacci/fib_acc_res","results/Aron/fibonacci/fib_acc_avg","results/Aron/fibonacci/fib_acc_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_acc, [11]},10,"results/Aron/fibonacci/fib_acc_res","results/Aron/fibonacci/fib_acc_avg","results/Aron/fibonacci/fib_acc_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_acc, [12]},10,"results/Aron/fibonacci/fib_acc_res","results/Aron/fibonacci/fib_acc_avg","results/Aron/fibonacci/fib_acc_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_acc, [13]},10,"results/Aron/fibonacci/fib_acc_res","results/Aron/fibonacci/fib_acc_avg","results/Aron/fibonacci/fib_acc_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_acc, [14]},10,"results/Aron/fibonacci/fib_acc_res","results/Aron/fibonacci/fib_acc_avg","results/Aron/fibonacci/fib_acc_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_acc, [15]},10,"results/Aron/fibonacci/fib_acc_res","results/Aron/fibonacci/fib_acc_avg","results/Aron/fibonacci/fib_acc_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_acc, [16]},10,"results/Aron/fibonacci/fib_acc_res","results/Aron/fibonacci/fib_acc_avg","results/Aron/fibonacci/fib_acc_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_acc, [17]},10,"results/Aron/fibonacci/fib_acc_res","results/Aron/fibonacci/fib_acc_avg","results/Aron/fibonacci/fib_acc_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_acc, [18]},10,"results/Aron/fibonacci/fib_acc_res","results/Aron/fibonacci/fib_acc_avg","results/Aron/fibonacci/fib_acc_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_acc, [19]},10,"results/Aron/fibonacci/fib_acc_res","results/Aron/fibonacci/fib_acc_avg","results/Aron/fibonacci/fib_acc_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_acc, [20]},10,"results/Aron/fibonacci/fib_acc_res","results/Aron/fibonacci/fib_acc_avg","results/Aron/fibonacci/fib_acc_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_acc, [21]},10,"results/Aron/fibonacci/fib_acc_res","results/Aron/fibonacci/fib_acc_avg","results/Aron/fibonacci/fib_acc_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_acc, [22]},10,"results/Aron/fibonacci/fib_acc_res","results/Aron/fibonacci/fib_acc_avg","results/Aron/fibonacci/fib_acc_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_acc, [23]},10,"results/Aron/fibonacci/fib_acc_res","results/Aron/fibonacci/fib_acc_avg","results/Aron/fibonacci/fib_acc_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_acc, [24]},10,"results/Aron/fibonacci/fib_acc_res","results/Aron/fibonacci/fib_acc_avg","results/Aron/fibonacci/fib_acc_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_acc, [25]},10,"results/Aron/fibonacci/fib_acc_res","results/Aron/fibonacci/fib_acc_avg","results/Aron/fibonacci/fib_acc_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_acc, [26]},10,"results/Aron/fibonacci/fib_acc_res","results/Aron/fibonacci/fib_acc_avg","results/Aron/fibonacci/fib_acc_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_acc, [27]},10,"results/Aron/fibonacci/fib_acc_res","results/Aron/fibonacci/fib_acc_avg","results/Aron/fibonacci/fib_acc_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_acc, [28]},10,"results/Aron/fibonacci/fib_acc_res","results/Aron/fibonacci/fib_acc_avg","results/Aron/fibonacci/fib_acc_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_acc, [29]},10,"results/Aron/fibonacci/fib_acc_res","results/Aron/fibonacci/fib_acc_avg","results/Aron/fibonacci/fib_acc_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_acc, [30]},10,"results/Aron/fibonacci/fib_acc_res","results/Aron/fibonacci/fib_acc_avg","results/Aron/fibonacci/fib_acc_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_acc, [31]},10,"results/Aron/fibonacci/fib_acc_res","results/Aron/fibonacci/fib_acc_avg","results/Aron/fibonacci/fib_acc_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_acc, [32]},10,"results/Aron/fibonacci/fib_acc_res","results/Aron/fibonacci/fib_acc_avg","results/Aron/fibonacci/fib_acc_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_acc, [33]},10,"results/Aron/fibonacci/fib_acc_res","results/Aron/fibonacci/fib_acc_avg","results/Aron/fibonacci/fib_acc_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_acc, [34]},10,"results/Aron/fibonacci/fib_acc_res","results/Aron/fibonacci/fib_acc_avg","results/Aron/fibonacci/fib_acc_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_acc, [35]},10,"results/Aron/fibonacci/fib_acc_res","results/Aron/fibonacci/fib_acc_avg","results/Aron/fibonacci/fib_acc_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_acc, [36]},10,"results/Aron/fibonacci/fib_acc_res","results/Aron/fibonacci/fib_acc_avg","results/Aron/fibonacci/fib_acc_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_acc, [37]},10,"results/Aron/fibonacci/fib_acc_res","results/Aron/fibonacci/fib_acc_avg","results/Aron/fibonacci/fib_acc_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_acc, [38]},10,"results/Aron/fibonacci/fib_acc_res","results/Aron/fibonacci/fib_acc_avg","results/Aron/fibonacci/fib_acc_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_acc, [39]},10,"results/Aron/fibonacci/fib_acc_res","results/Aron/fibonacci/fib_acc_avg","results/Aron/fibonacci/fib_acc_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_acc, [40]},10,"results/Aron/fibonacci/fib_acc_res","results/Aron/fibonacci/fib_acc_avg","results/Aron/fibonacci/fib_acc_log.txt").
+
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_tail, [10]},10,"results/Aron/fibonacci/fib_tail_res","results/Aron/fibonacci/fib_tail_avg","results/Aron/fibonacci/fib_tail_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_tail, [11]},10,"results/Aron/fibonacci/fib_tail_res","results/Aron/fibonacci/fib_tail_avg","results/Aron/fibonacci/fib_tail_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_tail, [12]},10,"results/Aron/fibonacci/fib_tail_res","results/Aron/fibonacci/fib_tail_avg","results/Aron/fibonacci/fib_tail_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_tail, [13]},10,"results/Aron/fibonacci/fib_tail_res","results/Aron/fibonacci/fib_tail_avg","results/Aron/fibonacci/fib_tail_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_tail, [14]},10,"results/Aron/fibonacci/fib_tail_res","results/Aron/fibonacci/fib_tail_avg","results/Aron/fibonacci/fib_tail_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_tail, [15]},10,"results/Aron/fibonacci/fib_tail_res","results/Aron/fibonacci/fib_tail_avg","results/Aron/fibonacci/fib_tail_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_tail, [16]},10,"results/Aron/fibonacci/fib_tail_res","results/Aron/fibonacci/fib_tail_avg","results/Aron/fibonacci/fib_tail_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_tail, [17]},10,"results/Aron/fibonacci/fib_tail_res","results/Aron/fibonacci/fib_tail_avg","results/Aron/fibonacci/fib_tail_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_tail, [18]},10,"results/Aron/fibonacci/fib_tail_res","results/Aron/fibonacci/fib_tail_avg","results/Aron/fibonacci/fib_tail_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_tail, [19]},10,"results/Aron/fibonacci/fib_tail_res","results/Aron/fibonacci/fib_tail_avg","results/Aron/fibonacci/fib_tail_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_tail, [20]},10,"results/Aron/fibonacci/fib_tail_res","results/Aron/fibonacci/fib_tail_avg","results/Aron/fibonacci/fib_tail_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_tail, [21]},10,"results/Aron/fibonacci/fib_tail_res","results/Aron/fibonacci/fib_tail_avg","results/Aron/fibonacci/fib_tail_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_tail, [22]},10,"results/Aron/fibonacci/fib_tail_res","results/Aron/fibonacci/fib_tail_avg","results/Aron/fibonacci/fib_tail_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_tail, [23]},10,"results/Aron/fibonacci/fib_tail_res","results/Aron/fibonacci/fib_tail_avg","results/Aron/fibonacci/fib_tail_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_tail, [24]},10,"results/Aron/fibonacci/fib_tail_res","results/Aron/fibonacci/fib_tail_avg","results/Aron/fibonacci/fib_tail_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_tail, [25]},10,"results/Aron/fibonacci/fib_tail_res","results/Aron/fibonacci/fib_tail_avg","results/Aron/fibonacci/fib_tail_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_tail, [26]},10,"results/Aron/fibonacci/fib_tail_res","results/Aron/fibonacci/fib_tail_avg","results/Aron/fibonacci/fib_tail_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_tail, [27]},10,"results/Aron/fibonacci/fib_tail_res","results/Aron/fibonacci/fib_tail_avg","results/Aron/fibonacci/fib_tail_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_tail, [28]},10,"results/Aron/fibonacci/fib_tail_res","results/Aron/fibonacci/fib_tail_avg","results/Aron/fibonacci/fib_tail_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_tail, [29]},10,"results/Aron/fibonacci/fib_tail_res","results/Aron/fibonacci/fib_tail_avg","results/Aron/fibonacci/fib_tail_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_tail, [30]},10,"results/Aron/fibonacci/fib_tail_res","results/Aron/fibonacci/fib_tail_avg","results/Aron/fibonacci/fib_tail_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_tail, [31]},10,"results/Aron/fibonacci/fib_tail_res","results/Aron/fibonacci/fib_tail_avg","results/Aron/fibonacci/fib_tail_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_tail, [32]},10,"results/Aron/fibonacci/fib_tail_res","results/Aron/fibonacci/fib_tail_avg","results/Aron/fibonacci/fib_tail_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_tail, [33]},10,"results/Aron/fibonacci/fib_tail_res","results/Aron/fibonacci/fib_tail_avg","results/Aron/fibonacci/fib_tail_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_tail, [34]},10,"results/Aron/fibonacci/fib_tail_res","results/Aron/fibonacci/fib_tail_avg","results/Aron/fibonacci/fib_tail_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_tail, [35]},10,"results/Aron/fibonacci/fib_tail_res","results/Aron/fibonacci/fib_tail_avg","results/Aron/fibonacci/fib_tail_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_tail, [36]},10,"results/Aron/fibonacci/fib_tail_res","results/Aron/fibonacci/fib_tail_avg","results/Aron/fibonacci/fib_tail_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_tail, [37]},10,"results/Aron/fibonacci/fib_tail_res","results/Aron/fibonacci/fib_tail_avg","results/Aron/fibonacci/fib_tail_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_tail, [38]},10,"results/Aron/fibonacci/fib_tail_res","results/Aron/fibonacci/fib_tail_avg","results/Aron/fibonacci/fib_tail_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_tail, [39]},10,"results/Aron/fibonacci/fib_tail_res","results/Aron/fibonacci/fib_tail_avg","results/Aron/fibonacci/fib_tail_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_tail, [40]},10,"results/Aron/fibonacci/fib_tail_res","results/Aron/fibonacci/fib_tail_avg","results/Aron/fibonacci/fib_tail_log.txt").
+
+
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_arr, [10000]},10,"results/Aron/fibonacci/fib_arr_res","results/Aron/fibonacci/fib_arr_avg","results/Aron/fibonacci/fib_arr_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_arr, [15000]},10,"results/Aron/fibonacci/fib_arr_res","results/Aron/fibonacci/fib_arr_avg","results/Aron/fibonacci/fib_arr_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_arr, [20000]},10,"results/Aron/fibonacci/fib_arr_res","results/Aron/fibonacci/fib_arr_avg","results/Aron/fibonacci/fib_arr_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_arr, [25000]},10,"results/Aron/fibonacci/fib_arr_res","results/Aron/fibonacci/fib_arr_avg","results/Aron/fibonacci/fib_arr_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_arr, [30000]},10,"results/Aron/fibonacci/fib_arr_res","results/Aron/fibonacci/fib_arr_avg","results/Aron/fibonacci/fib_arr_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_arr, [35000]},10,"results/Aron/fibonacci/fib_arr_res","results/Aron/fibonacci/fib_arr_avg","results/Aron/fibonacci/fib_arr_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_arr, [40000]},10,"results/Aron/fibonacci/fib_arr_res","results/Aron/fibonacci/fib_arr_avg","results/Aron/fibonacci/fib_arr_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_arr, [45000]},10,"results/Aron/fibonacci/fib_arr_res","results/Aron/fibonacci/fib_arr_avg","results/Aron/fibonacci/fib_arr_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_arr, [50000]},10,"results/Aron/fibonacci/fib_arr_res","results/Aron/fibonacci/fib_arr_avg","results/Aron/fibonacci/fib_arr_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_arr, [55000]},10,"results/Aron/fibonacci/fib_arr_res","results/Aron/fibonacci/fib_arr_avg","results/Aron/fibonacci/fib_arr_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_arr, [60000]},10,"results/Aron/fibonacci/fib_arr_res","results/Aron/fibonacci/fib_arr_avg","results/Aron/fibonacci/fib_arr_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_arr, [65000]},10,"results/Aron/fibonacci/fib_arr_res","results/Aron/fibonacci/fib_arr_avg","results/Aron/fibonacci/fib_arr_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_arr, [70000]},10,"results/Aron/fibonacci/fib_arr_res","results/Aron/fibonacci/fib_arr_avg","results/Aron/fibonacci/fib_arr_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_arr, [75000]},10,"results/Aron/fibonacci/fib_arr_res","results/Aron/fibonacci/fib_arr_avg","results/Aron/fibonacci/fib_arr_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_arr, [80000]},10,"results/Aron/fibonacci/fib_arr_res","results/Aron/fibonacci/fib_arr_avg","results/Aron/fibonacci/fib_arr_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_arr, [85000]},10,"results/Aron/fibonacci/fib_arr_res","results/Aron/fibonacci/fib_arr_avg","results/Aron/fibonacci/fib_arr_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_arr, [90000]},10,"results/Aron/fibonacci/fib_arr_res","results/Aron/fibonacci/fib_arr_avg","results/Aron/fibonacci/fib_arr_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_arr, [95000]},10,"results/Aron/fibonacci/fib_arr_res","results/Aron/fibonacci/fib_arr_avg","results/Aron/fibonacci/fib_arr_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_arr, [100000]},10,"results/Aron/fibonacci/fib_arr_res","results/Aron/fibonacci/fib_arr_avg","results/Aron/fibonacci/fib_arr_log.txt").
+
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_list_naive, [10000]},10,"results/Aron/fibonacci/fib_list_naive_res","results/Aron/fibonacci/fib_list_naive_avg","results/Aron/fibonacci/fib_list_naive_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_list_naive, [15000]},10,"results/Aron/fibonacci/fib_list_naive_res","results/Aron/fibonacci/fib_list_naive_avg","results/Aron/fibonacci/fib_list_naive_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_list_naive, [20000]},10,"results/Aron/fibonacci/fib_list_naive_res","results/Aron/fibonacci/fib_list_naive_avg","results/Aron/fibonacci/fib_list_naive_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_list_naive, [25000]},10,"results/Aron/fibonacci/fib_list_naive_res","results/Aron/fibonacci/fib_list_naive_avg","results/Aron/fibonacci/fib_list_naive_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_list_naive, [30000]},10,"results/Aron/fibonacci/fib_list_naive_res","results/Aron/fibonacci/fib_list_naive_avg","results/Aron/fibonacci/fib_list_naive_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_list_naive, [35000]},10,"results/Aron/fibonacci/fib_list_naive_res","results/Aron/fibonacci/fib_list_naive_avg","results/Aron/fibonacci/fib_list_naive_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_list_naive, [40000]},10,"results/Aron/fibonacci/fib_list_naive_res","results/Aron/fibonacci/fib_list_naive_avg","results/Aron/fibonacci/fib_list_naive_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_list_naive, [45000]},10,"results/Aron/fibonacci/fib_list_naive_res","results/Aron/fibonacci/fib_list_naive_avg","results/Aron/fibonacci/fib_list_naive_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_list_naive, [50000]},10,"results/Aron/fibonacci/fib_list_naive_res","results/Aron/fibonacci/fib_list_naive_avg","results/Aron/fibonacci/fib_list_naive_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_list_naive, [55000]},10,"results/Aron/fibonacci/fib_list_naive_res","results/Aron/fibonacci/fib_list_naive_avg","results/Aron/fibonacci/fib_list_naive_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_list_naive, [60000]},10,"results/Aron/fibonacci/fib_list_naive_res","results/Aron/fibonacci/fib_list_naive_avg","results/Aron/fibonacci/fib_list_naive_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_list_naive, [65000]},10,"results/Aron/fibonacci/fib_list_naive_res","results/Aron/fibonacci/fib_list_naive_avg","results/Aron/fibonacci/fib_list_naive_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_list_naive, [70000]},10,"results/Aron/fibonacci/fib_list_naive_res","results/Aron/fibonacci/fib_list_naive_avg","results/Aron/fibonacci/fib_list_naive_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_list_naive, [75000]},10,"results/Aron/fibonacci/fib_list_naive_res","results/Aron/fibonacci/fib_list_naive_avg","results/Aron/fibonacci/fib_list_naive_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_list_naive, [80000]},10,"results/Aron/fibonacci/fib_list_naive_res","results/Aron/fibonacci/fib_list_naive_avg","results/Aron/fibonacci/fib_list_naive_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_list_naive, [85000]},10,"results/Aron/fibonacci/fib_list_naive_res","results/Aron/fibonacci/fib_list_naive_avg","results/Aron/fibonacci/fib_list_naive_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_list_naive, [90000]},10,"results/Aron/fibonacci/fib_list_naive_res","results/Aron/fibonacci/fib_list_naive_avg","results/Aron/fibonacci/fib_list_naive_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_list_naive, [95000]},10,"results/Aron/fibonacci/fib_list_naive_res","results/Aron/fibonacci/fib_list_naive_avg","results/Aron/fibonacci/fib_list_naive_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_list_naive, [100000]},10,"results/Aron/fibonacci/fib_list_naive_res","results/Aron/fibonacci/fib_list_naive_avg","results/Aron/fibonacci/fib_list_naive_log.txt").
+
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_list, [10000]},10,"results/Aron/fibonacci/fib_list_res","results/Aron/fibonacci/fib_list_avg","results/Aron/fibonacci/fib_list_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_list, [15000]},10,"results/Aron/fibonacci/fib_list_res","results/Aron/fibonacci/fib_list_avg","results/Aron/fibonacci/fib_list_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_list, [20000]},10,"results/Aron/fibonacci/fib_list_res","results/Aron/fibonacci/fib_list_avg","results/Aron/fibonacci/fib_list_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_list, [25000]},10,"results/Aron/fibonacci/fib_list_res","results/Aron/fibonacci/fib_list_avg","results/Aron/fibonacci/fib_list_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_list, [30000]},10,"results/Aron/fibonacci/fib_list_res","results/Aron/fibonacci/fib_list_avg","results/Aron/fibonacci/fib_list_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_list, [35000]},10,"results/Aron/fibonacci/fib_list_res","results/Aron/fibonacci/fib_list_avg","results/Aron/fibonacci/fib_list_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_list, [40000]},10,"results/Aron/fibonacci/fib_list_res","results/Aron/fibonacci/fib_list_avg","results/Aron/fibonacci/fib_list_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_list, [45000]},10,"results/Aron/fibonacci/fib_list_res","results/Aron/fibonacci/fib_list_avg","results/Aron/fibonacci/fib_list_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_list, [50000]},10,"results/Aron/fibonacci/fib_list_res","results/Aron/fibonacci/fib_list_avg","results/Aron/fibonacci/fib_list_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_list, [55000]},10,"results/Aron/fibonacci/fib_list_res","results/Aron/fibonacci/fib_list_avg","results/Aron/fibonacci/fib_list_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_list, [60000]},10,"results/Aron/fibonacci/fib_list_res","results/Aron/fibonacci/fib_list_avg","results/Aron/fibonacci/fib_list_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_list, [65000]},10,"results/Aron/fibonacci/fib_list_res","results/Aron/fibonacci/fib_list_avg","results/Aron/fibonacci/fib_list_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_list, [70000]},10,"results/Aron/fibonacci/fib_list_res","results/Aron/fibonacci/fib_list_avg","results/Aron/fibonacci/fib_list_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_list, [75000]},10,"results/Aron/fibonacci/fib_list_res","results/Aron/fibonacci/fib_list_avg","results/Aron/fibonacci/fib_list_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_list, [80000]},10,"results/Aron/fibonacci/fib_list_res","results/Aron/fibonacci/fib_list_avg","results/Aron/fibonacci/fib_list_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_list, [85000]},10,"results/Aron/fibonacci/fib_list_res","results/Aron/fibonacci/fib_list_avg","results/Aron/fibonacci/fib_list_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_list, [90000]},10,"results/Aron/fibonacci/fib_list_res","results/Aron/fibonacci/fib_list_avg","results/Aron/fibonacci/fib_list_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_list, [95000]},10,"results/Aron/fibonacci/fib_list_res","results/Aron/fibonacci/fib_list_avg","results/Aron/fibonacci/fib_list_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_list, [100000]},10,"results/Aron/fibonacci/fib_list_res","results/Aron/fibonacci/fib_list_avg","results/Aron/fibonacci/fib_list_log.txt").
+
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_rec, [10]},10,"results/Aron/fib/fib_rec_res","results/Aron/fib/fib_rec_avg","results/Aron/fib/fib_rec_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_rec, [15]},10,"results/Aron/fib/fib_rec_res","results/Aron/fib/fib_rec_avg","results/Aron/fib/fib_rec_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_rec, [20]},10,"results/Aron/fib/fib_rec_res","results/Aron/fib/fib_rec_avg","results/Aron/fib/fib_rec_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_rec, [25]},10,"results/Aron/fib/fib_rec_res","results/Aron/fib/fib_rec_avg","results/Aron/fib/fib_rec_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_rec, [30]},10,"results/Aron/fib/fib_rec_res","results/Aron/fib/fib_rec_avg","results/Aron/fib/fib_rec_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_rec, [35]},10,"results/Aron/fib/fib_rec_res","results/Aron/fib/fib_rec_avg","results/Aron/fib/fib_rec_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_rec, [40]},10,"results/Aron/fib/fib_rec_res","results/Aron/fib/fib_rec_avg","results/Aron/fib/fib_rec_log.txt").
+
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_recvar, [10]},10,"results/Aron/fib/fib_recvar_res","results/Aron/fib/fib_recvar_avg","results/Aron/fib/fib_recvar_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_recvar, [15]},10,"results/Aron/fib/fib_recvar_res","results/Aron/fib/fib_recvar_avg","results/Aron/fib/fib_recvar_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_recvar, [20]},10,"results/Aron/fib/fib_recvar_res","results/Aron/fib/fib_recvar_avg","results/Aron/fib/fib_recvar_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_recvar, [25]},10,"results/Aron/fib/fib_recvar_res","results/Aron/fib/fib_recvar_avg","results/Aron/fib/fib_recvar_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_recvar, [30]},10,"results/Aron/fib/fib_recvar_res","results/Aron/fib/fib_recvar_avg","results/Aron/fib/fib_recvar_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_recvar, [35]},10,"results/Aron/fib/fib_recvar_res","results/Aron/fib/fib_recvar_avg","results/Aron/fib/fib_recvar_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_recvar, [40]},10,"results/Aron/fib/fib_recvar_res","results/Aron/fib/fib_recvar_avg","results/Aron/fib/fib_recvar_log.txt").
+
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_bindinglist, [10]},10,"results/Aron/fib/fib_bindinglist_res","results/Aron/fib/fib_bindinglist_avg","results/Aron/fib/fib_bindinglist_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_bindinglist, [15]},10,"results/Aron/fib/fib_bindinglist_res","results/Aron/fib/fib_bindinglist_avg","results/Aron/fib/fib_bindinglist_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_bindinglist, [20]},10,"results/Aron/fib/fib_bindinglist_res","results/Aron/fib/fib_bindinglist_avg","results/Aron/fib/fib_bindinglist_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_bindinglist, [25]},10,"results/Aron/fib/fib_bindinglist_res","results/Aron/fib/fib_bindinglist_avg","results/Aron/fib/fib_bindinglist_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_bindinglist, [30]},10,"results/Aron/fib/fib_bindinglist_res","results/Aron/fib/fib_bindinglist_avg","results/Aron/fib/fib_bindinglist_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_bindinglist, [35]},10,"results/Aron/fib/fib_bindinglist_res","results/Aron/fib/fib_bindinglist_avg","results/Aron/fib/fib_bindinglist_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_bindinglist, [40]},10,"results/Aron/fib/fib_bindinglist_res","results/Aron/fib/fib_bindinglist_avg","results/Aron/fib/fib_bindinglist_log.txt").
+
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_hof, [10]},10,"results/Aron/fib/fib_hof_res","results/Aron/fib/fib_hof_avg","results/Aron/fib/fib_hof_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_hof, [15]},10,"results/Aron/fib/fib_hof_res","results/Aron/fib/fib_hof_avg","results/Aron/fib/fib_hof_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_hof, [20]},10,"results/Aron/fib/fib_hof_res","results/Aron/fib/fib_hof_avg","results/Aron/fib/fib_hof_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_hof, [25]},10,"results/Aron/fib/fib_hof_res","results/Aron/fib/fib_hof_avg","results/Aron/fib/fib_hof_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_hof, [30]},10,"results/Aron/fib/fib_hof_res","results/Aron/fib/fib_hof_avg","results/Aron/fib/fib_hof_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_hof, [35]},10,"results/Aron/fib/fib_hof_res","results/Aron/fib/fib_hof_avg","results/Aron/fib/fib_hof_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_hof, [40]},10,"results/Aron/fib/fib_hof_res","results/Aron/fib/fib_hof_avg","results/Aron/fib/fib_hof_log.txt").
+
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_hofvar1, [10]},10,"results/Aron/fib/fib_hofvar1_res","results/Aron/fib/fib_hofvar1_avg","results/Aron/fib/fib_hofvar1_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_hofvar1, [15]},10,"results/Aron/fib/fib_hofvar1_res","results/Aron/fib/fib_hofvar1_avg","results/Aron/fib/fib_hofvar1_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_hofvar1, [20]},10,"results/Aron/fib/fib_hofvar1_res","results/Aron/fib/fib_hofvar1_avg","results/Aron/fib/fib_hofvar1_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_hofvar1, [25]},10,"results/Aron/fib/fib_hofvar1_res","results/Aron/fib/fib_hofvar1_avg","results/Aron/fib/fib_hofvar1_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_hofvar1, [30]},10,"results/Aron/fib/fib_hofvar1_res","results/Aron/fib/fib_hofvar1_avg","results/Aron/fib/fib_hofvar1_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_hofvar1, [35]},10,"results/Aron/fib/fib_hofvar1_res","results/Aron/fib/fib_hofvar1_avg","results/Aron/fib/fib_hofvar1_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_hofvar1, [40]},10,"results/Aron/fib/fib_hofvar1_res","results/Aron/fib/fib_hofvar1_avg","results/Aron/fib/fib_hofvar1_log.txt").
+
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_hofvar2, [10]},10,"results/Aron/fib/fib_hofvar2_res","results/Aron/fib/fib_hofvar2_avg","results/Aron/fib/fib_hofvar2_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_hofvar2, [15]},10,"results/Aron/fib/fib_hofvar2_res","results/Aron/fib/fib_hofvar2_avg","results/Aron/fib/fib_hofvar2_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_hofvar2, [20]},10,"results/Aron/fib/fib_hofvar2_res","results/Aron/fib/fib_hofvar2_avg","results/Aron/fib/fib_hofvar2_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_hofvar2, [25]},10,"results/Aron/fib/fib_hofvar2_res","results/Aron/fib/fib_hofvar2_avg","results/Aron/fib/fib_hofvar2_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_hofvar2, [30]},10,"results/Aron/fib/fib_hofvar2_res","results/Aron/fib/fib_hofvar2_avg","results/Aron/fib/fib_hofvar2_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_hofvar2, [35]},10,"results/Aron/fib/fib_hofvar2_res","results/Aron/fib/fib_hofvar2_avg","results/Aron/fib/fib_hofvar2_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_hofvar2, [40]},10,"results/Aron/fib/fib_hofvar2_res","results/Aron/fib/fib_hofvar2_avg","results/Aron/fib/fib_hofvar2_log.txt").
+
+
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_parallel, [10]},10,"results/Aron/fib/fib_parallel_res","results/Aron/fib/fib_parallel_avg","results/Aron/fib/fib_parallel_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_parallel, [15]},10,"results/Aron/fib/fib_parallel_res","results/Aron/fib/fib_parallel_avg","results/Aron/fib/fib_parallel_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_parallel, [20]},10,"results/Aron/fib/fib_parallel_res","results/Aron/fib/fib_parallel_avg","results/Aron/fib/fib_parallel_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_parallel, [25]},10,"results/Aron/fib/fib_parallel_res","results/Aron/fib/fib_parallel_avg","results/Aron/fib/fib_parallel_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_parallel, [30]},10,"results/Aron/fib/fib_parallel_res","results/Aron/fib/fib_parallel_avg","results/Aron/fib/fib_parallel_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_parallel, [35]},10,"results/Aron/fib/fib_parallel_res","results/Aron/fib/fib_parallel_avg","results/Aron/fib/fib_parallel_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_parallel, [40]},10,"results/Aron/fib/fib_parallel_res","results/Aron/fib/fib_parallel_avg","results/Aron/fib/fib_parallel_log.txt").
+
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_paralell, [10]},10,"results/Aron/fib/fib_paralell_res","results/Aron/fib/fib_paralell_avg","results/Aron/fib/fib_paralell_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_paralell, [15]},10,"results/Aron/fib/fib_paralell_res","results/Aron/fib/fib_paralell_avg","results/Aron/fib/fib_paralell_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_paralell, [20]},10,"results/Aron/fib/fib_paralell_res","results/Aron/fib/fib_paralell_avg","results/Aron/fib/fib_paralell_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_paralell, [25]},10,"results/Aron/fib/fib_paralell_res","results/Aron/fib/fib_paralell_avg","results/Aron/fib/fib_paralell_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_paralell, [30]},10,"results/Aron/fib/fib_paralell_res","results/Aron/fib/fib_paralell_avg","results/Aron/fib/fib_paralell_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_paralell, [35]},10,"results/Aron/fib/fib_paralell_res","results/Aron/fib/fib_paralell_avg","results/Aron/fib/fib_paralell_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_paralell, [40]},10,"results/Aron/fib/fib_paralell_res","results/Aron/fib/fib_paralell_avg","results/Aron/fib/fib_paralell_log.txt").
+
+python3 vis.py -f ../results/Aron/fib/fib_rec_log.txt ../results/Aron/fib/fib_recvar_log.txt ../results/Aron/fib/fib_bindinglist_log.txt ../results/Aron/fib/fib_hof_log.txt ../results/Aron/fib/fib_hofvar1_log.txt  ../results/Aron/fib/fib_parallel_log.txt ../results/Aron/fib/fib_paralell_log.txt -l
+
+python3 vis.py -f ../results/Aron/fibonacci/fib_arr_log.txt ../results/Aron/fibonacci/fib_list_naive_log.txt ../results/Aron/fibonacci/fib_list_log.txt ../results/Aron/fibonacci/fib_arith_log.txt

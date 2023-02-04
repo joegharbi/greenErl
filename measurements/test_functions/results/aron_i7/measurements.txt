@@ -1,0 +1,56 @@
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_rec, [10]},10,"results/Aron/i7/jessica/fib/fib_rec_res","results/Aron/i7/jessica/fib/fib_rec_avg","results/Aron/i7/jessica/fib/fib_rec_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_rec, [15]},10,"results/Aron/i7/jessica/fib/fib_rec_res","results/Aron/i7/jessica/fib/fib_rec_avg","results/Aron/i7/jessica/fib/fib_rec_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_rec, [20]},10,"results/Aron/i7/jessica/fib/fib_rec_res","results/Aron/i7/jessica/fib/fib_rec_avg","results/Aron/i7/jessica/fib/fib_rec_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_rec, [25]},10,"results/Aron/i7/jessica/fib/fib_rec_res","results/Aron/i7/jessica/fib/fib_rec_avg","results/Aron/i7/jessica/fib/fib_rec_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_rec, [30]},10,"results/Aron/i7/jessica/fib/fib_rec_res","results/Aron/i7/jessica/fib/fib_rec_avg","results/Aron/i7/jessica/fib/fib_rec_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_rec, [35]},10,"results/Aron/i7/jessica/fib/fib_rec_res","results/Aron/i7/jessica/fib/fib_rec_avg","results/Aron/i7/jessica/fib/fib_rec_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_rec, [40]},10,"results/Aron/i7/jessica/fib/fib_rec_res","results/Aron/i7/jessica/fib/fib_rec_avg","results/Aron/i7/jessica/fib/fib_rec_log.txt").
+
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_recvar, [10]},10,"results/Aron/i7/jessica/fib/fib_recvar_res","results/Aron/i7/jessica/fib/fib_recvar_avg","results/Aron/i7/jessica/fib/fib_recvar_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_recvar, [15]},10,"results/Aron/i7/jessica/fib/fib_recvar_res","results/Aron/i7/jessica/fib/fib_recvar_avg","results/Aron/i7/jessica/fib/fib_recvar_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_recvar, [20]},10,"results/Aron/i7/jessica/fib/fib_recvar_res","results/Aron/i7/jessica/fib/fib_recvar_avg","results/Aron/i7/jessica/fib/fib_recvar_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_recvar, [25]},10,"results/Aron/i7/jessica/fib/fib_recvar_res","results/Aron/i7/jessica/fib/fib_recvar_avg","results/Aron/i7/jessica/fib/fib_recvar_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_recvar, [30]},10,"results/Aron/i7/jessica/fib/fib_recvar_res","results/Aron/i7/jessica/fib/fib_recvar_avg","results/Aron/i7/jessica/fib/fib_recvar_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_recvar, [35]},10,"results/Aron/i7/jessica/fib/fib_recvar_res","results/Aron/i7/jessica/fib/fib_recvar_avg","results/Aron/i7/jessica/fib/fib_recvar_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_recvar, [40]},10,"results/Aron/i7/jessica/fib/fib_recvar_res","results/Aron/i7/jessica/fib/fib_recvar_avg","results/Aron/i7/jessica/fib/fib_recvar_log.txt").
+
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_bindinglist, [10]},10,"results/Aron/i7/jessica/fib/fib_bindinglist_res","results/Aron/i7/jessica/fib/fib_bindinglist_avg","results/Aron/i7/jessica/fib/fib_bindinglist_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_bindinglist, [15]},10,"results/Aron/i7/jessica/fib/fib_bindinglist_res","results/Aron/i7/jessica/fib/fib_bindinglist_avg","results/Aron/i7/jessica/fib/fib_bindinglist_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_bindinglist, [20]},10,"results/Aron/i7/jessica/fib/fib_bindinglist_res","results/Aron/i7/jessica/fib/fib_bindinglist_avg","results/Aron/i7/jessica/fib/fib_bindinglist_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_bindinglist, [25]},10,"results/Aron/i7/jessica/fib/fib_bindinglist_res","results/Aron/i7/jessica/fib/fib_bindinglist_avg","results/Aron/i7/jessica/fib/fib_bindinglist_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_bindinglist, [30]},10,"results/Aron/i7/jessica/fib/fib_bindinglist_res","results/Aron/i7/jessica/fib/fib_bindinglist_avg","results/Aron/i7/jessica/fib/fib_bindinglist_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_bindinglist, [35]},10,"results/Aron/i7/jessica/fib/fib_bindinglist_res","results/Aron/i7/jessica/fib/fib_bindinglist_avg","results/Aron/i7/jessica/fib/fib_bindinglist_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_bindinglist, [40]},10,"results/Aron/i7/jessica/fib/fib_bindinglist_res","results/Aron/i7/jessica/fib/fib_bindinglist_avg","results/Aron/i7/jessica/fib/fib_bindinglist_log.txt").
+
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_hof, [10]},10,"results/Aron/i7/jessica/fib/fib_hof_res","results/Aron/i7/jessica/fib/fib_hof_avg","results/Aron/i7/jessica/fib/fib_hof_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_hof, [15]},10,"results/Aron/i7/jessica/fib/fib_hof_res","results/Aron/i7/jessica/fib/fib_hof_avg","results/Aron/i7/jessica/fib/fib_hof_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_hof, [20]},10,"results/Aron/i7/jessica/fib/fib_hof_res","results/Aron/i7/jessica/fib/fib_hof_avg","results/Aron/i7/jessica/fib/fib_hof_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_hof, [25]},10,"results/Aron/i7/jessica/fib/fib_hof_res","results/Aron/i7/jessica/fib/fib_hof_avg","results/Aron/i7/jessica/fib/fib_hof_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_hof, [30]},10,"results/Aron/i7/jessica/fib/fib_hof_res","results/Aron/i7/jessica/fib/fib_hof_avg","results/Aron/i7/jessica/fib/fib_hof_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_hof, [35]},10,"results/Aron/i7/jessica/fib/fib_hof_res","results/Aron/i7/jessica/fib/fib_hof_avg","results/Aron/i7/jessica/fib/fib_hof_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_hof, [40]},10,"results/Aron/i7/jessica/fib/fib_hof_res","results/Aron/i7/jessica/fib/fib_hof_avg","results/Aron/i7/jessica/fib/fib_hof_log.txt").
+
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_hofvar1, [10]},10,"results/Aron/i7/jessica/fib/fib_hofvar1_res","results/Aron/i7/jessica/fib/fib_hofvar1_avg","results/Aron/i7/jessica/fib/fib_hofvar1_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_hofvar1, [15]},10,"results/Aron/i7/jessica/fib/fib_hofvar1_res","results/Aron/i7/jessica/fib/fib_hofvar1_avg","results/Aron/i7/jessica/fib/fib_hofvar1_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_hofvar1, [20]},10,"results/Aron/i7/jessica/fib/fib_hofvar1_res","results/Aron/i7/jessica/fib/fib_hofvar1_avg","results/Aron/i7/jessica/fib/fib_hofvar1_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_hofvar1, [25]},10,"results/Aron/i7/jessica/fib/fib_hofvar1_res","results/Aron/i7/jessica/fib/fib_hofvar1_avg","results/Aron/i7/jessica/fib/fib_hofvar1_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_hofvar1, [30]},10,"results/Aron/i7/jessica/fib/fib_hofvar1_res","results/Aron/i7/jessica/fib/fib_hofvar1_avg","results/Aron/i7/jessica/fib/fib_hofvar1_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_hofvar1, [35]},10,"results/Aron/i7/jessica/fib/fib_hofvar1_res","results/Aron/i7/jessica/fib/fib_hofvar1_avg","results/Aron/i7/jessica/fib/fib_hofvar1_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_hofvar1, [40]},10,"results/Aron/i7/jessica/fib/fib_hofvar1_res","results/Aron/i7/jessica/fib/fib_hofvar1_avg","results/Aron/i7/jessica/fib/fib_hofvar1_log.txt").
+
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_hofvar2, [10]},10,"results/Aron/i7/jessica/fib/fib_hofvar2_res","results/Aron/i7/jessica/fib/fib_hofvar2_avg","results/Aron/i7/jessica/fib/fib_hofvar2_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_hofvar2, [15]},10,"results/Aron/i7/jessica/fib/fib_hofvar2_res","results/Aron/i7/jessica/fib/fib_hofvar2_avg","results/Aron/i7/jessica/fib/fib_hofvar2_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_hofvar2, [20]},10,"results/Aron/i7/jessica/fib/fib_hofvar2_res","results/Aron/i7/jessica/fib/fib_hofvar2_avg","results/Aron/i7/jessica/fib/fib_hofvar2_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_hofvar2, [25]},10,"results/Aron/i7/jessica/fib/fib_hofvar2_res","results/Aron/i7/jessica/fib/fib_hofvar2_avg","results/Aron/i7/jessica/fib/fib_hofvar2_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_hofvar2, [30]},10,"results/Aron/i7/jessica/fib/fib_hofvar2_res","results/Aron/i7/jessica/fib/fib_hofvar2_avg","results/Aron/i7/jessica/fib/fib_hofvar2_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_hofvar2, [35]},10,"results/Aron/i7/jessica/fib/fib_hofvar2_res","results/Aron/i7/jessica/fib/fib_hofvar2_avg","results/Aron/i7/jessica/fib/fib_hofvar2_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_hofvar2, [40]},10,"results/Aron/i7/jessica/fib/fib_hofvar2_res","results/Aron/i7/jessica/fib/fib_hofvar2_avg","results/Aron/i7/jessica/fib/fib_hofvar2_log.txt").
+
+
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_parallel, [10]},10,"results/Aron/i7/jessica/fib/fib_parallel_res","results/Aron/i7/jessica/fib/fib_parallel_avg","results/Aron/i7/jessica/fib/fib_parallel_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_parallel, [15]},10,"results/Aron/i7/jessica/fib/fib_parallel_res","results/Aron/i7/jessica/fib/fib_parallel_avg","results/Aron/i7/jessica/fib/fib_parallel_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_parallel, [20]},10,"results/Aron/i7/jessica/fib/fib_parallel_res","results/Aron/i7/jessica/fib/fib_parallel_avg","results/Aron/i7/jessica/fib/fib_parallel_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_parallel, [25]},10,"results/Aron/i7/jessica/fib/fib_parallel_res","results/Aron/i7/jessica/fib/fib_parallel_avg","results/Aron/i7/jessica/fib/fib_parallel_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_parallel, [30]},10,"results/Aron/i7/jessica/fib/fib_parallel_res","results/Aron/i7/jessica/fib/fib_parallel_avg","results/Aron/i7/jessica/fib/fib_parallel_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_parallel, [35]},10,"results/Aron/i7/jessica/fib/fib_parallel_res","results/Aron/i7/jessica/fib/fib_parallel_avg","results/Aron/i7/jessica/fib/fib_parallel_log.txt").
+energy_consumption:measure("./rapl-read.out",{test_functions, fib_parallel, [40]},10,"results/Aron/i7/jessica/fib/fib_parallel_res","results/Aron/i7/jessica/fib/fib_parallel_avg","results/Aron/i7/jessica/fib/fib_parallel_log.txt").

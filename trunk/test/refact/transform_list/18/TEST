@@ -1,0 +1,6 @@
+Title: transforming return value, keyfind simple key
+Goal: simulate tuple behaviour of list
+Parameters: [{file,"test.erl"},{position,102}].
+Documentation: If the recursion returns the result of keyfind, 
+we need to return the tuple that the keyfind would have returned, 
+so that the calling side does not see the change in return value.

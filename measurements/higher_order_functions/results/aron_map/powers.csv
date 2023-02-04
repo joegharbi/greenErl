@@ -1,0 +1,9 @@
+Module;Function;TotalEnergy;TotalTime;Power
+map;list_comprehension;276.4752;31.6952;8.7229
+map;list_comprehension_fun;726.4026;68.201;10.6509
+map;list_comprehension_named;377.0055;40.873;9.2238
+map;map_fun;349.7971;37.467;9.3361
+map;map_named;356.6288;33.9501;10.5045
+map;my_map_fun;355.7158;37.8494;9.3982
+map;my_map_named;358.5358;38.1902;9.3882
+map;recursive;278.5408;31.3273;8.8913

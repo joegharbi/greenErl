@@ -1,0 +1,6 @@
+Title: keytake result is bound and returned
+Goal: transform list part of result back to list
+Parameters: [{file,"test.erl"},{position,102}].
+Documentation: The result of lists:keytake/3 is first bound to a variable, then
+returned at the end of the function.
+We need to transform the third item in the result tuple back to a list.

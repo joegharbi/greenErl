@@ -1,0 +1,5 @@
+Title: invalid position
+Goal: do nothing
+Parameters: [{file,"getvalue.erl"},{position,0}].
+Documentation: Selected position is invalid.
+Do nothing

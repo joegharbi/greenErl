@@ -1,0 +1,5 @@
+Title: new list is also used after take
+Goal: transform expressions containing new list as well
+Parameters: [{file,"test.erl"},{position,90}].
+Documentation: The result of lists:keytake/3 is used in other expressions,
+which should also be transformed the same as the original list. 

@@ -1,0 +1,14 @@
+\begin{tikzpicture}
+\begin{axis}[legend style={at={(0,1)},anchor=north west}, ylabel=Consumption (J), xlabel=N Values, width=\textwidth, height=0.4\textheight]
+\addplot table [x=N, y=filter-map/my-filter-map]{/home/nagygeri97/Documents/Egyetem/TDK/SVN/green_erlang/measurements/higher_order_functions/results/geri_filter_map_new/latex/filtermap.tex_all.dat};
+\addlegendentry{filter-map/my-filter-map}
+\addplot table [x=N, y=filter-map/filter-map-comp]{/home/nagygeri97/Documents/Egyetem/TDK/SVN/green_erlang/measurements/higher_order_functions/results/geri_filter_map_new/latex/filtermap.tex_all.dat};
+\addlegendentry{filter-map/filter-map-comp}
+\addplot table [x=N, y=filter-map/filtermap]{/home/nagygeri97/Documents/Egyetem/TDK/SVN/green_erlang/measurements/higher_order_functions/results/geri_filter_map_new/latex/filtermap.tex_all.dat};
+\addlegendentry{filter-map/filtermap}
+\addplot table [x=N, y=filter-map/recursive]{/home/nagygeri97/Documents/Egyetem/TDK/SVN/green_erlang/measurements/higher_order_functions/results/geri_filter_map_new/latex/filtermap.tex_all.dat};
+\addlegendentry{filter-map/recursive}
+\addplot table [x=N, y=filter-map/list-comprehension]{/home/nagygeri97/Documents/Egyetem/TDK/SVN/green_erlang/measurements/higher_order_functions/results/geri_filter_map_new/latex/filtermap.tex_all.dat};
+\addlegendentry{filter-map/list-comprehension}
+\end{axis}
+\end{tikzpicture}

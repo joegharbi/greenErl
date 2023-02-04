@@ -1,0 +1,5 @@
+Title: keytake with complex key
+Goal: create the same tuple, but using maps
+Parameters: [{file,"test.erl"},{position,72}].
+Documentation: lists:keytake/3 is used with a complex key.
+It is transformed to maps:take/2 by extracting the key to a separate variable.

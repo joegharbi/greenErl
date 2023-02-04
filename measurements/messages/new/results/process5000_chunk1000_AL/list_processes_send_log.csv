@@ -1,0 +1,13 @@
+list_processes;send;50000;time;time;12.5368362500
+list_processes;send;50000;sysfs;energy-pkg;216.3972045000
+list_processes;send;50000;msr;energy-gpu;0.0000000000
+list_processes;send;50000;sysfs;energy-gpu;0.0000000000
+list_processes;send;50000;perf_event;energy-pkg;216.3957290649
+list_processes;send;50000;perf_event;energy-gpu;0.0000000000
+list_processes;send;50000;sysfs;energy-cores;196.8015136719
+list_processes;send;50000;msr;energy-pkg;216.3938598633
+list_processes;send;50000;perf_event;energy-ram;12.6620178223
+list_processes;send;50000;sysfs;energy-ram;12.6621381250
+list_processes;send;50000;msr;energy-cores;196.8036346436
+list_processes;send;50000;msr;energy-ram;12.6620941162
+list_processes;send;50000;perf_event;energy-cores;196.8027801514

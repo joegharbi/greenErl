@@ -1,0 +1,361 @@
+Some people use the terms \emph{parallel} and \emph{concurrent}
+interchangeably. Others prefer to separate these two concepts~\cite{marlow},
+saying that
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  concurrency is when you define a system with a number of
+  communicating, co-operating processes, typically exhibiting
+  non-determinism;
+\item
+  parallelism is when you speed up a computation by performing it on a
+  number of processing elements -- but otherwise you arrive at the same
+  result as a sequential (and deterministic) computation.
+\end{itemize}
+
+We argue that the two concepts should be approached with different
+programming techniques. Concurrency might be too low-level to achieve
+parallelism, and may become a bottleneck in effective software
+development. Let us explain this by using a parallel programming
+example: we shall define a function implementing sparse matrix-vector
+multiplication.
+
+%\subsection{Example: sparse matrix-vector
+%multiplication}\label{example-sparse-matrix-vector-multiplication}
+
+A sparse matrix is a matrix with lots of zero elements. One
+can efficiently represent such a matrix as a list of its non-zero
+elements and their position. Similarly, a sparse vector can be
+represented as a list of pairs, where each pair contains an index and a
+(non-zero) value. Consider the following list, which contains three pairs.
+
+\begin{figure}[htbp]
+\centering
+%\includegraphics[width=.28\textwidth]{sparse_vector.pdf}
+\input{sparse_vector.latex}
+\end{figure}
+
+This structure can be written as an Erlang \emph{term} 
+using the \emph{list} constructor \lstinline[language=myerlang]{[]} and 
+the \emph{tuple} constructor \lstinline[language=myerlang]|{}| as
+like this: %\linebreak
+\lstinline[language=myerlang]|[{3,15}, {7,31}, {8,12}]|.
+Assuming 0-based indices, the above list can represent the following
+vector (of length 10).
+
+\begin{figure}[htbp]
+\centering
+%\includegraphics[width=.45\textwidth]{sparse_vector_full.pdf}
+\input{sparse_vector_full.latex}
+\end{figure}
+
+Note that the list of pairs is sorted by the first (i.e. the index)
+component --  this will be very
+helpful for implementing operations, in our case the multiplication.
+First of all, let us see how to multiply two sparse vectors $r$ and $c$
+to compute their dot-product, $\sum r_i c_i$. Note that we need to sum
+up $r_i c_i$ for all $i$ indices such that $r_i \neq 0$ and
+$c_i \neq 0$.
+
+\begin{figure*}[tbh]
+\centering
+%\includegraphics[width=.9\textwidth]{sparse_matrix.pdf}
+\scalebox{0.8}{\input{sparse_matrix.latex}}
+\caption{Sparse matrix representation}
+\label{fig1}
+\end{figure*}
+
+The \lstinline[language=myerlang]{vxv/2} (that is \emph{vector-times-vector}) function\footnote{
+Erlang supports overloading for functions, i.e. we can have functions with
+the same name, but with different arity. To distinguish between overloaded
+functions, the \emph{name/arity} notation is used, like in \lstinline[language=myerlang]{vxv/2}.
+} takes
+two lists that represent the two sparse vectors, and computes the
+dot-product recursively, by traversing the two lists simultaneously.
+When both vectors contain a non-zero value at a given index position
+$i$, they are multiplied, and the product is added to the final result
+-- as described by the first \emph{clause} of the following definition.
+
+\begin{lstlisting}[language=myerlang]
+vxv( [{I,R} | Rs], [{I,C} | Cs] ) ->
+  R*C + vxv(Rs,Cs);
+vxv( [{I,R} | Rs], [{J,C} | Cs] ) ->
+  if
+    I<J  -> vxv( Rs, [{J,C}|Cs]);
+    true -> vxv( [{I,R} | Rs], Cs )
+  end;
+vxv( _, _ ) ->    % when either (or both)
+  0.              % of the lists is empty
+
+\end{lstlisting}
+
+%% \begin{Shaded}
+%% \begin{Highlighting}[]
+%% \FunctionTok{vxv(} \FunctionTok{[\{}\DataTypeTok{I}\FunctionTok{,}\DataTypeTok{R}\FunctionTok{\}} \FunctionTok{|} \DataTypeTok{Rs}\FunctionTok{],} \FunctionTok{[\{}\DataTypeTok{I}\FunctionTok{,}\DataTypeTok{C}\FunctionTok{\}} \FunctionTok{|} \DataTypeTok{Cs}\FunctionTok{]} \FunctionTok{)} \KeywordTok{->} \DataTypeTok{R}\KeywordTok{*}\DataTypeTok{C} \KeywordTok{+} \FunctionTok{vxv(}\DataTypeTok{Rs}\FunctionTok{,}\DataTypeTok{Cs}\FunctionTok{);}
+
+%% \FunctionTok{vxv(} \FunctionTok{[\{}\DataTypeTok{I}\FunctionTok{,}\DataTypeTok{R}\FunctionTok{\}} \FunctionTok{|} \DataTypeTok{Rs}\FunctionTok{],} \FunctionTok{[\{}\DataTypeTok{J}\FunctionTok{,}\DataTypeTok{C}\FunctionTok{\}} \FunctionTok{|} \DataTypeTok{Cs}\FunctionTok{]} \FunctionTok{)} \KeywordTok{->}
+%%     \KeywordTok{if}
+%%         \DataTypeTok{I} \KeywordTok{<} \DataTypeTok{J} \KeywordTok{->} \FunctionTok{vxv(}          \DataTypeTok{Rs}\FunctionTok{,}  \FunctionTok{[\{}\DataTypeTok{J}\FunctionTok{,}\DataTypeTok{C}\FunctionTok{\}} \FunctionTok{|} \DataTypeTok{Cs}\FunctionTok{]} \FunctionTok{);}
+%%         \CharTok{true}  \KeywordTok{->} \FunctionTok{vxv(} \FunctionTok{[\{}\DataTypeTok{I}\FunctionTok{,}\DataTypeTok{R}\FunctionTok{\}} \FunctionTok{|} \DataTypeTok{Rs}\FunctionTok{],}          \DataTypeTok{Cs}  \FunctionTok{)}
+%%     \KeywordTok{end}\FunctionTok{;}
+
+%% \FunctionTok{vxv(} \DataTypeTok{_}\FunctionTok{,} \DataTypeTok{_} \FunctionTok{)} \KeywordTok{->} \DecValTok{0}\FunctionTok{.}    \CommentTok{% when either of the lists is empty}
+%% \end{Highlighting}
+%% \end{Shaded}
+
+The second clause of the function definition tells us what to do when
+the head of the two input lists corresponds to non-empty vector elements
+\lstinline[language=myerlang]{R} and \lstinline[language=myerlang]{C} at different index positions (\lstinline[language=myerlang]{I} and
+\lstinline[language=myerlang]{J}, respectively). Now we make use of the fact that the lists
+are sorted by the index component. If \lstinline[language=myerlang]{I < J}, the
+non-zero elements stored in the right list are all at an index position
+larger than \lstinline[language=myerlang]{I}, and hence \lstinline[language=myerlang]{R} is not needed for the
+dot-product: this corresponds to $r_i c_i$ with $r_i \neq 0$ and
+$c_i = 0$ in the sum. Therefore, we discard the head of the left list,
+and proceed recursively. Similarly, when \lstinline[language=myerlang]{I > J}, we
+discard the head of the right list, and proceed recursively.
+
+The last clause of \lstinline[language=myerlang]{vxv/2} is reached when either of the lists is
+empty. In this case, the corresponding sparse vector does not contain
+any more non-zero elements, and hence the dot-product is $0$.
+
+%Okay, you can easily refactor the definition above into a tail-recursive
+%one by introducing an accumulator. This can improve performance for long
+%lists.
+%
+%\begin{Shaded}
+%\begin{Highlighting}[]
+%\FunctionTok{vxv(}\DataTypeTok{Row}\FunctionTok{,}\DataTypeTok{Col}\FunctionTok{)} \KeywordTok{->} \FunctionTok{vxv_acc(}\DataTypeTok{Row}\FunctionTok{,}\DataTypeTok{Col}\FunctionTok{,}\DecValTok{0}\FunctionTok{).}
+%
+%\FunctionTok{vxv_acc(} \FunctionTok{[\{}\DataTypeTok{I}\FunctionTok{,}\DataTypeTok{R}\FunctionTok{\}|}\DataTypeTok{Rs}\FunctionTok{],} \FunctionTok{[\{}\DataTypeTok{I}\FunctionTok{,}\DataTypeTok{C}\FunctionTok{\}|}\DataTypeTok{Cs}\FunctionTok{],} \DataTypeTok{Acc} \FunctionTok{)} \KeywordTok{->} \FunctionTok{vxv_acc(}\DataTypeTok{Rs}\FunctionTok{,} \DataTypeTok{Cs}\FunctionTok{,} \DataTypeTok{R}\KeywordTok{*}\DataTypeTok{C} \KeywordTok{+} \DataTypeTok{Acc}\FunctionTok{);}
+%
+%\FunctionTok{vxv_acc(} \FunctionTok{[\{}\DataTypeTok{I}\FunctionTok{,}\DataTypeTok{R}\FunctionTok{\}|}\DataTypeTok{Rs}\FunctionTok{],} \FunctionTok{[\{}\DataTypeTok{J}\FunctionTok{,}\DataTypeTok{C}\FunctionTok{\}|}\DataTypeTok{Cs}\FunctionTok{],} \DataTypeTok{Acc} \FunctionTok{)} \KeywordTok{->}
+%    \KeywordTok{if}
+%       \DataTypeTok{I} \KeywordTok{<} \DataTypeTok{J} \KeywordTok{->} \FunctionTok{vxv_acc(}        \DataTypeTok{Rs}\FunctionTok{,}  \FunctionTok{[\{}\DataTypeTok{Y}\FunctionTok{,}\DataTypeTok{C}\FunctionTok{\}|}\DataTypeTok{Cs}\FunctionTok{],} \DataTypeTok{Acc} \FunctionTok{);}
+%       \CharTok{true}  \KeywordTok{->} \FunctionTok{vxv_acc(} \FunctionTok{[\{}\DataTypeTok{I}\FunctionTok{,}\DataTypeTok{R}\FunctionTok{\}|}\DataTypeTok{Rs}\FunctionTok{],}        \DataTypeTok{Cs}\FunctionTok{,}  \DataTypeTok{Acc} \FunctionTok{)}
+%    \KeywordTok{end}\FunctionTok{;}
+%
+%\FunctionTok{vxv_acc(} \DataTypeTok{_}\FunctionTok{,} \DataTypeTok{_}\FunctionTok{,} \DataTypeTok{Acc} \FunctionTok{)} \KeywordTok{->} \DataTypeTok{Acc}\FunctionTok{.}   \CommentTok{% when either of the lists is empty}
+%\end{Highlighting}
+%\end{Shaded}
+
+Now we are ready to implement the matrix-vector multiplication, the
+\lstinline[language=myerlang]{mxv/2} function. A sparse matrix is represented as a list of
+those rows that contain at least one non-zero element. Each such row in
+the matrix is represented as the pair of the row index, and a
+(non-empty) list representing a sparse vector (Figure~\ref{fig1}).
+
+The product of a matrix and a (column) vector is a (row) vector, the
+elements of which are the dot-product of a row vector in the matrix and
+the given column vector. The row vector is stored in variable
+\lstinline[language=myerlang]{DotProducts} (in Erlang the name of a variable must start with a capital
+letter, while the name of a function must start with a lowercase letter).
+The last step of the computation is to drop zero values from \lstinline[language=myerlang]{DotProducts}
+using the \lstinline[language=myerlang]{filter/2} function from the
+standard library \emph{module} \lstinline[language=myerlang]{lists}.
+
+\begin{lstlisting}[language=myerlang]
+mxv( Rows, Col ) ->
+  DotProducts =
+    [ {I,vxv(Row,Col)} || {I,Row} <- Rows ],
+  lists:filter( fun({_I,V}) -> V /= 0 end,
+                DotProducts).
+\end{lstlisting}
+
+The \lstinline[language=myerlang]{lists:filter/2} function is a higher-order function: its first
+argument is a predicate, in this case an \emph{explicit fun-expression}
+(often called as lambda-expression in other languages). This specific predicate
+takes a pair, discards its first element (we should start the name of
+unused parameters/variables with an underscore), and returns true 
+\emph{iff} the second element is non-zero.
+
+
+%% \begin{Shaded}
+%% \begin{Highlighting}[]
+%% \FunctionTok{mxv(} \DataTypeTok{Rows}\FunctionTok{,} \DataTypeTok{Col} \FunctionTok{)} \KeywordTok{->}
+%%     \DataTypeTok{DotProducts} \KeywordTok{=} \FunctionTok{[} \FunctionTok{\{}\DataTypeTok{I}\FunctionTok{,vxv(}\DataTypeTok{Row}\FunctionTok{,}\DataTypeTok{Col}\FunctionTok{)\}} \FunctionTok{||} \FunctionTok{\{}\DataTypeTok{I}\FunctionTok{,}\DataTypeTok{Row}\FunctionTok{\}} \KeywordTok{<-} \DataTypeTok{Rows} \FunctionTok{],}
+%%     \FunctionTok{lists:filter(} \KeywordTok{fun}\FunctionTok{(\{}\DataTypeTok{_I}\FunctionTok{,}\DataTypeTok{V}\FunctionTok{\})} \KeywordTok{->} \DataTypeTok{V} \KeywordTok{/=} \DecValTok{0} \KeywordTok{end}\FunctionTok{,} \DataTypeTok{DotProducts} \FunctionTok{).}
+%% \end{Highlighting}
+%% \end{Shaded}
+
+\subsection{Compute faster with
+processes!}\label{compute-faster-with-processes}
+
+It is very easy to speed up the computation of \lstinline[language=myerlang]{mxv/2} by
+spawning processes, and let them calculate the dot-products in parallel.
+%We already know how to use the concurrency features of Erlang to spawn
+%processes, as well as to send and receive messages. We can easily
+One can easily
+rewrite \lstinline[language=myerlang]{mxv/2} to spawn a process for each represented row in
+the matrix, and instruct those processes to calculate the dot-products
+using \lstinline[language=myerlang]{vxv_proc/3} (a wrapper around \lstinline[language=myerlang]{vxv/2}). In the rewritten
+\lstinline[language=myerlang]{mxv/2} function, we bind the list of row indices (\lstinline[language=myerlang]{I}) and
+the corresponding process identifiers (\lstinline[language=myerlang]{Pid}) to the variable
+\lstinline[language=myerlang]{IndicesAndPids}. The dot-products are communicated back from the
+processes and collected by the \lstinline[language=myerlang]{receive} expression in the
+spawning order of the processes, and hence in the order of row indices.
+
+\begin{lstlisting}[language=myerlang]
+mxv( Rows, Col ) ->
+  IndicesAndPids =
+    [ {I, spawn(?MODULE, vxv_proc,
+                [self(), Row, Col]
+      || {I,Row} <- Rows ],
+  DotProducts =
+    [ receive
+        {Pid, Res} -> {I, Res}
+      end
+      || {I, Pid} <- IndicesAndPids ],
+  lists:filter( fun({_,V}) -> V /= 0 end,
+                DotProducts ).
+\end{lstlisting}
+
+%% \begin{Shaded}
+%% \begin{Highlighting}[]
+%% \FunctionTok{mxv(} \DataTypeTok{Rows}\FunctionTok{,} \DataTypeTok{Col} \FunctionTok{)} \KeywordTok{->}
+%%     \DataTypeTok{IndicesAndPids} \KeywordTok{=} 
+%%         \FunctionTok{[ \{}\DataTypeTok{I}\FunctionTok{,} \FunctionTok{spawn(?}\DataTypeTok{MODULE}\FunctionTok{,} \CharTok{vxv_proc}\FunctionTok{,} \FunctionTok{[self(),} \DataTypeTok{Row}\FunctionTok{,} \DataTypeTok{Col}\FunctionTok{])\}}
+%%         \FunctionTok{||} \FunctionTok{\{}\DataTypeTok{I}\FunctionTok{,}\DataTypeTok{Row}\FunctionTok{\}} \KeywordTok{<-} \DataTypeTok{Rows}\FunctionTok{ ],}
+%%     \DataTypeTok{DotProducts} \KeywordTok{=} \FunctionTok{[} \KeywordTok{receive} 
+%%                       \FunctionTok{\{}\DataTypeTok{Pid}\FunctionTok{,} \DataTypeTok{Res}\FunctionTok{\}} \KeywordTok{->} \FunctionTok{\{}\DataTypeTok{I}\FunctionTok{,} \DataTypeTok{Res}\FunctionTok{\}}
+%%                     \KeywordTok{end} 
+%%                   \FunctionTok{||} \FunctionTok{\{}\DataTypeTok{I}\FunctionTok{,} \DataTypeTok{Pid}\FunctionTok{\}} \KeywordTok{<-} \DataTypeTok{IndicesAndPids} \FunctionTok{],}
+%%     \FunctionTok{lists:filter(} \KeywordTok{fun}\FunctionTok{(\{}\DataTypeTok{_}\FunctionTok{,}\DataTypeTok{V}\FunctionTok{\})} \KeywordTok{->} \DataTypeTok{V} \KeywordTok{/=} \DecValTok{0} \KeywordTok{end}\FunctionTok{,} \DataTypeTok{DotProducts} \FunctionTok{).}
+%% \end{Highlighting}
+%% \end{Shaded}
+
+Dot-products are computed in parallel by processes that execute
+\lstinline[language=myerlang]{vxv_proc/3}. When a new process is spawned, we pass the process
+identifier of the ``master'' process, \lstinline[language=myerlang]{self()}, together with the
+row vector and the column vector to this function. This
+\lstinline[language=myerlang]{vxv_proc/3} simply calls \lstinline[language=myerlang]{vxv/2}, and sends back the
+computed dot-product (together with the process id of the ``slave''
+process, \lstinline[language=myerlang]{self()}) to the parent process.
+
+\begin{lstlisting}[language=myerlang]
+vxv_proc(ParentPid, Row, Col) ->
+  ParentPid ! {self(), vxv(Row, Col)}.
+\end{lstlisting}
+
+%% \begin{Shaded}
+%% \begin{Highlighting}[]
+%% \FunctionTok{vxv_proc(}\DataTypeTok{ParentPid}\FunctionTok{,} \DataTypeTok{Row}\FunctionTok{,} \DataTypeTok{Col}\FunctionTok{)} \KeywordTok{->}
+%%     \DataTypeTok{ParentPid} \KeywordTok{!} \FunctionTok{\{self(),} \FunctionTok{vxv(}\DataTypeTok{Row}\FunctionTok{,} \DataTypeTok{Col}\FunctionTok{)\}.}
+%% \end{Highlighting}
+%% \end{Shaded}
+
+The concurrency features of Erlang allowed us to parallelize the sparse
+matrix-vector multiplication by introducing processes, spawning them,
+and implementing communication among them based on the process
+identifiers. One may consider this a relatively small overhead to arrive
+at a parallel computation. However, there are a number of
+% ways here to shoot ourselves in the foot. 
+small stupid mistakes one can make.
+For example, consider the two calls to
+\lstinline[language=myerlang]{self/0}. This impure function returns the \emph{pid} of the
+process that evaluates the call. The two calls to \lstinline[language=myerlang]{self/0} will
+be evaluated by different processes here: the one in \lstinline[language=myerlang]{mxv/2} is
+evaluated in the master process, while the other one in the spawned
+processes. % It is quite easy to get confused\ldots{}
+The lack of referential transparency can be rather confusing in this
+case.
+
+Another opportunity for shooting yourself on the foot is the following.
+One could easily come to the idea that
+the definition of \lstinline[language=myerlang]{mxv/2} can be refactored, and the two
+variables can be eliminated. These variables are used only once, so why
+not replace them with their definition?
+
+\begin{lstlisting}[language=myerlang]
+mxv( Rows, Col ) ->
+  lists:filter(
+    fun({_,V}) ->
+      V /= 0 end,
+      [ receive
+          {Pid, Res} -> {I, Res}
+        end
+        || {I, Row} <- Rows,
+           Pid <- [spawn(?MODULE, vxv_proc,
+                         [self(),Row,Col])]
+      ]
+    ).        
+\end{lstlisting}
+
+%% \begin{Shaded}
+%% \begin{Highlighting}[]
+%% \FunctionTok{mxv(} \DataTypeTok{Rows}\FunctionTok{,} \DataTypeTok{Col} \FunctionTok{)} \KeywordTok{->}
+%%     \FunctionTok{lists:filter(} 
+%%          \KeywordTok{fun}\FunctionTok{(\{}\DataTypeTok{_}\FunctionTok{,}\DataTypeTok{V}\FunctionTok{\})} \KeywordTok{->} \DataTypeTok{V} \KeywordTok{/=} \DecValTok{0} \KeywordTok{end}\FunctionTok{,}
+%%          \FunctionTok{[} \KeywordTok{receive} 
+%%              \FunctionTok{\{}\DataTypeTok{Pid}\FunctionTok{,} \DataTypeTok{Res}\FunctionTok{\}} \KeywordTok{->} \FunctionTok{\{}\DataTypeTok{I}\FunctionTok{,} \DataTypeTok{Res}\FunctionTok{\}}
+%%            \KeywordTok{end} 
+%%          \FunctionTok{||} \FunctionTok{\{}\DataTypeTok{I}\FunctionTok{,} \DataTypeTok{Row}\FunctionTok{\}} \KeywordTok{<-} \DataTypeTok{Rows} \FunctionTok{,}
+%%             \DataTypeTok{Pid} \KeywordTok{<-} \FunctionTok{[spawn(?}\DataTypeTok{MODULE}\FunctionTok{,} \CharTok{vxv_proc}\FunctionTok{,} \FunctionTok{[self(),} \DataTypeTok{Row}\FunctionTok{,} \DataTypeTok{Col}\FunctionTok{])]}
+%%          \FunctionTok{]}
+%%     \FunctionTok{).}
+%% \end{Highlighting}
+%% \end{Shaded}
+
+Of course, it is a matter of taste whether we consider this new
+definition simpler or more obscure -- but this refactoring might seem
+reasonable at first glance. However, it turns out that
+there is no parallel computation in this solution any more. 
+It is true that the list
+generator in the second argument of \lstinline[language=myerlang]{lists:filter/2} starts a new
+process for each row, and receives the dot-product of this row and
+\lstinline[language=myerlang]{Col} from this process. But note that the next process is not spawned
+until the result from the previous one is received. There is an
+unnecessary synchronization in this definition that prevents parallel
+execution. The refactoring we applied was valid in the sense that this
+new definition produces exactly the same result as the previous one,
+hence the definitions can be regarded as semantically equivalent.
+But obviously, losing parallelism was not intended!
+
+\subsection{Simply parallel}\label{simply-parallel}
+
+Now we can see that implementing parallel computations using the
+concurrency features of a language can be error-prone, and sometimes
+really cumbersome. In the following we will see how to write a parallel
+program in a way that avoids this low-level trickery with concurrency,
+synchronization, communication, process management and so on. This new
+technique will allow us to describe a parallel computation at a high
+level of abstraction, in terms of common solution recipes,
+\emph{parallel patterns}.
+Intuitively, the structure of the parallel computation for
+our sparse matrix-vector multiplication, \lstinline[language=myerlang]{Computation}, can be
+given as a task farm with \lstinline[language=myerlang]{length(Rows)} tasks, each task
+performing a ``sequential'' component \lstinline[language=myerlang]{Function}, and forcing an
+ordered collection of results. The computational structure is described
+using \emph{algorithmic skeletons} (\lstinline[language=myerlang]{ord}, \lstinline[language=myerlang]{farm},
+\lstinline[language=myerlang]{seq}). The computation is carried out by the \lstinline[language=myerlang]{skel:do/2}
+function, the main entry point to the Skel library.
+
+\begin{lstlisting}[language=myerlang]
+mxv( Rows, Col ) ->
+  Function =
+    fun ({I,Row}) -> {I,vxv(Row,Col)} end,
+  Computation =
+    [{ord,[{farm,[{seq,Function}],
+            length(Rows)}]}],
+  DotProducts = skel:do( Computation, Rows),
+  lists:filter( fun({_I,V}) -> V /= 0 end,
+                DotProducts).
+\end{lstlisting}
+
+%% \begin{Shaded}
+%% \begin{Highlighting}[]
+%% \FunctionTok{mxv(} \DataTypeTok{Rows}\FunctionTok{,} \DataTypeTok{Col} \FunctionTok{)} \KeywordTok{->}
+%%     \DataTypeTok{Function} \KeywordTok{=} \KeywordTok{fun} \FunctionTok{(\{}\DataTypeTok{I}\FunctionTok{,}\DataTypeTok{Row}\FunctionTok{\})} \KeywordTok{->} \FunctionTok{\{}\DataTypeTok{I}\FunctionTok{,vxv(}\DataTypeTok{Row}\FunctionTok{,}\DataTypeTok{Col}\FunctionTok{)\}} \KeywordTok{end}\FunctionTok{,}
+%%     \DataTypeTok{Computation} \KeywordTok{=} \FunctionTok{[\{}\CharTok{ord}\FunctionTok{,[\{}\CharTok{farm}\FunctionTok{,[\{}\CharTok{seq}\FunctionTok{,}\DataTypeTok{Function}\FunctionTok{\}],length(}\DataTypeTok{Rows}\FunctionTok{)\}]\}],}
+%%     \DataTypeTok{DotProducts} \KeywordTok{=} \FunctionTok{skel:do(} \DataTypeTok{Computation}\FunctionTok{,} \DataTypeTok{Rows} \FunctionTok{),}
+%%     \FunctionTok{lists:filter(} \KeywordTok{fun}\FunctionTok{(\{}\DataTypeTok{_I}\FunctionTok{,}\DataTypeTok{V}\FunctionTok{\})} \KeywordTok{->} \DataTypeTok{V} \KeywordTok{/=} \DecValTok{0} \KeywordTok{end}\FunctionTok{,} \DataTypeTok{DotProducts} \FunctionTok{).}
+%% \end{Highlighting}
+%% \end{Shaded}
+
+In the forthcoming sections we cover some details of parallel patterns,
+and discover how Skel, an algorithmic skeleton library for Erlang 
+allows us to express the structure of parallel
+computations. %Finally, we shall see how to parallelize existing programs
+%by refactoring them, and introducing parallel patterns in their code.
+

@@ -1,0 +1,5 @@
+Title: keyfind, same simple key in tuple
+Goal: Simple map pattern matching with correct variables
+Parameters: [{file,"test.erl"},{position,82}].
+Documentation: Create a map pattern matching, since the keys are the same,
+so no new binding is needed.

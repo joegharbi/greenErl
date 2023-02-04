@@ -1,0 +1,5 @@
+Title: keytake with simple key
+Goal: create the same tuple, but using maps
+Parameters: [{file,"test.erl"},{position,68}].
+Documentation: lists:keytake/3 is used with a simple key (variable).
+It is transformed to maps:take/2 without extracting the key to a separate variable.

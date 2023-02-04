@@ -1,0 +1,7 @@
+Title: Funname selected, get_value/2
+Goal: get_value replaced by keyfind
+Parameters: [{file,"getvalue.erl"},{position,48}].
+Documentation: Selected position is inside the function name.
+Eliminate proplists:get_value/2 by using
+lists:keyfind/3 and simulating the same behaviour, as with
+get_value

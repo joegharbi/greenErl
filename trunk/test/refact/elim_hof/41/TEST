@@ -1,0 +1,6 @@
+Title: lists:filter to recursion, fun_expr joker and shadowing
+Goal: Eliminate HOF with recursion
+Parameters: [{file,"test.erl"},{hof_mode, recursive},{position,55}].
+Documentation: lists:filter used with fun_expr is transformed to
+a recursion. The fun_expr has multiple clauses these use jokers, outside vars
+and are also shadowing.

@@ -1,0 +1,16 @@
+\begin{tikzpicture}
+\begin{axis}[legend style={at={(0,1)},anchor=north west}, ylabel=Consumption (J), xlabel=N Values, width=\textwidth, height=0.4\textheight]
+\addplot table [x=N, y=map/my-map-named]{/home/nagygeri97/Documents/Egyetem/TDK/SVN/green_erlang/measurements/higher_order_functions/results/geri_map_new/latex/map.tex_time.dat};
+\addlegendentry{map/my-map-named}
+\addplot table [x=N, y=map/list-comprehension]{/home/nagygeri97/Documents/Egyetem/TDK/SVN/green_erlang/measurements/higher_order_functions/results/geri_map_new/latex/map.tex_time.dat};
+\addlegendentry{map/list-comprehension}
+\addplot table [x=N, y=map/recursive]{/home/nagygeri97/Documents/Egyetem/TDK/SVN/green_erlang/measurements/higher_order_functions/results/geri_map_new/latex/map.tex_time.dat};
+\addlegendentry{map/recursive}
+\addplot table [x=N, y=map/map-named]{/home/nagygeri97/Documents/Egyetem/TDK/SVN/green_erlang/measurements/higher_order_functions/results/geri_map_new/latex/map.tex_time.dat};
+\addlegendentry{map/map-named}
+\addplot table [x=N, y=map/map-fun]{/home/nagygeri97/Documents/Egyetem/TDK/SVN/green_erlang/measurements/higher_order_functions/results/geri_map_new/latex/map.tex_time.dat};
+\addlegendentry{map/map-fun}
+\addplot table [x=N, y=map/list-comprehension-named]{/home/nagygeri97/Documents/Egyetem/TDK/SVN/green_erlang/measurements/higher_order_functions/results/geri_map_new/latex/map.tex_time.dat};
+\addlegendentry{map/list-comprehension-named}
+\end{axis}
+\end{tikzpicture}

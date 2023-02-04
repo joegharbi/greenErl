@@ -1,0 +1,8 @@
+\begin{tikzpicture}
+\begin{axis}[legend style={at={(0,1)},anchor=north west}, ylabel=Consumption (J), xlabel=N Values, width=\textwidth, height=0.4\textheight]
+\addplot table [x=N, y=map-find/find-pattern-match]{/home/nagygeri97/Documents/Egyetem/TDK/SVN/green_erlang/measurements/map_list/results/geri_find_rep/mapall.tex_all.dat};
+\addlegendentry{map-find/find-pattern-match}
+\addplot table [x=N, y=map-find/find]{/home/nagygeri97/Documents/Egyetem/TDK/SVN/green_erlang/measurements/map_list/results/geri_find_rep/mapall.tex_all.dat};
+\addlegendentry{map-find/find}
+\end{axis}
+\end{tikzpicture}

@@ -1,0 +1,5 @@
+Title: empty list in recursion, no guard
+Goal: transform empty list to empty map
+Parameters: [{file,"test.erl"},{position,98}].
+Documentation: In pattern matching of the function definition, transform the
+empty list to a new variable and create guard for checking map size.

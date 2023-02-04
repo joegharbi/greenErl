@@ -1,0 +1,4 @@
+Title: keydelete normal
+Goal: change lists:keydelete to maps:remove
+Parameters: [{file,"test.erl"},{position,71}].
+Documentation: Replace call to lists:keydelete/3 with call to maps:remove/2

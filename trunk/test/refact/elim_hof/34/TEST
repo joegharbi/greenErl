@@ -1,0 +1,6 @@
+Title: lists:filter to recursion, fun_expr outside vars
+Goal: Eliminate HOF with recursion
+Parameters: [{file,"test.erl"},{hof_mode, recursive},{position,65}].
+Documentation: lists:filter used with fun_expr is transformed to
+a recursion. The fun_expr has only one clause and outside variables
+are used.

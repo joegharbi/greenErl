@@ -1,0 +1,18 @@
+
+\documentclass{article}
+\usepackage{pgfplotstable}
+\usepackage{pgfplots}
+\pagestyle{empty}
+\begin{document}
+
+\begin{tikzpicture}
+\begin{axis}
+[legend style={at={(0.5,-0.1)},anchor=north}, ylabel=Consumption, xlabel=N Values]
+\addplot table [x=$N$, y=$n_queens/queens_array_fix$]{test2.dat};
+\addlegendentry{$n_queens/queens_array_fix$ series}
+\addplot table [x=$N$, y=$n_queens/queens_list$]{test2.dat};
+\addlegendentry{$n_queens/queens_list$ series}
+\end{axis}
+\end{tikzpicture}
+
+\end{document}

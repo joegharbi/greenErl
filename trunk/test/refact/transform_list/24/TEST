@@ -1,0 +1,5 @@
+Title: result bound to variable
+Goal: do not perform any transformation
+Parameters: [{file,"test.erl"},{position,91}].
+Documentation: The result of lists:keytake/3 is bound to a single variable.
+We do not know if/how this variable is used, so deny the transformation.

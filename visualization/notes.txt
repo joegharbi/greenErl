@@ -1,0 +1,24 @@
+NewVis.py osztályai:
+    -Measurement
+    -GUI
+    -MeasurementVisualizer
+
+Osztályleírások:
+    Measurement:
+        - Egyszerű osztály egy méréshez tartozó energiamennyiségek tárolásához
+        - Adattagok:
+            # ram, gpu, cores, pkg, time: Decimal típusúak
+        - Függvényei: 
+            # set
+            # get
+        - MeasurementVisualizer osztály használja
+    MeasurementVisualizer:
+        - measurements adattagja tárolja a méréseket
+        - AppendFrom metódusokkal vehető hozzá újabb fájlok tartalma
+        - CalculateResults metódus: feltölti results adattagját, majd szükséges az adatok rendezése, mert amúgy nem lesz jó a megjelenítés
+        - DrawAllFigures metódus: az összes Domain eredményeit kirajzolja a kapott mérési methodból, logscale bool paraméterként
+        - DrawFigure metódus: a kapott method és Domain alapján egy diagram kirajzolása, logscale bool paraméterként
+    GUI: 
+        - Vizualizáció grafikus interfésze, igazából a MeasurementVisualizeren csücsül
+
+Tehát igazából elég a MeasurementVisualizer osztályt behívni, AppendFrom metódusokkal fájlokat beadni, majd Draw metódusokat hívni megfelelő paraméterezéssel

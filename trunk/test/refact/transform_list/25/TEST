@@ -1,0 +1,5 @@
+Title: keytake result returned
+Goal: transform list part of result back to list
+Parameters: [{file,"test.erl"},{position,94}].
+Documentation: The result of lists:keytake/3 is returned at the end of the function.
+We need to transform the third item in the result tuple back to a list.

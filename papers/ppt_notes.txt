@@ -1,0 +1,39 @@
+2. dia
+Környezetbarát eszközökre egyre inkább szükség van, ezért fontos,
+hogy a számítógépes eszközeink is a leheto
+legkevesebb energiát fogyasszák.
+
+Népszerubb nyelvek esetében már sok kutatás irányult 
+az energiahatékonyságra. Azonban az Erlangról 
+- szélesköru felhasználása ellenére - 
+még nem készült ilyen jellegu kutatás.  
+
+3.dia
+Az energiafogyasztás méréséhez az Intel RAPL eszközét használtuk,
+a Rapl-read C programon keresztül.
+A program az alábbi módokon képes mérni:
+Model Specific Registers (MSR)
+perf_event 
+sysfs
+Mindegyik módon 4 különbözo mérheto:
+PKG
+PP0
+PP1
+DRAM
+
+A pontos mérés érdekében a méroprogramot közvetlenül 
+Erlangból indítjuk, a mérni kívánt függvény hívása elott,
+majd a Rapl-read program a mért adatokat átküldi az Erlangnak 
+és az adatokat fájlban tároljuk.
+
+4. dia
+Mérési módszertan
+Minden mért függvény esetében 10 db mérést végeztünk, 
+melyek eredményeit átlagoltuk, a minimális és maximális 
+értékek elhagyásával.
+
+Vizualizáció 
+Az adatok megjelenítéséhez a mért adatokat szövegfájlokban 
+tároljuk. Ezek kézzel történo feldolgozása sok idot venne 
+igénybe, ezért ezt egy Python program végzi.
+

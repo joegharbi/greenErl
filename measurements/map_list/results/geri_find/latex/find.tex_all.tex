@@ -1,0 +1,12 @@
+\begin{tikzpicture}
+\begin{axis}[legend style={at={(0,1)},anchor=north west}, ylabel=Consumption (J), xlabel=N Values, width=\textwidth, height=0.4\textheight]
+\addplot table [x=N, y=list-find/get-value]{/home/nagygeri97/Documents/Egyetem/TDK/SVN/green_erlang/measurements/map_list/results/geri_find/find.tex_all.dat};
+\addlegendentry{list-find/get-value}
+\addplot table [x=N, y=list-find/keyfind]{/home/nagygeri97/Documents/Egyetem/TDK/SVN/green_erlang/measurements/map_list/results/geri_find/find.tex_all.dat};
+\addlegendentry{list-find/keyfind}
+\addplot table [x=N, y=list-find/recursive]{/home/nagygeri97/Documents/Egyetem/TDK/SVN/green_erlang/measurements/map_list/results/geri_find/find.tex_all.dat};
+\addlegendentry{list-find/recursive}
+\addplot table [x=N, y=map-find/find]{/home/nagygeri97/Documents/Egyetem/TDK/SVN/green_erlang/measurements/map_list/results/geri_find/find.tex_all.dat};
+\addlegendentry{map-find/find}
+\end{axis}
+\end{tikzpicture}

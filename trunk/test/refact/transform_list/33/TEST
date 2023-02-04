@@ -1,0 +1,4 @@
+Title: keymember
+Goal: change lists:keymember to maps:is_key
+Parameters: [{file,"test.erl"},{position,70}].
+Documentation: Replace call to lists:keymember/3 with call to maps:is_key/2

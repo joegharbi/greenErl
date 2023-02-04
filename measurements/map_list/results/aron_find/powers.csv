@@ -1,0 +1,8 @@
+Module;Function;TotalEnergy;TotalTime;Power
+dict_find;fetch;650.3745;52.2043;12.4583
+dict_find;find;684.2308;53.6393;12.7562
+list_find;get_value;4192.2701;273.1007;15.3506
+list_find;keyfind;1016.1744;80.7385;12.586
+list_find;recursive;3124.4236;224.0633;13.9444
+map_find;find;99.4363;11.9265;8.3374
+map_find;find_pattern_match;69.0264;9.5358;7.2386

@@ -1,0 +1,5 @@
+Title: lists:filter to list_comp, implicit fun without modname
+Goal: Eliminate HOF with list comprehension
+Parameters: [{file,"test.erl"},{hof_mode, list_comp},{position,62}].
+Documentation: lists:filter used with implicit function is transformed to
+a list comprehension. 

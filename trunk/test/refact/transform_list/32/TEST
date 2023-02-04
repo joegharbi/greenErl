@@ -1,0 +1,6 @@
+Title: keystore return
+Goal: create a map update expression
+Parameters: [{file,"test.erl"},{position,151}].
+Documentation: All types of keystore calls are placed as return values.
+The map update expressions are wrapped in a maps:to_list call, to make the
+return value a list.

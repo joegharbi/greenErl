@@ -1,0 +1,5 @@
+Title: keyfind, binding result to a variable
+Goal: Using maps find to simulate keyfind behaviour
+Parameters: [{file,"test.erl"},{position,82}].
+Documentation: Create the tuple that keyfind creates, from the result of maps:find.
+Handle error case as well.

@@ -1,0 +1,6 @@
+Title: the list is used in a not allowed expression
+Goal: No refactoring is done
+Parameters: [{file,"test.erl"},{position,96}].
+Documentation: The list is used in places other than a keyfind or 
+a simple variable.
+Because of this no refactoring is done.

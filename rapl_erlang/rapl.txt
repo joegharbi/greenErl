@@ -1,0 +1,45 @@
+MSR: hiv open msr-t, ami ker egy core-t es ott azt a core-t nyitja meg!!!
+	DE: msr before a package_map[j]-vel hivja meg azt!!!
+	package_map = 16 meretu int tomb, -1re inicializalva detect_cpu-ban
+	egyebkent minden package-re a legelso letezo cpu van benne
+	
+	total_cores-ban is rossz ertek lehet (293. sor)
+
+	AZ MSR-t szerintem meg tudom fixelni!
+
+Perf_event: hasonloan!
+
+
+
+
+Modifications:
+
+~260. sor - detect_cpu-ban detecteli minden core-t minden package-re mar
+
+msr_before osszegez package-kre es coreokra is szoval csak egy szamot ad vissza!!!
+
+ELVILEG: MSR mukodik, de a tobbi teljesen halott most!!!
+
+
+ELVILEG PERF is mukodik, core-onkent es packagenkent osszegez mar
+
+EGYELORE CSAK -s el megy a mero cucc!!!
+
+
+
+
+https://developer.mozilla.org/en-US/docs/Mozilla/Performance/Power_profiling_overview
+Itt leirja, hogy a PKG az a PP0 (nalunk core) es a PP1 (nalunk gpu, vagy uncore) osszege lehet max es a DRAM fuggetlen ezektol
+Neha a gpu/uncore meresunk 0-s lesz, de a PKG attol meg jo, szerintem eleg lenne a PKG-t es a DRAM-ot figyelni!!
+
+
+sysfs-hez  csak core, uncore, dram van!!! az elso (pkg) erteket a package-bol szedi ki, nem kulon subdomainbol
+
+meresekbol: most az msr es a perf pontosan 4x annyit ad mint a sysfs.... akarmelyik coreon futtatom a cuccot!
+ami erdekes?
+melyik a rossz?
+jo volt az msr es a perf eredetileg is? ha igen miert? mert msr-nel biztosan nem olvasott bele csak egybe!!!
+sysfs elvileg igy a jo...
+
+
+msr-ben az after es a before minden cpu-nak ugyanaz, akarmelyiken fut a cucc... lehet h package-re jellemzo a mennyiseg?

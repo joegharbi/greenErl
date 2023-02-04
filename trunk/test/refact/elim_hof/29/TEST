@@ -1,0 +1,5 @@
+Title: lists:map to recursion, fun_expr guards
+Goal: Eliminate HOF with recursion
+Parameters: [{file,"test.erl"},{hof_mode, recursive},{position,39}].
+Documentation: lists:map used with fun_expr is transformed to
+a recursion. The fun_expr has multiple clauses, with guards.

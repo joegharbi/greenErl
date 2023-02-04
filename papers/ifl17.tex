@@ -1,0 +1,306 @@
+%\documentclass[sigconf]{acmart}
+%\acmConference[IFL'17]{International Symposium on Implementation and Application of Functional Languages}{August 2017}{Bristol, United Kingdom}
+%\acmYear{2017}
+%\copyrightyear{2017}
+
+\documentclass[sigconf]{acmart}
+\acmConference[IFL'17]{International Symposium on Implementation and Application of Functional Languages}{August 2017}{Bristol, United Kingdom}
+\acmYear{2018}
+\copyrightyear{2018}
+
+%The ISBN number assigned to IFL 2017 is 978-1-4503-6343-3, and can be entered into the template as:
+
+\acmISBN{978-1-4503-6343-3}
+
+
+%\documentclass[sigplan,10pt]{acmart}
+
+%\acmISBN{} % \acmISBN{978-x-xxxx-xxxx-x/YY/MM}
+\acmDOI{} % \acmDOI{10.1145/nnnnnnn.nnnnnnn}
+\startPage{1}
+
+%% Copyright information
+%% Supplied to authors (based on authors' rights management selection;
+%% see authors.acm.org) by publisher for camera-ready submission;
+%% use 'none' for review submission.
+\setcopyright{none}
+%\setcopyright{acmcopyright}
+%\setcopyright{acmlicensed}
+%\setcopyright{rightsretained}
+%\copyrightyear{2017}           %% If different from \acmYear
+
+\bibliographystyle{ACM-Reference-Format}
+\usepackage{flushend} 
+\usepackage{amssymb}
+\setcounter{tocdepth}{3}
+\usepackage[export]{adjustbox}
+\usepackage{graphicx}
+\usepackage{fancyvrb}
+
+\usepackage{amsmath}
+\usepackage{latexsym}
+%\usepackage[usenames,dvipsnames]{color}
+
+\usepackage{url}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+%\input{shadded}
+
+\newcounter{figpart}[figure]
+\renewcommand{\thefigpart}{}%%\alph{figpart}}
+
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{bashful}
+\usepackage{setspace}
+\usepackage{color}
+\usepackage{xcolor}
+%% \lstloadlanguages{Erlang}
+%% \lstset{
+%%   frame=tb,
+%%   rulecolor=\color{gray},
+%%   basicstyle=\small\ttfamily\setstretch{0.8},
+%%   breakindent=4ex,
+%%   postbreak=(cont.),
+%%   breaklines=true,
+%%   showspaces=false,
+%%   showtabs=false,
+%%   xleftmargin=15pt,
+%%   framexleftmargin=5pt,
+%%   framexrightmargin=0pt,
+%%   framexbottommargin=0pt,
+%%   captionpos=b,
+%%   numbers=left,
+%%   numberstyle=\tiny\color{gray},
+%% }
+%% \hypersetup{
+%%     colorlinks,
+%%     linkcolor={red},
+%%     citecolor={blue!50!black},
+%%     urlcolor={blue!80!black}
+%% }
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codeblue}{rgb}{0.0,0,0.62}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.95}
+
+\newcommand{\lstbasicfont}{\small\fontfamily{pcr}\selectfont}
+\newcommand{\lstcommentstyle}{\color{codegreen}\itshape}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\lstcommentstyle,
+    keywordstyle=\color{codeblue}\bfseries,
+    %identifierstyle=\color{black},
+    identifierstyle=\color{codegray}\bfseries,
+    %numberstyle=\tiny\color{codegray},
+    stringstyle=\color{purple},
+    basicstyle=\lstbasicfont,
+    %basicstyle=\small\ttfamily,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    %numbers=left,
+    %numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+
+\lstdefinelanguage{myerlang}[]{erlang}{
+  morekeywords={spec,fun,bitstring,orelse,record,include_lib},
+  otherkeywords={|,||,<-,->,!,[,],\{,\}},
+  deletekeywords={list,ok}
+}
+
+\lstset{style=mystyle,
+  literate=
+    {âª}{{$\cup$}}1 {â©}{{$\cap$}}1 {â}{{$\in$}}1 {â}{{$\subseteq$}}1
+    {â}{{$\circ$}}1 {-}{{-}}1 {~}{{\texttildelow}}1 {<}{{<}}1
+    {>}{{>}}1
+  }
+
+%\newcommand{\edge}[1]
+%           {\stackrel{\bf{#1}}{\rightarrow}}
+\newcommand{\edge}[1]
+           {\xrightarrow{\bf{#1}}}
+\newcommand{\rel}[1]
+           {\stackrel{\bf{#1}}{\leadsto}}
+
+\newcommand{\dc}{\textit{d\&c}}
+
+
+\begin{document}
+
+\title[Pattern Candidate Discovery and Parallelization Techniques]{Pattern Candidate Discovery and \\ Parallelization Techniques}
+
+\author{Melinda T\'oth, Istv\'an Boz\'o, Tam\'as Kozsik}
+%\authornote{with author1 note}
+\orcid{nnnn-nnnn-nnnn-nnnn}
+\affiliation{
+%  \position{Position1}
+%  \department{Department1}              %% \department is recommended
+  \institution{ELTE, E\"otv\"os Lor\'and University}            %% \institution is required
+%  \streetaddress{Street1 Address1}
+  \city{Budapest}
+%  \state{State1}
+%  \postcode{Post-Code1}
+  \country{Hungary}                    %% \country is recommended
+}
+\email{{tothmelinda,bozoistvan,kto}@elte.hu}          %% \email is recommended
+
+%% \author{Melinda T\'oth, Istv\'an Boz\'o, Tam\'as Kozsik}
+
+
+\begin{abstract}
+Parallel computations in a program can be expressed conveniently,
+at a high level of abstraction, using parallel patterns such as
+task farm, pipeline or divide-and-conquer. In order to transform a sequential
+program into a pattern-based parallel one, the software developer
+may want to apply refactoring transformations on it. This tutorial
+explains a methodology to perform tool supported parallelization of
+programs by presenting how to use a specific static source code
+analysis and transformation system for Erlang. A key element of the
+approach is pattern candidate discovery, a static analysis technique
+to identify code fragments that can be refactored into a parallel
+pattern.
+\end{abstract}
+
+%% 2012 ACM Computing Classification System (CSS) concepts
+%% Generate at 'http://dl.acm.org/ccs/ccs.cfm'.
+
+\begin{CCSXML}
+<ccs2012>
+<concept>
+<concept_id>10011007.10011006.10011073</concept_id>
+<concept_desc>Software and its engineering~Software maintenance tools</concept_desc>
+<concept_significance>500</concept_significance>
+</concept>
+<concept>
+<concept_id>10011007.10011074.10011092</concept_id>
+<concept_desc>Software and its engineering~Software development techniques</concept_desc>
+<concept_significance>500</concept_significance>
+</concept>
+</ccs2012>
+\end{CCSXML}
+
+\ccsdesc[500]{Software and its engineering~Software maintenance tools}
+\ccsdesc[500]{Software and its engineering~Software development techniques}
+
+%% End of generated code
+
+
+%% Keywords
+%% comma separated list
+\keywords{pattern based programming, Erlang, PaRTE, static analysis, refactoring}  %% \keywords are mandatory in final camera-ready submission
+
+
+%% \maketitle
+%% Note: \maketitle command must come after title commands, author
+%% commands, abstract environment, Computing Classification System
+%% environment and commands, and keywords command.
+\maketitle
+
+\section{Introduction}
+\input{intro}
+
+\section{Example: a pattern candidate}
+\input{example}
+
+\input{patterns}
+%\input{skel}
+
+
+\section{Tool support for parallelisation}
+
+\input{parte-tool}
+
+\section{How to build a tool like PaRTE?}
+\input{analysis}
+
+
+\section{Evaluation}
+\input{eval}
+
+\section{Related work}
+\input{related}
+
+
+\section{Summary}
+
+The ParaPhrase Refactoring Tool for Erlang facilitates the parallelization
+of Erlang source code by providing automated pattern candidate discovery and
+refactoring transformations. This paper presents the underlying methodology,
+and teaches the use of the tool. Moreover, we explain how the static source
+code analyses work for parallel pattern candidate discovery -- this information
+can be used to apply the methodology, and implement the parallelization tool,
+in the context of other programming languages. Currently we are working on
+a refactoring tool-chain for Scala. This language has a concurrency tool-set (Akka)
+very similar to that of Erlang. Therefore, the main ideas presented in this
+paper can be reused in the parallelisation of Scala programs -- though many interesting
+problems remain due to the differences in the two languages. Even more
+problems can arise when targeting other programming languages (e.g. OpenMP
+would be a logical choice).
+
+This presentation focused on a set of well-known parallel patterns, including
+the task farm, the pipeline and the divide-and-conquer patterns. We explained
+what kind of program fragments (pattern candidates) can be automatically
+identified by PaRTE, and how to select the most promising candidates.
+The selected candidates can be refactored into
+applications of an algorithmic skeleton library, which implements the
+parallel patterns. Many of the refactoring transformations can be performed
+automatically by the tool, though the most complex ones can only be carried
+out by hand currently. We have evaluated the applicability of the methodology
+on a number of real-world, open source code bases, and found that the tool
+is indeed able to identify many interesting parallel pattern candidates.
+
+There are still, of course, some shortcomings and unsolved implementation
+issues. We do not claim that our parallel pattern candidate discovery is
+either complete or even sound. Some of the discovery rules are trade-offs
+between soundness and (efficient) computability. It might happen that the
+tool presents a ``fake candidate'', which cannot be refactored into a pattern.
+This should not be a problem, however, since our tool is not a compiler
+optimization running unsupervised. Fake candidates can be discarded by the
+user after proper consideration.
+
+The completeness of the discovery is not guaranteed either. Our rules can
+find many interesting candidates, but there may be many more: in the future
+the rule set can be extended, or can be made more accurate. What is even
+more important is the good ranking of the candidates. Completely automatic
+performance estimations are not feasible in more complex cases, so either
+good heuristics are required (such as our existing one using some complexity
+metrics), or the integration  of our tool with an environment supporting
+development-time experimentation and dynamic analyses.
+
+Automatic transformations also have a number of unsolved issues. It might
+happen that a candidate is found by the discovery, but the current
+definition of the appropriate transformation is not able to cover that
+specific candidate. In this case either manual transformation of the code
+is needed (which is error-prone) or the application of a sequence of
+built-in transformations including program shaping before, and code clean-up
+after, the introduction of the desired pattern (like in the case of the \dc{}
+pattern). We are working actively to ensure, and also to prove, soundness
+of the refactoring transformations -- clearly, this is a crucial requirement
+for our approach.
+
+
+\subsection*{Acknowledgement}
+The research has been supported by the European Union, co-financed by the European Social Fund (EFOP-3.6.2-16-2017-00013) in 2017-2018, 
+by the Hungarian Government through the New National Excellence Program of the Ministry of Human Capacities in 2016-2017, 
+by the Higher Education Restructuring Fund of the Hungarian Government in 2015-2016, 
+and by the Seventh Framework Programme (FP7) of the European Union under the contract number 288570 in 2013-2015.
+
+\bibliography{ifl17}
+
+%% \appendix
+%% \setcounter{lemma}{0}
+%% \section{The detailed proofs of lemmas.}\label{proofs}
+%% \input{lemmas.tex}
+
+\end{document}

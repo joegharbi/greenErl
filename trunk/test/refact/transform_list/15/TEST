@@ -1,0 +1,5 @@
+Title: calling side transformations done
+Goal: Calling side transformations are done
+Parameters: [{file,"test.erl"},{position,130}].
+Documentation: Everywhere the recursive function gets called from the 
+list variable gets transformed to a map using maps:from_list/1.

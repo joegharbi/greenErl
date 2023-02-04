@@ -1,0 +1,5 @@
+Title: keydelete return
+Goal: change lists:keydelete to maps:remove
+Parameters: [{file,"test.erl"},{position,95}].
+Documentation: Replace call to lists:keydelete/3 with call to maps:remove/2.
+Wrap the whole thing in maps:to_list, so the return value is a list

@@ -1,0 +1,7 @@
+Title: Modname selected, get_value/3
+Goal: get_value replaced by keyfind
+Parameters: [{file,"getvalue.erl"},{position,38}].
+Documentation: Selected position is inside the module name.
+Eliminate proplists:get_value/3 by using
+lists:keyfind/3 and simulating the same behaviour, as with
+get_value

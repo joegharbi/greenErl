@@ -1,0 +1,4 @@
+Title: non return simple list not transformed
+Goal: No change is done
+Parameters: [{file,"test.erl"},{position,86}].
+Documentation: As the list is not returned in any way, no refactoring is done on it

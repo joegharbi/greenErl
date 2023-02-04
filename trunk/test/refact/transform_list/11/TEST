@@ -1,0 +1,5 @@
+Title: invalid variable selected (not a the list in keyfind)
+Goal: No refactoring is done
+Parameters: [{file,"test.erl"},{position,60}].
+Documentation: The selected variable is the Key variable of the keyfind call.
+Because of this no refactoring is done.

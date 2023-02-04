@@ -1,0 +1,5 @@
+Title: invalid variable use (list is transformed in call)
+Goal: No refactoring is done
+Parameters: [{file,"test.erl"},{position,69}].
+Documentation: The list is transformed in the keyfind call.
+Because of this no refactoring is done.

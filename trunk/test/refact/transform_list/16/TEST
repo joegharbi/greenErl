@@ -1,0 +1,5 @@
+Title: transforming return value, simple list
+Goal: Use maps:to_list/1 to create a list as a return value
+Parameters: [{file,"test.erl"},{position,108}].
+Documentation: If the recursion returns the list, we need to transform the map
+back to a list, so that the calling side does not see the change in return value.

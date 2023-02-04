@@ -1,0 +1,6 @@
+Title: the function is not recursive
+Goal: No refactoring is done
+Parameters: [{file,"test.erl"},{position,72}].
+Documentation: All selection is correct, but the variable is used in a 
+non-recursive function.
+Because of this no refactoring is done.

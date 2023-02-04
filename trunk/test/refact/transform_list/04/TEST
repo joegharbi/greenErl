@@ -1,0 +1,4 @@
+Title: new key, with complex key part in keyfind
+Goal: Simple map pattern matching with correct variables and new key extracted
+Parameters: [{file,"test.erl"},{position,90}].
+Documentation: Extract new key and create map pattern matching.

@@ -1,0 +1,44 @@
+python3 vis.py -f "../results/Geri/queens/queens_log_list.txt" "../results/Geri/queens/queens_log_nohof.txt" "../results/Geri/queens/queens_log_array.txt" "../results/Geri/queens/queens_log_fix.txt" "../results/Geri/queens/queens_log_par.txt" -l -t all
+
+N queens:
+energy_consumption:measure("./rapl-read.out",{n_queens, queens_list, [6 ]},10,"results/Geri/queens/queens_res_list","results/Geri/queens/queens_avg_list","results/Geri/queens/queens_log_list.txt"). 
+energy_consumption:measure("./rapl-read.out",{n_queens, queens_list, [7 ]},10,"results/Geri/queens/queens_res_list","results/Geri/queens/queens_avg_list","results/Geri/queens/queens_log_list.txt"). 
+energy_consumption:measure("./rapl-read.out",{n_queens, queens_list, [8 ]},10,"results/Geri/queens/queens_res_list","results/Geri/queens/queens_avg_list","results/Geri/queens/queens_log_list.txt"). 
+energy_consumption:measure("./rapl-read.out",{n_queens, queens_list, [9 ]},10,"results/Geri/queens/queens_res_list","results/Geri/queens/queens_avg_list","results/Geri/queens/queens_log_list.txt"). 
+energy_consumption:measure("./rapl-read.out",{n_queens, queens_list, [10]},10,"results/Geri/queens/queens_res_list","results/Geri/queens/queens_avg_list","results/Geri/queens/queens_log_list.txt"). 
+energy_consumption:measure("./rapl-read.out",{n_queens, queens_list, [11]},10,"results/Geri/queens/queens_res_list","results/Geri/queens/queens_avg_list","results/Geri/queens/queens_log_list.txt"). 
+energy_consumption:measure("./rapl-read.out",{n_queens, queens_list, [12]},10,"results/Geri/queens/queens_res_list","results/Geri/queens/queens_avg_list","results/Geri/queens/queens_log_list.txt"). 
+
+energy_consumption:measure("./rapl-read.out",{n_queens, queens_nohof, [6 ]},10,"results/Geri/queens/queens_res_nohof","results/Geri/queens/queens_avg_nohof","results/Geri/queens/queens_log_nohof.txt"). 
+energy_consumption:measure("./rapl-read.out",{n_queens, queens_nohof, [7 ]},10,"results/Geri/queens/queens_res_nohof","results/Geri/queens/queens_avg_nohof","results/Geri/queens/queens_log_nohof.txt"). 
+energy_consumption:measure("./rapl-read.out",{n_queens, queens_nohof, [8 ]},10,"results/Geri/queens/queens_res_nohof","results/Geri/queens/queens_avg_nohof","results/Geri/queens/queens_log_nohof.txt"). 
+energy_consumption:measure("./rapl-read.out",{n_queens, queens_nohof, [9 ]},10,"results/Geri/queens/queens_res_nohof","results/Geri/queens/queens_avg_nohof","results/Geri/queens/queens_log_nohof.txt"). 
+energy_consumption:measure("./rapl-read.out",{n_queens, queens_nohof, [10]},10,"results/Geri/queens/queens_res_nohof","results/Geri/queens/queens_avg_nohof","results/Geri/queens/queens_log_nohof.txt"). 
+energy_consumption:measure("./rapl-read.out",{n_queens, queens_nohof, [11]},10,"results/Geri/queens/queens_res_nohof","results/Geri/queens/queens_avg_nohof","results/Geri/queens/queens_log_nohof.txt"). 
+energy_consumption:measure("./rapl-read.out",{n_queens, queens_nohof, [12]},10,"results/Geri/queens/queens_res_nohof","results/Geri/queens/queens_avg_nohof","results/Geri/queens/queens_log_nohof.txt"). 
+
+energy_consumption:measure("./rapl-read.out",{n_queens, queens_array, [6 ]},10,"results/Geri/queens/queens_res_array","results/Geri/queens/queens_avg_array","results/Geri/queens/queens_log_array.txt"). 
+energy_consumption:measure("./rapl-read.out",{n_queens, queens_array, [7 ]},10,"results/Geri/queens/queens_res_array","results/Geri/queens/queens_avg_array","results/Geri/queens/queens_log_array.txt"). 
+energy_consumption:measure("./rapl-read.out",{n_queens, queens_array, [8 ]},10,"results/Geri/queens/queens_res_array","results/Geri/queens/queens_avg_array","results/Geri/queens/queens_log_array.txt"). 
+energy_consumption:measure("./rapl-read.out",{n_queens, queens_array, [9 ]},10,"results/Geri/queens/queens_res_array","results/Geri/queens/queens_avg_array","results/Geri/queens/queens_log_array.txt"). 
+energy_consumption:measure("./rapl-read.out",{n_queens, queens_array, [10]},10,"results/Geri/queens/queens_res_array","results/Geri/queens/queens_avg_array","results/Geri/queens/queens_log_array.txt"). 
+energy_consumption:measure("./rapl-read.out",{n_queens, queens_array, [11]},10,"results/Geri/queens/queens_res_array","results/Geri/queens/queens_avg_array","results/Geri/queens/queens_log_array.txt"). 
+energy_consumption:measure("./rapl-read.out",{n_queens, queens_array, [12]},10,"results/Geri/queens/queens_res_array","results/Geri/queens/queens_avg_array","results/Geri/queens/queens_log_array.txt"). 
+
+energy_consumption:measure("./rapl-read.out",{n_queens, queens_array_fix, [6 ]},10,"results/Geri/queens/queens_res_fix","results/Geri/queens/queens_avg_fix","results/Geri/queens/queens_log_fix.txt"). 
+energy_consumption:measure("./rapl-read.out",{n_queens, queens_array_fix, [7 ]},10,"results/Geri/queens/queens_res_fix","results/Geri/queens/queens_avg_fix","results/Geri/queens/queens_log_fix.txt"). 
+energy_consumption:measure("./rapl-read.out",{n_queens, queens_array_fix, [8 ]},10,"results/Geri/queens/queens_res_fix","results/Geri/queens/queens_avg_fix","results/Geri/queens/queens_log_fix.txt"). 
+energy_consumption:measure("./rapl-read.out",{n_queens, queens_array_fix, [9 ]},10,"results/Geri/queens/queens_res_fix","results/Geri/queens/queens_avg_fix","results/Geri/queens/queens_log_fix.txt"). 
+energy_consumption:measure("./rapl-read.out",{n_queens, queens_array_fix, [10]},10,"results/Geri/queens/queens_res_fix","results/Geri/queens/queens_avg_fix","results/Geri/queens/queens_log_fix.txt"). 
+energy_consumption:measure("./rapl-read.out",{n_queens, queens_array_fix, [11]},10,"results/Geri/queens/queens_res_fix","results/Geri/queens/queens_avg_fix","results/Geri/queens/queens_log_fix.txt"). 
+energy_consumption:measure("./rapl-read.out",{n_queens, queens_array_fix, [12]},10,"results/Geri/queens/queens_res_fix","results/Geri/queens/queens_avg_fix","results/Geri/queens/queens_log_fix.txt"). 
+
+energy_consumption:measure("./rapl-read.out",{n_queens, queens_par, [6 ]},10,"results/Geri/queens/queens_res_par","results/Geri/queens/queens_avg_par","results/Geri/queens/queens_log_par.txt"). 
+energy_consumption:measure("./rapl-read.out",{n_queens, queens_par, [7 ]},10,"results/Geri/queens/queens_res_par","results/Geri/queens/queens_avg_par","results/Geri/queens/queens_log_par.txt"). 
+energy_consumption:measure("./rapl-read.out",{n_queens, queens_par, [8 ]},10,"results/Geri/queens/queens_res_par","results/Geri/queens/queens_avg_par","results/Geri/queens/queens_log_par.txt"). 
+energy_consumption:measure("./rapl-read.out",{n_queens, queens_par, [9 ]},10,"results/Geri/queens/queens_res_par","results/Geri/queens/queens_avg_par","results/Geri/queens/queens_log_par.txt"). 
+energy_consumption:measure("./rapl-read.out",{n_queens, queens_par, [10]},10,"results/Geri/queens/queens_res_par","results/Geri/queens/queens_avg_par","results/Geri/queens/queens_log_par.txt"). 
+energy_consumption:measure("./rapl-read.out",{n_queens, queens_par, [11]},10,"results/Geri/queens/queens_res_par","results/Geri/queens/queens_avg_par","results/Geri/queens/queens_log_par.txt"). 
+energy_consumption:measure("./rapl-read.out",{n_queens, queens_par, [12]},10,"results/Geri/queens/queens_res_par","results/Geri/queens/queens_avg_par","results/Geri/queens/queens_log_par.txt"). 
+
+

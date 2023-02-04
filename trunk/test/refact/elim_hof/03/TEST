@@ -1,0 +1,5 @@
+Title: lists:map to list_comp, fun_expr, single_body
+Goal: Eliminate HOF with list comprehension
+Parameters: [{file,"test.erl"},{hof_mode, list_comp},{position,40}].
+Documentation: lists:map used with fun expression. The fun expression has 
+only one clause and one statement in its body, with no guards.

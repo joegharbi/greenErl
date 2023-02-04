@@ -1,0 +1,71 @@
+2018.09.25
+TODO:
+ -Meresek futtatasahoz fun-okba csomagolni a hivasokat ami eddig csak egy txt-ben volt meg
+ -Minden log fajl, txt rendszerezesere kitalalni valamit, mert jelenleg szornyu
+ -Script a tesztek egyszerubb futtatasahoz
+ -Mereseket csinalni egyelore kisebb reszekben:
+   -Aron: processek, spawnok merese
+   -Gergo: higher order functionok merese
+           maps modult megnezni
+ -BenchErl-t megnezni
+ -Joulemeter Windowson meresre
+ -Kene valami szerver a meresekre
+   -Egyelore jo sajat gepeken, amit ossze akarunk vetni ugyanazon merjuk
+   -Virtualis  megoldasok megnezese (eleg valoszinu hogy a RAPL nem mukodne  rajta)
+
+PROGRESS:
+ Megneztuk, hogy az UNKP palyazat es a TDK dolgozat alapjan mivel kell/tudunk foglalkozni,
+ ezek alapjan celok kituzese es feladatmegosztas.
+
+fajlrendszerezes:
+
++ rapl
+	% Itt lennenek a rapl dolgai, es kell hozza egy rovid leiras is hogy hogyan kene hasznalni
++ papers
+	% Barmi ami hasznos cikk, eloadas, akarmi...
++ notes
+	% Ez a txt + mindenfele leiras hogy mit hogy kell hasznalni (lehet h jobb ha minden mellett van leiras)
++ visualization
+	% A Python script mappaja
++ measurements
+	+ algo_nev_egy
+		- algo_nev_egy.erl		% Erlang fajl az algoritmushoz, benne a tobbfele implementacio (ertelmesen elnevezve)
+		- valami script a meresek futtatasahoz (kitalalni hogy pontosan hogyan)
+		+ results
+			+ meresi_config_1	% Pl.: Gergo laptop, Aron desktop, szerver stb...
+				- algo_nev_egy_verzio_a.log  % A visualization-hoz kello adatok
+				- algo_nev_egy_verzio_a.dets % A dets-eknek is lehetne kiterjeszteset adni
+				- valahol itt egy script/command a visualization-hoz
+			+ meresi_config_2
+
+	+ algo_nev_ketto
+	.
+	.
+	+ algo_nev_n
+
+- makefile 	% rapl forditasa + takaritas
+
+2018.10.02
+TODO:
+ -uj directory tree megvalositasa
+ -utana scriptek frissitese
+ -python script a meresek futtatasara is
+ -vis.py frissitese hogy legyen benne file picker
+ -OTDK-ra a dolgozat frissitese ha kell
+  -RAPL hibajarol irni 
+  -ures meressel megnezni a konstans alapjarati fogyasztast
+
+2018.10.21
+Progress:
+ -GUI elkezdve az egyszerubb meres futtatasahoz
+ -Nagyjabol megvan hogy mit akarunk elerni ezekkel:
+  -Egy programot/scriptet futtatva ki lehessen valasztani a meres osszes parameteret, es vizualizalni is
+  -Ehhez megirni a run.py scriptet es atirni a vis.py scriptet
+ - pyRlang hasznalata, ehhez kell 'sudo pip3 install -r requirements.txt' es letolteni a https://github.com/Pyrlang/Pyrlang repot
+ -OTDK dolgozat beadasra kesz allapotban
+
+TODO:
+ Erlang es python kommunikacio
+ Meresek parametereinek allitgatasa pythonban
+
+
