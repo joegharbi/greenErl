@@ -50,20 +50,14 @@ import pdb
 #     exit()
 
 # Class for storing measurement data
-
-
 class Measurement:
     def __init__(self):
         self.setDefaultValues()
 
     def setDefaultValues(self):
         self.erlangFile = ''
-        self.raplFile = os.getcwd() + '/rapl-read.out'
         self.erlangMeasureFile = os.getcwd() + '/rapl_erlang/energy_consumption.erl'
         self.numberOfMeasurements = 10
-        self.makeNeeded = True
-        self.setupNeeded = True
-        self.raplFileRelativePath = './rapl-read.out'
         self.erlangMeasureModule = 'energy_consumption'
         self.moduleName = ''
         self.functionsToMeasure = ''
@@ -74,8 +68,6 @@ class Measurement:
         self.setDefaultValues()
 
 # Class for creating GUI
-
-
 class GUI:
     def __init__(self):
         self.measurement = Measurement()
@@ -102,60 +94,6 @@ class GUI:
                                             text='No file selected')
         self.currentErlangFileLabel.grid(column=2, row=r, sticky=W)
 
-        # Make
-        r += 1
-        self.makeLabel = Label(self.window,
-                               justify='right',
-                               anchor='e',
-                               width=25,
-                               text='Build measuring program')
-        self.makeLabel.grid(column=0, row=r, sticky=E)
-        self.makeButton = Button(self.window,
-                                 text='Make',
-                                 width=8,
-                                 command=self.make)
-        self.makeButton.grid(column=1, row=r)
-
-        # Setup
-        r += 1
-        self.setupLabel = Label(self.window,
-                                justify='right',
-                                anchor='e',
-                                width=25,
-                                text='Setup measuring environment')
-        self.setupLabel.grid(column=0, row=r, sticky=E)
-        self.setupButton = Button(self.window,
-                                  text='Setup',
-                                  width=8,
-                                  command=self.setup)
-        self.setupButton.grid(column=1, row=r)
-        self.setupErrorLabel = Label(self.window,
-                                     justify='left',
-                                     anchor='w',
-                                     text='')
-        self.setupErrorLabel.grid(column=2, row=r, sticky=W)
-        if os.getpid() != 0:
-            self.setupButton['state'] = 'disabled'
-            self.setupErrorLabel.configure(
-                text='You must be root to run setup', fg='red')
-
-        # Input measuring program
-        r += 1
-        self.raplFileLabel = Label(self.window,
-                                   justify='right',
-                                   anchor='e',
-                                   width=25,
-                                   text='Rapl program to measure with')
-        self.raplFileLabel.grid(column=0, row=r, sticky=E)
-        self.raplFileButton = Button(self.window,
-                                     text='Select file',
-                                     width=8,
-                                     command=self.getRaplFilePath)
-        self.raplFileButton.grid(column=1, row=r)
-        self.currentRaplFileLabel = Label(self.window,
-                                          justify='left',
-                                          text=getRelativePath(self.measurement.raplFile))
-        self.currentRaplFileLabel.grid(column=2, row=r, sticky=W)
 
         # Input measuring erlang
         r += 1
@@ -241,89 +179,7 @@ class GUI:
                                               text='Start measurement',
                                               command=self.startMeasurement)
         self.erlangMeasureFileButton.grid(column=0, row=r, sticky=W)
-
-        # Visualize
-        r += 1
-        self.visualisationOptionLabel = Label(self.window,
-                                              justify='right',
-                                              anchor='e',
-                                              width=25,
-                                              text='Method:')
-        self.visualisationOptionLabel.grid(column=0, row=r, sticky=E)
-
-        self.methodOptions = ('msr', 'perf_event', 'sysfs')
-        self.selectedOption = StringVar()
-        self.selectedOption.set(self.methodOptions[0])
-        self.visualisationOptionMenu = OptionMenu(
-            self.window, self.selectedOption, *self.methodOptions)
-        self.visualisationOptionMenu.grid(column=1, row=r, sticky=W)
-
-        self.visualisationLogScaleLabel = Label(self.window,
-                                                justify='right',
-                                                anchor='w',
-                                                width=25,
-                                                text='LogScale:')
-        self.visualisationLogScaleLabel.grid(column=2, row=r, sticky=W)
-        self.logScaleIsChecked = BooleanVar(value=False)
-        self.logScaleCheckBox = Checkbutton(
-            self.window,
-            variable=self.logScaleIsChecked, offvalue=False, onvalue=True)
-        self.logScaleCheckBox.grid(column=2, row=r)
-
-        r += 1
-        self.visualisationDomainLabel = Label(self.window,
-                                              justify='right',
-                                              anchor='e',
-                                              width=25,
-                                              text='Domains:')
-        self.visualisationDomainLabel.grid(
-            column=0, row=r, sticky=E, rowspan=3)
-        self.ramIsChecked = BooleanVar(value=False)
-        self.coreIsChecked = BooleanVar(value=False)
-        self.gpuIsChecked = BooleanVar(value=False)
-        self.pkgIsChecked = BooleanVar(value=False)
-        self.timeIsChecked = BooleanVar(value=True)
-        self.allIsChecked = BooleanVar(value=True)
-        self.ramCheckBox = Checkbutton(
-            self.window, text="RAM",
-            variable=self.ramIsChecked, offvalue=False, onvalue=True)
-        self.ramCheckBox.grid(column=1, row=r, sticky=W)
-
-        self.coreCheckBox = Checkbutton(
-            self.window, text="core",
-            variable=self.coreIsChecked, offvalue=False, onvalue=True)
-        self.coreCheckBox.grid(column=2, row=r, sticky=W)
-        r += 1
-        self.gpuCheckBox = Checkbutton(
-            self.window, text="gpu",
-            variable=self.gpuIsChecked, offvalue=False, onvalue=True)
-        self.gpuCheckBox.grid(column=1, row=r, sticky=W)
-
-        self.pkgCheckBox = Checkbutton(
-            self.window, text="pkg",
-            variable=self.pkgIsChecked, offvalue=False, onvalue=True)
-        self.pkgCheckBox.grid(column=2, row=r, sticky=W)
-        r += 1
-        self.timeCheckBox = Checkbutton(
-            self.window, text="time",
-            variable=self.timeIsChecked, offvalue=False, onvalue=True)
-        self.timeCheckBox.grid(column=1, row=r, sticky=W)
-
-        self.allCheckBox = Checkbutton(
-            self.window, text="all",
-            variable=self.allIsChecked, offvalue=False, onvalue=True)
-        self.allCheckBox.grid(column=2, row=r, sticky=W)
-
-        r += 1
-        self.visualizeButton = Button(self.window,
-                                      text='Visualize',
-                                      command=self.visualize)
-        self.visualizeButton.grid(column=0, row=r, sticky=W, padx=6, pady=4)
-        r += 1
-        self.quickvisButton = Button(self.window,
-                                     text='QuickVis',
-                                     command=self.quickVis)
-        self.quickvisButton.grid(column=0, row=r, sticky=W, padx=6, pady=4)
+      
 
         # Error display
         r += 1
@@ -342,22 +198,11 @@ class GUI:
         if erlangFile == ():
             return
         else:
+            print (getRelativePath(erlangFile))
             self.measurement.erlangFile = erlangFile
             self.measurement.moduleName = getModuleNameFromPath(erlangFile)
             self.currentErlangFileLabel.configure(
                 text=getRelativePath(erlangFile))
-
-    def getRaplFilePath(self):
-        raplFile = filedialog.askopenfilename()
-        if raplFile == ():
-            return
-        else:
-            self.measurement.raplFile = raplFile
-            self.measurement.raplFileRelativePath = getRelativePath(raplFile)
-            if self.measurement.raplFileRelativePath[0] != '.':
-                self.measurement.raplFileRelativePath = '.' + \
-                    self.measurement.raplFileRelativePath
-            self.currentRaplFileLabel.configure(text=getRelativePath(raplFile))
 
     def getErlangMeasureFilePath(self):
         erlangMeasureFile = filedialog.askopenfilename()
@@ -367,26 +212,8 @@ class GUI:
             self.measurement.erlangMeasureFile = erlangMeasureFile
             self.measurement.erlangMeasureModule = getModuleNameFromPath(
                 erlangMeasureFile)
-            self.currentRaplFileLabel.configure(
-                text=getRelativePath(erlangMeasureFile))
-
-    def make(self):
-        self.measurement.makeNeeded = False
-        make()
-
-    def setup(self):
-        if os.getuid() != 0:
-            errorStr = "You must be root to run setup!"
-            self.errorLabel.configure(text=errorStr, fg='red')
-        else:
-            self.measurement.setupNeeded = False
-            setup()
-
+            
     def populateAndValidateMeasurementData(self):
-        if len(self.measurementList) > 0:
-            self.measurement.makeNeeded = False
-            self.measurement.setupNeeded = False
-
         self.measurement.numberOfMeasurements = self.numberOfMeasurements.get()
         errorStr = ''
         if self.measurement.erlangFile == '':
@@ -420,10 +247,6 @@ class GUI:
         return True
 
     def resetGUIData(self):
-        self.currentRaplFileLabel.configure(
-            text=getRelativePath(self.measurement.erlangMeasureFile))
-        self.currentRaplFileLabel.configure(
-            text=getRelativePath(self.measurement.raplFile))
         self.currentErlangFileLabel.configure(
             text=getRelativePath(self.measurement.erlangFile))
         self.functionsToMeasureEntry.delete(0, END)
@@ -573,13 +396,12 @@ def removeFilenameFromPath(fullPath):
 def getRelativePath(fullPath):
     if fullPath == '':
         return ''
-
     currentDir = os.getcwd().split('/')
     filePath = fullPath.split('/')
     i = 0
     while i < len(currentDir) and i < len(filePath) and currentDir[i] == filePath[i]:
         i += 1
-    relativePath = '../'*(len(currentDir) - i) + '/'.join(filePath[i:])
+    relativePath = ''*(len(currentDir) - i) + '/'.join(filePath[i:])
     return relativePath
 
 
@@ -589,28 +411,10 @@ def getModuleNameFromPath(fullPath):
     return moduleName
 
 
-def setup():
-    subprocess.call(['sudo', 'make', 'setup'])
-
-
-def make():
-    subprocess.call(['make'])
-
-
 def measure(measurement):
-    # Make if needed
-    if measurement.makeNeeded:
-        make()
-        measurement.makeNeeded = False
-
-    # Setup if needed
-    if measurement.setupNeeded and os.getuid() == 0:
-        setup()
-        measurement.setupNeeded = False
-
     hipeCompile = False
     compileTemplate = 'c("{0}", [native,{{hipe, {{verbose, true}}}}]). ' if hipeCompile else 'c("{0}"). '
-    measureTemplate = '{erlangMeasureModule}:measure("{raplFile}",{{{moduleName}, {functionsToMeasure}, {inputDescs}}},{numberOfMeasurements},"{resultFolder}"). '
+    measureTemplate = '{erlangMeasureModule}:measure({{{moduleName}, {functionsToMeasure}, {inputDescs}}},{numberOfMeasurements}).'
     erlangCommand = ''
     # Compile measuring program
     erlangCommand += compileTemplate.format(measurement.erlangMeasureFile)
@@ -618,12 +422,10 @@ def measure(measurement):
     erlangCommand += compileTemplate.format(measurement.erlangFile)
     # Call measureFunctions
     erlangCommand += measureTemplate.format(erlangMeasureModule=measurement.erlangMeasureModule,
-                                            raplFile=measurement.raplFile,
                                             moduleName=measurement.moduleName,
                                             functionsToMeasure=measurement.functionsToMeasure,
                                             inputDescs=measurement.inputDescs,
-                                            numberOfMeasurements=measurement.numberOfMeasurements,
-                                            resultFolder=measurement.resultPath)
+                                            numberOfMeasurements=measurement.numberOfMeasurements)
     # Create and run subprocess for Erlang
     echoErlCmdProc = subprocess.Popen(
         ['echo', erlangCommand], stdout=subprocess.PIPE)
@@ -631,11 +433,6 @@ def measure(measurement):
         ['erl', '+P', '134217727'], stdin=echoErlCmdProc.stdout)
     echoErlCmdProc.stdout.close()
     erlangProc.communicate()
-
-    # Change owner and group for all created files
-    user = subprocess.check_output("who").split()[0].decode("utf-8")
-    subprocess.call(['chown', '-R', user, measurement.resultPath])
-    subprocess.call(['chgrp', '-R', user, measurement.resultPath])
 
 
 def main():
