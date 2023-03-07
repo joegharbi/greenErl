@@ -56,12 +56,13 @@ class Measurement:
 
     def setDefaultValues(self):
         self.erlangFile = ''
-        self.erlangMeasureFile = os.getcwd() + '/rapl_erlang/energy_consumption.erl'
+        self.erlangMeasureFile = 'C:/erlab/lab_II/greenErl/green_erlang/rapl_erlang/energy_consumption.erl'
+        # self.erlangMeasureFile = os.getcwd() + '\\rapl_erlang\\energy_consumption.erl'
         self.numberOfMeasurements = 10
         self.erlangMeasureModule = 'energy_consumption'
         self.moduleName = ''
         self.functionsToMeasure = ''
-        self.resultPath = ''
+        # self.resultPath = ''
         self.inputDescs = '[]'
 
     def clear(self):
@@ -110,7 +111,7 @@ class GUI:
         self.erlangMeasureFileButton.grid(column=1, row=r)
         self.currentErlangMeasureFileLabel = Label(self.window,
                                                    justify='left',
-                                                   text=getRelativePath(self.measurement.erlangMeasureFile))
+                                                   text=self.measurement.erlangMeasureFile)
         self.currentErlangMeasureFileLabel.grid(column=2, row=r, sticky=W)
 
         # Number of measurements
@@ -155,16 +156,16 @@ class GUI:
         self.inputDescsEntry.grid(column=1, row=r)
 
         # Result folder
-        r += 1
-        self.resultFolderLabel = Label(self.window,
-                                       justify='right',
-                                       anchor='e',
-                                       width=25,
-                                       text='Result folder name')
-        self.resultFolderLabel.grid(column=0, row=r, sticky=E)
-        self.resultFolderEntry = Entry(self.window,
-                                       width=10)
-        self.resultFolderEntry.grid(column=1, row=r)
+        # r += 1
+        # self.resultFolderLabel = Label(self.window,
+        #                                justify='right',
+        #                                anchor='e',
+        #                                width=25,
+        #                                text='Result folder name')
+        # self.resultFolderLabel.grid(column=0, row=r, sticky=E)
+        # self.resultFolderEntry = Entry(self.window,
+        #                                width=10)
+        # self.resultFolderEntry.grid(column=1, row=r)
 
         # Add measurement to list
         r += 1
@@ -198,7 +199,6 @@ class GUI:
         if erlangFile == ():
             return
         else:
-            print (getRelativePath(erlangFile))
             self.measurement.erlangFile = erlangFile
             self.measurement.moduleName = getModuleNameFromPath(erlangFile)
             self.currentErlangFileLabel.configure(
@@ -212,6 +212,8 @@ class GUI:
             self.measurement.erlangMeasureFile = erlangMeasureFile
             self.measurement.erlangMeasureModule = getModuleNameFromPath(
                 erlangMeasureFile)
+            self.currentErlangMeasureFileLabel.configure(
+                text=getRelativePath(erlangMeasureFile))
             
     def populateAndValidateMeasurementData(self):
         self.measurement.numberOfMeasurements = self.numberOfMeasurements.get()
@@ -225,14 +227,14 @@ class GUI:
         if functionsToMeasureStr == '':
             self.measurement.functionsToMeasure = 'all'
 
-        resultRelativePath = self.resultFolderEntry.get()
-        self.measurement.resultPath = removeFilenameFromPath(
-            self.measurement.erlangFile) + '/results/' + resultRelativePath
-        if resultRelativePath == '':
-            errorStr += 'No folder for results specified\n'
-        else:
-            if not os.path.exists(self.measurement.resultPath):
-                os.makedirs(self.measurement.resultPath)
+        # resultRelativePath = self.resultFolderEntry.get()
+        # self.measurement.resultPath = removeFilenameFromPath(
+        #     self.measurement.erlangFile) + '/results/' + resultRelativePath
+        # if resultRelativePath == '':
+        #     errorStr += 'No folder for results specified\n'
+        # else:
+        #     if not os.path.exists(self.measurement.resultPath):
+        #         os.makedirs(self.measurement.resultPath)
 
         self.measurement.inputDescs = '[{0}]'.format(
             self.inputDescsEntry.get())
@@ -251,7 +253,7 @@ class GUI:
             text=getRelativePath(self.measurement.erlangFile))
         self.functionsToMeasureEntry.delete(0, END)
         self.inputDescsEntry.delete(0, END)
-        self.resultFolderEntry.delete(0, END)
+        # self.resultFolderEntry.delete(0, END)
         self.numberOfMeasurements.set(self.measurement.numberOfMeasurements)
 
     def addMeasurement(self):
@@ -271,121 +273,121 @@ class GUI:
         self.measurementList = []
         self.errorLabel.configure(text='Measurement done', fg='green')
 
-    def visualize(self):
-        self.measurement.numberOfMeasurements = self.numberOfMeasurements.get()
-        errorStr = ''
-        if self.measurement.erlangFile == '':
-            errorStr += 'No Erlang file selected for measurement!\n'
+    # def visualize(self):
+    #     self.measurement.numberOfMeasurements = self.numberOfMeasurements.get()
+    #     errorStr = ''
+    #     if self.measurement.erlangFile == '':
+    #         errorStr += 'No Erlang file selected for measurement!\n'
 
-        functionsToMeasureStr = self.functionsToMeasureEntry.get().strip()
-        self.measurement.functionsToMeasure = '[{0}]'.format(
-            functionsToMeasureStr)
-        if functionsToMeasureStr == '':
-            self.measurement.functionsToMeasure = 'all'
+    #     functionsToMeasureStr = self.functionsToMeasureEntry.get().strip()
+    #     self.measurement.functionsToMeasure = '[{0}]'.format(
+    #         functionsToMeasureStr)
+    #     if functionsToMeasureStr == '':
+    #         self.measurement.functionsToMeasure = 'all'
 
-        resultRelativePath = self.resultFolderEntry.get()
-        self.measurement.resultPath = removeFilenameFromPath(
-            self.measurement.erlangFile) + '/results/' + resultRelativePath
-        if resultRelativePath == '':
-            errorStr += 'No folder for results specified\n'
-        else:
-            if not os.path.exists(self.measurement.resultPath):
-                errorStr += 'Results folder does not exist\n'
+    #     resultRelativePath = self.resultFolderEntry.get()
+    #     self.measurement.resultPath = removeFilenameFromPath(
+    #         self.measurement.erlangFile) + '/results/' + resultRelativePath
+    #     if resultRelativePath == '':
+    #         errorStr += 'No folder for results specified\n'
+    #     else:
+    #         if not os.path.exists(self.measurement.resultPath):
+    #             errorStr += 'Results folder does not exist\n'
 
-        if errorStr == '':
-            self.errorLabel.configure(text='OK', fg='green')
-        else:
-            self.errorLabel.configure(text=errorStr, fg='red')
-            return
+    #     if errorStr == '':
+    #         self.errorLabel.configure(text='OK', fg='green')
+    #     else:
+    #         self.errorLabel.configure(text=errorStr, fg='red')
+    #         return
 
-        resultFiles = [fileName for fileName in os.listdir(
-            self.measurement.resultPath) if fileName[-4:] == '.csv']
-        if self.measurement.functionsToMeasure != 'all':
-            filteredResults = []
-            functionNames = [s.strip(
-            ) + "_log.csv" for s in self.measurement.functionsToMeasure[1:-1].split(',')]
-            for eachFunctionName in functionNames:
-                for eachFileName in resultFiles:
-                    if eachFunctionName in eachFileName:
-                        filteredResults.append(eachFileName)
-                        break
-            resultFiles = filteredResults
+    #     resultFiles = [fileName for fileName in os.listdir(
+    #         self.measurement.resultPath) if fileName[-4:] == '.csv']
+    #     if self.measurement.functionsToMeasure != 'all':
+    #         filteredResults = []
+    #         functionNames = [s.strip(
+    #         ) + "_log.csv" for s in self.measurement.functionsToMeasure[1:-1].split(',')]
+    #         for eachFunctionName in functionNames:
+    #             for eachFileName in resultFiles:
+    #                 if eachFunctionName in eachFileName:
+    #                     filteredResults.append(eachFileName)
+    #                     break
+    #         resultFiles = filteredResults
 
-        completeResultPaths = [self.measurement.resultPath +
-                               '/' + resultFile for resultFile in resultFiles]
-        visualizer = vis.MeasurementVisualizer()
-        resultHandler = vis.ResultHandler()
-        for filename in completeResultPaths:
-            resultHandler.AppendFromCSV(filename)
-        visualizer.AttachResultHandler(resultHandler)
-        if self.ramIsChecked.get():
-            visualizer.DrawFigure(self.selectedOption.get(
-            ), vis.Domain.RAM, self.logScaleIsChecked.get())
-        if self.coreIsChecked.get():
-            visualizer.DrawFigure(self.selectedOption.get(
-            ), vis.Domain.CORE, self.logScaleIsChecked.get())
-        if self.gpuIsChecked.get():
-            visualizer.DrawFigure(self.selectedOption.get(
-            ), vis.Domain.GPU, self.logScaleIsChecked.get())
-        if self.pkgIsChecked.get():
-            visualizer.DrawFigure(self.selectedOption.get(
-            ), vis.Domain.PKG, self.logScaleIsChecked.get())
-        if self.timeIsChecked.get():
-            visualizer.DrawFigure(self.selectedOption.get(
-            ), vis.Domain.TIME, self.logScaleIsChecked.get())
-        if self.allIsChecked.get():
-            visualizer.DrawFigure(self.selectedOption.get(
-            ), vis.Domain.ALL, self.logScaleIsChecked.get())
+    #     completeResultPaths = [self.measurement.resultPath +
+    #                            '/' + resultFile for resultFile in resultFiles]
+    #     visualizer = vis.MeasurementVisualizer()
+    #     resultHandler = vis.ResultHandler()
+    #     for filename in completeResultPaths:
+    #         resultHandler.AppendFromCSV(filename)
+    #     visualizer.AttachResultHandler(resultHandler)
+    #     if self.ramIsChecked.get():
+    #         visualizer.DrawFigure(self.selectedOption.get(
+    #         ), vis.Domain.RAM, self.logScaleIsChecked.get())
+    #     if self.coreIsChecked.get():
+    #         visualizer.DrawFigure(self.selectedOption.get(
+    #         ), vis.Domain.CORE, self.logScaleIsChecked.get())
+    #     if self.gpuIsChecked.get():
+    #         visualizer.DrawFigure(self.selectedOption.get(
+    #         ), vis.Domain.GPU, self.logScaleIsChecked.get())
+    #     if self.pkgIsChecked.get():
+    #         visualizer.DrawFigure(self.selectedOption.get(
+    #         ), vis.Domain.PKG, self.logScaleIsChecked.get())
+    #     if self.timeIsChecked.get():
+    #         visualizer.DrawFigure(self.selectedOption.get(
+    #         ), vis.Domain.TIME, self.logScaleIsChecked.get())
+    #     if self.allIsChecked.get():
+    #         visualizer.DrawFigure(self.selectedOption.get(
+    #         ), vis.Domain.ALL, self.logScaleIsChecked.get())
 
-    def quickVis(self):
-        self.measurement.numberOfMeasurements = self.numberOfMeasurements.get()
-        errorStr = ''
-        if self.measurement.erlangFile == '':
-            errorStr += 'No Erlang file selected for measurement!\n'
+    # def quickVis(self):
+    #     self.measurement.numberOfMeasurements = self.numberOfMeasurements.get()
+    #     errorStr = ''
+    #     if self.measurement.erlangFile == '':
+    #         errorStr += 'No Erlang file selected for measurement!\n'
 
-        functionsToMeasureStr = self.functionsToMeasureEntry.get().strip()
-        self.measurement.functionsToMeasure = '[{0}]'.format(
-            functionsToMeasureStr)
-        if functionsToMeasureStr == '':
-            self.measurement.functionsToMeasure = 'all'
+    #     functionsToMeasureStr = self.functionsToMeasureEntry.get().strip()
+    #     self.measurement.functionsToMeasure = '[{0}]'.format(
+    #         functionsToMeasureStr)
+    #     if functionsToMeasureStr == '':
+    #         self.measurement.functionsToMeasure = 'all'
 
-        resultRelativePath = self.resultFolderEntry.get()
-        self.measurement.resultPath = removeFilenameFromPath(
-            self.measurement.erlangFile) + '/results/' + resultRelativePath
-        if resultRelativePath == '':
-            errorStr += 'No folder for results specified\n'
-        else:
-            if not os.path.exists(self.measurement.resultPath):
-                errorStr += 'Results folder does not exist\n'
+    #     resultRelativePath = self.resultFolderEntry.get()
+    #     self.measurement.resultPath = removeFilenameFromPath(
+    #         self.measurement.erlangFile) + '/results/' + resultRelativePath
+    #     if resultRelativePath == '':
+    #         errorStr += 'No folder for results specified\n'
+    #     else:
+    #         if not os.path.exists(self.measurement.resultPath):
+    #             errorStr += 'Results folder does not exist\n'
 
-        if errorStr == '':
-            self.errorLabel.configure(text='OK', fg='green')
-        else:
-            self.errorLabel.configure(text=errorStr, fg='red')
-            return
+    #     if errorStr == '':
+    #         self.errorLabel.configure(text='OK', fg='green')
+    #     else:
+    #         self.errorLabel.configure(text=errorStr, fg='red')
+    #         return
 
-        resultFiles = [fileName for fileName in os.listdir(
-            self.measurement.resultPath) if fileName[-4:] == '.csv']
-        if self.measurement.functionsToMeasure != 'all':
-            filteredResults = []
-            functionNames = [s.strip(
-            ) + "_log.csv" for s in self.measurement.functionsToMeasure[1:-1].split(',')]
-            for eachFunctionName in functionNames:
-                for eachFileName in resultFiles:
-                    if eachFunctionName in eachFileName:
-                        filteredResults.append(eachFileName)
-                        break
-            resultFiles = filteredResults
+    #     resultFiles = [fileName for fileName in os.listdir(
+    #         self.measurement.resultPath) if fileName[-4:] == '.csv']
+    #     if self.measurement.functionsToMeasure != 'all':
+    #         filteredResults = []
+    #         functionNames = [s.strip(
+    #         ) + "_log.csv" for s in self.measurement.functionsToMeasure[1:-1].split(',')]
+    #         for eachFunctionName in functionNames:
+    #             for eachFileName in resultFiles:
+    #                 if eachFunctionName in eachFileName:
+    #                     filteredResults.append(eachFileName)
+    #                     break
+    #         resultFiles = filteredResults
 
-        completeResultPaths = [self.measurement.resultPath +
-                               '/' + resultFile for resultFile in resultFiles]
-        visualizer = vis.MeasurementVisualizer()
-        resultHandler = vis.ResultHandler()
-        for filename in completeResultPaths:
-            resultHandler.AppendFromCSV(filename)
-        visualizer.AttachResultHandler(resultHandler)
-        visualizer.DrawAllFigures(
-            self.selectedOption.get(), self.logScaleIsChecked.get())
+    #     completeResultPaths = [self.measurement.resultPath +
+    #                            '/' + resultFile for resultFile in resultFiles]
+    #     visualizer = vis.MeasurementVisualizer()
+    #     resultHandler = vis.ResultHandler()
+    #     for filename in completeResultPaths:
+    #         resultHandler.AppendFromCSV(filename)
+    #     visualizer.AttachResultHandler(resultHandler)
+    #     visualizer.DrawAllFigures(
+    #         self.selectedOption.get(), self.logScaleIsChecked.get())
 
 
 def removeFilenameFromPath(fullPath):
@@ -396,12 +398,12 @@ def removeFilenameFromPath(fullPath):
 def getRelativePath(fullPath):
     if fullPath == '':
         return ''
-    currentDir = os.getcwd().split('/')
+    currentDir = os.getcwd().split('\\')
     filePath = fullPath.split('/')
     i = 0
     while i < len(currentDir) and i < len(filePath) and currentDir[i] == filePath[i]:
         i += 1
-    relativePath = ''*(len(currentDir) - i) + '/'.join(filePath[i:])
+    relativePath = '/'*(len(currentDir) - i) + '/'.join(filePath[i:])
     return relativePath
 
 
@@ -412,9 +414,8 @@ def getModuleNameFromPath(fullPath):
 
 
 def measure(measurement):
-    hipeCompile = False
-    compileTemplate = 'c("{0}", [native,{{hipe, {{verbose, true}}}}]). ' if hipeCompile else 'c("{0}"). '
-    measureTemplate = '{erlangMeasureModule}:measure({{{moduleName}, {functionsToMeasure}, {inputDescs}}},{numberOfMeasurements}).'
+    compileTemplate = 'c("{0}"). '
+    measureTemplate = '{erlangMeasureModule}:measure({{{moduleName}, {functionsToMeasure}, {inputDescs}}},{numberOfMeasurements}). '
     erlangCommand = ''
     # Compile measuring program
     erlangCommand += compileTemplate.format(measurement.erlangMeasureFile)
@@ -427,12 +428,38 @@ def measure(measurement):
                                             inputDescs=measurement.inputDescs,
                                             numberOfMeasurements=measurement.numberOfMeasurements)
     # Create and run subprocess for Erlang
-    echoErlCmdProc = subprocess.Popen(
-        ['echo', erlangCommand], stdout=subprocess.PIPE)
     erlangProc = subprocess.Popen(
-        ['erl', '+P', '134217727'], stdin=echoErlCmdProc.stdout)
-    echoErlCmdProc.stdout.close()
-    erlangProc.communicate()
+        ['erl', '+P', '134217727'], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+    out, _ = erlangProc.communicate(input=erlangCommand.encode())
+    print(out.decode())
+
+
+# def measure(measurement):
+#     # hipeCompile = False
+#     # compileTemplate = 'c("{0}", [native,{{hipe, {{verbose, true}}}}]). ' if hipeCompile else 'c("{0}"). '
+#     compileTemplate = 'c("{0}"). '
+#     measureTemplate = '{erlangMeasureModule}:measure({{{moduleName}, {functionsToMeasure}, {inputDescs}}},{numberOfMeasurements}). '
+#     erlangCommand = ''
+#     # Compile measuring program
+#     erlangCommand += compileTemplate.format(measurement.erlangMeasureFile)
+#     # Compile measured program
+#     erlangCommand += compileTemplate.format(measurement.erlangFile)
+#     # Call measureFunctions
+#     erlangCommand += measureTemplate.format(erlangMeasureModule=measurement.erlangMeasureModule,
+#                                             moduleName=measurement.moduleName,
+#                                             functionsToMeasure=measurement.functionsToMeasure,
+#                                             inputDescs=measurement.inputDescs,
+#                                             numberOfMeasurements=measurement.numberOfMeasurements)
+#     # Create and run subprocess for Erlang
+#     echoErlCmdProc = subprocess.Popen(
+#         ['echo', erlangCommand], stdout=subprocess.PIPE, shell=True)
+#     # echoErlCmdProc.communicate()
+#     # print (echoErlCmdProc.stdout)
+#     erlangProc = subprocess.Popen(
+#         ['erl', '+P', '134217727'], stdin=echoErlCmdProc.std)
+#     # echoErlCmdProc.stdout.close()
+#     erlangProc.communicate()
+#     echoErlCmdProc.wait()
 
 
 def main():
