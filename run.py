@@ -453,13 +453,10 @@ def measure(measurement):
 #     # Create and run subprocess for Erlang
 #     echoErlCmdProc = subprocess.Popen(
 #         ['echo', erlangCommand], stdout=subprocess.PIPE, shell=True)
-#     # echoErlCmdProc.communicate()
-#     # print (echoErlCmdProc.stdout)
 #     erlangProc = subprocess.Popen(
-#         ['erl', '+P', '134217727'], stdin=echoErlCmdProc.std)
-#     # echoErlCmdProc.stdout.close()
+#         ['erl', '+P', '134217727 '], stdin=echoErlCmdProc.stdout)
+#     echoErlCmdProc.stdout.close()
 #     erlangProc.communicate()
-#     echoErlCmdProc.wait()
 
 
 def main():
