@@ -1,5 +1,5 @@
 -module(energy_consumption_res).
--export([measure/3]).
+-export([measure/3, detsToFile/1, detsToFiles/1]).
 
 measure({Module, Functions, [InputDesc|InputDescs]}, Count, ResultPath) -> 
     IsInputDescList = isList(InputDesc),
