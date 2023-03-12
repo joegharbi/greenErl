@@ -1,4 +1,5 @@
 .vscode/*
 .git/*
 **.beam
-**.dump
+erl_crash.dump
+*.json
