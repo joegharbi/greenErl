@@ -53,30 +53,49 @@ measureFunctions({Module, all, Attributes, InputDesc}, Count, ResultPath) ->
 measureFunctions({Module, [Function|Functions], Attributes, InputDesc}, Count, ResultPath) ->
     filelib:ensure_dir(ResultPath),
     io:format("~n Path: ~p~n",[ResultPath]),
-    % ResultOutput = ResultPath ++ atom_to_list(Module) ++ "_" ++ atom_to_list(Function) ++ "_result",
-    % AvgOutput    = ResultPath ++ "/" ++ atom_to_list(Module) ++ "_" ++ atom_to_list(Function) ++ "_avg",
-    % InputDesFile = ResultPath ++ "\"" ++ atom_to_list(Module) ++ "_" ++ atom_to_list(Function) ++ "_" ++ integer_to_list(InputDesc) ++ "_log.json",
-    InputDesFile = "\"" ++ ResultPath ++ atom_to_list(Module) ++ "_" ++ atom_to_list(Function) ++ "_" ++ integer_to_list(InputDesc) ++ "_log.json"++ "\"",
-    % LogFileName  = ResultPath ++ "/" ++ atom_to_list(Module) ++ "_" ++ atom_to_list(Function) ++ "_log.csv",
+    InputDesFile = "\"" ++ ResultPath ++ atom_to_list(Module) ++ "_" ++ atom_to_list(Function) ++
+                    "_" ++ integer_to_list(InputDesc) ++ "_" ++ integer_to_list(Count) ++ ".json"++ "\"",
     io:format("~nCurrently measuring functions with input desctription ~p~n",[InputDesc]),
     Command = "scaphandre json -s 0 -n 100000000 -f " ++ InputDesFile,
-    io:format("~nCommand: ~p~n",[Command]),
+    Output = os:cmd("wmic process call create \"cmd /C start /B"++ Command ++"\" | find \"ProcessId\""),
+    {match, [PidString]} = re:run(Output, "ProcessId = ([0-9]+)", [{capture, all_but_first, list}]),
+    Pid = list_to_integer(PidString),
+    io:format("OS PID: ~p~n", [Pid]),
+    % io:format("~nCommand: ~p~n",[Command]),
+    % Pid = spawn(fun() -> os:cmd(Command) end),
+    % Info = erlang:process_info(Pid),
+    % io:format("Info: ~p~n", [Info]),
+    % ProcessId = element(2, Info),
+    % io:format("Process Id: ~p~n", [ProcessId]),
+    % Pid = spawn(fun() -> os:cmd(Command) end),
+    % timer:sleep(1000),
+    Started_At = erlang:system_time(seconds),
+    io:format("Time started at: ~p~n", [Started_At]),
+    Before = erlang:system_time(1000000),
     Me = self(),
-    Pid = spawn(fun() -> os:cmd(Command) end),
-    % spawn(measureFunction({Module,Function,Attributes,InputDesc}, Count , Me, InputDesFile)),
-    % Ref = monitor(process, Pid),
-    % measureFunction({Module,Function,Attributes,InputDesc}, Count , ResultOutput, InputDesFile),
     measureFunction({Module,Function,Attributes,InputDesc}, Count , Me, InputDesFile),
     receive
-        % {'DOWN', Ref, process, Pid, Reason} ->
-        %     io:format("Process ~p terminated with reason: ~p~n", [Pid, Reason]);
-        stop -> exit(Pid,kill)
-    after 
-        10000 -> % wait for 10 seconds
-        exit(Pid,kill)
+        stop ->  
+            Command1 = "taskkill /F /PID " ++ integer_to_list(Pid),
+            os:cmd(Command1),
+        % stop -> erlang:exit(Pid,kill), 
+                % ProcessId = <process id>,
+                % Command_kill = "taskkill /F /PID " ++ (ProcessId),
+                % Command_kill = "taskkill /F /PID " ++ (Pid),
+                % os:cmd(Command_kill),
+        After = erlang:system_time(1000000),
+        Time = (After - Before)/1000000,
+        % Finished_At = erlang:system_time(seconds),
+        % io:format("Time finished: ~p~n", [Finished_At]),
+        io:format("Time elapsed: ~p~n", [Time]),
+        % io:format("Is the process with PID ~p alive? ~p~n", [Pid, erlang:is_process_alive(Pid)]),
+        % Ns = erlang:monotonic_time(),
+        % io:format("Current time in nanoseconds: ~p~n", [Ns]),
+        io:format("~n killed ~n")
+    % after 
+    %     60000 -> % wait for 60 seconds
+    %     exit(Pid,kill)
     end,
-    % exit(Pid,kill),
-    % Me ! stop,
     measureFunctions({Module, Functions, Attributes, InputDesc}, Count, ResultPath);
 measureFunctions({_, [], _, _}, _, _) -> ok.
 
@@ -93,10 +112,15 @@ measureFunction({M,F,A=[H|_]}, Count, Me, InputDesFile) ->
     % calculateAverage({M,F,A,O},ResultOutput,AvgOutput),
     % averageToFile(AvgOutput,LogFileName);
 measureFunction({_,_,_,_}, 0, Me, _) -> 
+    io:format("~nSending stop~n"),
+    % Ns = erlang:monotonic_time(),
+    % io:format("Finished time in nanoseconds: ~p~n", [Ns]),
+    % timer:sleep(1000),
     Me ! stop;
+    % timer:sleep(2000);
 
 measureFunction({M,F,A,O}, Count, Me, InputDesFile) ->
-    % process_flag(trap_exit, true),
+    process_flag(trap_exit, true),
     io:format("~n----------------------------------------------------~n"),
     io:format("Starting measurement for ~p:~p~nMeasurements left for this funcion for this input: ~p~n", [M, F, Count]),
     apply(M, F, A),
