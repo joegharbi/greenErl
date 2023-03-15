@@ -57,18 +57,21 @@ measureFunctions({Module, [Function|Functions], Attributes, InputDesc}, Count, R
                     "_" ++ integer_to_list(InputDesc) ++ "_" ++ integer_to_list(Count) ++ ".json"++ "\"",
     io:format("~nCurrently measuring functions with input desctription ~p~n",[InputDesc]),
     Command = "scaphandre json -s 0 -n 100000000 -f " ++ InputDesFile,
-    Output = os:cmd("wmic process call create \"cmd /C start /B"++ Command ++"\" | find \"ProcessId\""),
+    Output = os:cmd("wmic process call create \""++ Command ++"\" | find \"ProcessId\""),
     {match, [PidString]} = re:run(Output, "ProcessId = ([0-9]+)", [{capture, all_but_first, list}]),
     Pid = list_to_integer(PidString),
     io:format("OS PID: ~p~n", [Pid]),
+    % Sleep for 0,01 sec the time needed for scaphandre to start dumping values into the json files
+    % If not, we will not be able to measure the values for small input size
+    % timer:sleep(1000),
     % io:format("~nCommand: ~p~n",[Command]),
     % Pid = spawn(fun() -> os:cmd(Command) end),
+    % spawn(fun() -> os:cmd(Command) end),
     % Info = erlang:process_info(Pid),
     % io:format("Info: ~p~n", [Info]),
     % ProcessId = element(2, Info),
     % io:format("Process Id: ~p~n", [ProcessId]),
     % Pid = spawn(fun() -> os:cmd(Command) end),
-    % timer:sleep(1000),
     Started_At = erlang:system_time(seconds),
     io:format("Time started at: ~p~n", [Started_At]),
     Before = erlang:system_time(1000000),
@@ -77,6 +80,7 @@ measureFunctions({Module, [Function|Functions], Attributes, InputDesc}, Count, R
     receive
         stop ->  
             Command1 = "taskkill /F /PID " ++ integer_to_list(Pid),
+            % Command1 = "taskkill /IM \"scaphandre.exe\" /F",
             os:cmd(Command1),
         % stop -> erlang:exit(Pid,kill), 
                 % ProcessId = <process id>,
