@@ -1,3 +1,6 @@
 .vscode/*
 .git/*
-*.beam
+**.beam
+erl_crash.dump
+*.json
+*.csv
