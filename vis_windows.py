@@ -438,7 +438,7 @@ class MeasurementVisualizer:
         counter = 0
         results = self.resultHandler.GetResults()
         for key, domain in results[method].items():
-            fig = Figure(figsize=(4,4), tight_layout= True)
+            fig = Figure(figsize=(5,5), tight_layout= True)
             if(logscale):
                 a = fig.add_subplot(111, yscale='log') 
             else:

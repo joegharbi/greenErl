@@ -35,6 +35,7 @@
 
 import argparse
 import copy
+import json
 from tkinter import *
 from tkinter import filedialog
 from tkinter import ttk
@@ -44,6 +45,11 @@ import os
 import vis
 import time
 import pdb
+import os
+import re
+import csv
+import json
+import matplotlib.pyplot as plt
 
 # if os.getuid() != 0:
 #     print("\033[1m\033[91mERROR: YOU MUST BE ROOT TO RUN THIS PROGRAM\033[0m")
@@ -62,7 +68,7 @@ class Measurement:
         self.erlangMeasureModule = 'energy_consumption'
         self.moduleName = ''
         self.functionsToMeasure = ''
-        # self.resultPath = ''
+        self.resultPath = ''
         self.inputDescs = '[]'
 
     def clear(self):
@@ -156,16 +162,16 @@ class GUI:
         self.inputDescsEntry.grid(column=1, row=r)
 
         # Result folder
-        # r += 1
-        # self.resultFolderLabel = Label(self.window,
-        #                                justify='right',
-        #                                anchor='e',
-        #                                width=25,
-        #                                text='Result folder name')
-        # self.resultFolderLabel.grid(column=0, row=r, sticky=E)
-        # self.resultFolderEntry = Entry(self.window,
-        #                                width=10)
-        # self.resultFolderEntry.grid(column=1, row=r)
+        r += 1
+        self.resultFolderLabel = Label(self.window,
+                                       justify='right',
+                                       anchor='e',
+                                       width=25,
+                                       text='Result folder name')
+        self.resultFolderLabel.grid(column=0, row=r, sticky=E)
+        self.resultFolderEntry = Entry(self.window,
+                                       width=10)
+        self.resultFolderEntry.grid(column=1, row=r)
 
         # Add measurement to list
         r += 1
@@ -227,14 +233,14 @@ class GUI:
         if functionsToMeasureStr == '':
             self.measurement.functionsToMeasure = 'all'
 
-        # resultRelativePath = self.resultFolderEntry.get()
-        # self.measurement.resultPath = removeFilenameFromPath(
-        #     self.measurement.erlangFile) + '/results/' + resultRelativePath
-        # if resultRelativePath == '':
-        #     errorStr += 'No folder for results specified\n'
-        # else:
-        #     if not os.path.exists(self.measurement.resultPath):
-        #         os.makedirs(self.measurement.resultPath)
+        resultRelativePath = self.resultFolderEntry.get()
+        self.measurement.resultPath = removeFilenameFromPath(
+            self.measurement.erlangFile) + '\\\\results\\\\' + resultRelativePath +'\\\\'
+        if resultRelativePath == '':
+            errorStr += 'No folder for results specified\n'
+        else:
+            if not os.path.exists(self.measurement.resultPath):
+                os.makedirs(self.measurement.resultPath)
 
         self.measurement.inputDescs = '[{0}]'.format(
             self.inputDescsEntry.get())
@@ -253,7 +259,7 @@ class GUI:
             text=getRelativePath(self.measurement.erlangFile))
         self.functionsToMeasureEntry.delete(0, END)
         self.inputDescsEntry.delete(0, END)
-        # self.resultFolderEntry.delete(0, END)
+        self.resultFolderEntry.delete(0, END)
         self.numberOfMeasurements.set(self.measurement.numberOfMeasurements)
 
     def addMeasurement(self):
@@ -391,7 +397,7 @@ class GUI:
 
 
 def removeFilenameFromPath(fullPath):
-    path = '/'.join(fullPath.split('/')[:-1])
+    path = '\\\\'.join(fullPath.split('/')[:-1])
     return path
 
 
@@ -412,10 +418,57 @@ def getModuleNameFromPath(fullPath):
     moduleName = '.'.join(fileName.split('.')[:-1])
     return moduleName
 
+def dumpAvg(folder_path):
+     for filename in os.listdir(folder_path):
+        if filename.endswith('.csv'):
+            module_function = filename.split('.')[0]
+            module, function = module_function.split('_', 1)
+            # with open(os.path.join(folder_path, filename), 'a') as f:
+                # writer = csv.writer(f)
+            for json_file in os.listdir(folder_path):
+                if json_file.endswith('.json') and json_file.startswith(module_function):
+                    # input_name = json_file.split('.')[0].split('_')[-1]
+                    with open(os.path.join(folder_path, json_file), 'r') as f:
+                        if f.readable() and f.read(1):
+                            f.seek(0)
+                            data = json.load(f)
+                            total_val = 0
+                            total_num = 0
+                            for snapshot in data:
+                                for consumer in snapshot['consumers']:
+                                    if consumer['exe'] == 'C:\\Program Files\\erl-23.3.4.11\\bin\\erl.exe':
+                                        total_val+=consumer['consumption']
+                                        total_num+=1
+                            if total_num == 0:
+                                res_avg = 0
+                                print ("This file has no erl.exe: ",json_file)
+                            else:
+                                res_avg=total_val/total_num/(1000000)
+                            input_name = json_file.rsplit('_', 1)[1].split('.')[0]
+                            row = [module, function,input_name,'msr','energy-cores',res_avg]
+                            with open(os.path.join(folder_path, filename), 'a+') as f:
+                                reader = csv.reader(f)
+                                rows = list(reader)
+                                if row not in rows:
+                                    row_str = ';'.join(map(str, row))
+                                    f.write(row_str + '\n')
+                                else: 
+                                    continue
+                        else:
+                            print(f"{json_file} is empty")
+
+def cleanCSV(file_csv):
+    with open(file_csv, 'r') as input_file:
+        reader = csv.reader(input_file)
+        rows = [row for row in reader if 'time;time' in row]
+
+    with open(file_csv, 'w') as output_file:
+        writer = csv.writer(output_file)
+        writer.writerows(rows)
 
 def measure(measurement):
     compileTemplate = 'c("{0}"). '
-    measureTemplate = '{erlangMeasureModule}:measure({{{moduleName}, {functionsToMeasure}, {inputDescs}}},{numberOfMeasurements}). '
+    measureTemplate = '{erlangMeasureModule}:measure({{{moduleName}, {functionsToMeasure}, {inputDescs}}},{numberOfMeasurements},"{resultFolder}"). '
     erlangCommand = ''
     # Compile measuring program
     erlangCommand += compileTemplate.format(measurement.erlangMeasureFile)
@@ -426,12 +479,21 @@ def measure(measurement):
                                             moduleName=measurement.moduleName,
                                             functionsToMeasure=measurement.functionsToMeasure,
                                             inputDescs=measurement.inputDescs,
-                                            numberOfMeasurements=measurement.numberOfMeasurements)
+                                            numberOfMeasurements=measurement.numberOfMeasurements,
+                                            resultFolder = measurement.resultPath)
+    print(erlangCommand)
     # Create and run subprocess for Erlang
     erlangProc = subprocess.Popen(
         ['erl', '+P', '134217727'], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
     out, _ = erlangProc.communicate(input=erlangCommand.encode())
-    print(out.decode())
+    dumpAvg(measurement.resultPath)
+    # jsonFileTemplate = '{resultFolder}\\{moduleName}_{functionsToMeasure}'
+    # jsonFile = jsonFileTemplate.format( resultFolder = measurement.resultPath,
+    #                                     moduleName=measurement.moduleName,
+    #                                     functionsToMeasure=measurement.functionsToMeasure)
+    
+    # print(out.decode())
+    # print (jsonFile)
 
 
 # def measure(measurement):

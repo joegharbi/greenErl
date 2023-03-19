@@ -53,8 +53,8 @@ measureFunctions({Module, all, Attributes, InputDesc}, Count, ResultPath) ->
 measureFunctions({Module, [Function|Functions], Attributes, InputDesc}, Count, ResultPath) ->
     filelib:ensure_dir(ResultPath),
     io:format("~n Path: ~p~n",[ResultPath]),
-    InputDesFile = "\"" ++ ResultPath ++ "M_" ++ atom_to_list(Module) ++ "_F_" ++ atom_to_list(Function) ++
-                    "_I_" ++ integer_to_list(InputDesc) ++ ".json"++ "\"",
+    InputDesFile = "\"" ++ ResultPath  ++ atom_to_list(Module) ++ "_" ++ atom_to_list(Function) ++
+                    "_" ++ integer_to_list(InputDesc) ++ ".json"++ "\"",
     % InputDesFile = "\"" ++ ResultPath ++ "M_" ++ atom_to_list(Module) ++ "_F_" ++ atom_to_list(Function) ++
     %                 "_I_" ++ integer_to_list(InputDesc) ++ "_C_" ++ integer_to_list(Count) ++ ".json"++ "\"",
     io:format("~nCurrently measuring functions with input desctription ~p~n",[InputDesc]),
@@ -68,6 +68,8 @@ measureFunctions({Module, [Function|Functions], Attributes, InputDesc}, Count, R
     timer:sleep(1000),
     Me = self(),
     FileName = atom_to_list(Module) ++ "_" ++ atom_to_list(Function) ++ ".csv",
+    % JsonFile = atom_to_list(Module) ++ "_" ++ atom_to_list(Function) ++ ".json",
+    % {ok, _} = file:open(JsonFile, [write]),
     % FileName = atom_to_list(Module) ++ atom_to_list(Function) ++ integer_to_list(InputDesc) ++ ".csv",
     Val = atom_to_list(Module) ++ ";" ++ atom_to_list(Function)++ ";" ++ integer_to_list(InputDesc) ++ ";" ++
     "time" ++ ";" ++ "time",
