@@ -75,18 +75,19 @@ measureFunctions({Module, [Function|Functions], Attributes, InputDesc}, Count, R
     "time" ++ ";" ++ "time",
     % Started_At = erlang:system_time(seconds),
     % io:format("Time started at: ~p~n", [Started_At]),
-    Before = erlang:system_time(1000000),
-    measureFunction({Module,Function,Attributes,InputDesc}, Count , Me, InputDesFile),
+    % Before = erlang:system_time(1000000),
+    % Time = 0,
+    Time = measureFunction({Module,Function,Attributes,InputDesc}, Count , Me, InputDesFile, 0),
     receive
         stop ->  
             timer:sleep(1000),
             Command1 = "taskkill /F /PID " ++ integer_to_list(Pid),
             os:cmd(Command1),
-            After = erlang:system_time(1000000)-(1000000),
-            Time = (After - Before)/1000000,
-            Data = Val ++ ";" ++ float_to_list(Time),
+            % After = erlang:system_time(1000000)-(1000000),
+            % Time = (After - Before)/1000000,
+            Data = Val ++ ";" ++ float_to_list(Time/1000000),
             dumpTime(ResultPath,FileName,Data),
-            io:format("Time elapsed: ~p~n", [Time]),
+            io:format("Time elapsed: ~p~n", [Time/1000000]),
             io:format("~n killed ~n"),
             timer:sleep(1000)
         % after 
@@ -98,26 +99,28 @@ measureFunctions({_, [], _, _}, _, _) -> ok.
 
 
 
-measureFunction({M,F,A=[H|_]}, 0, Me, InputDesFile) -> 
-    measureFunction({M,F,A,H}, 0, Me, InputDesFile);
+measureFunction({M,F,A=[H|_]}, 0, Me, InputDesFile, Time) -> 
+    measureFunction({M,F,A,H}, 0, Me, InputDesFile, Time);
     
-measureFunction({M,F,A=[H|_]}, Count, Me, InputDesFile) -> 
-    measureFunction({M,F,A,H}, Count, Me, InputDesFile);
+measureFunction({M,F,A=[H|_]}, Count, Me, InputDesFile,Time) -> 
+    measureFunction({M,F,A,H}, Count, Me, InputDesFile, Time);
 
 
 % measureFunction({M,F,A,O},0,ResultOutput, InputDesFile) ->
     % calculateAverage({M,F,A,O},ResultOutput,AvgOutput),
     % averageToFile(AvgOutput,LogFileName);
-measureFunction({_,_,_,_}, 0, Me, _) -> 
+measureFunction({_,_,_,_}, 0, Me, _, Time) -> 
     io:format("~nSending stop~n"),
-    Me ! stop;
+    Me ! stop,
+    Time;
 
-measureFunction({M,F,A,O}, Count, Me, InputDesFile) ->
+measureFunction({M,F,A,O}, Count, Me, InputDesFile, Time) ->
     process_flag(trap_exit, true),
     io:format("~n----------------------------------------------------~n"),
     io:format("Starting measurement for ~p:~p~nMeasurements left for this funcion for this input: ~p~n", [M, F, Count]),
-    apply(M, F, A),
-    measureFunction({M,F,A,O},Count-1, Me, InputDesFile).
+    {NewTime,_} = timer:tc(erlang,apply,[M, F, A]), 
+    % apply(M, F, A),
+    measureFunction({M,F,A,O},Count-1, Me, InputDesFile, Time+NewTime).
 
 
 % dumpTime(FileName,Data) ->

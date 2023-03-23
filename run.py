@@ -418,13 +418,31 @@ def getModuleNameFromPath(fullPath):
     moduleName = '.'.join(fileName.split('.')[:-1])
     return moduleName
 
+# def restartFunction(filename):
+#     module_function = filename.split('.')[0]
+#     module, function = module_function.split('_', 1)
+#     print ("Module: ", module," with function: " ,function)
+
+
+def getNames(file_path):
+    with open(file_path, 'r') as f:
+        reader = csv.reader(f)
+        row1 = next(reader)
+        row1="".join(row1[0])
+        module_function = row1.split(';')[:2]
+        module_function = ';'.join(module_function)
+        # print (module_function)
+        return module_function
+    
+
 def dumpAvg(folder_path):
      for filename in os.listdir(folder_path):
         if filename.endswith('.csv'):
             module_function = filename.split('.')[0]
-            module, function = module_function.split('_', 1)
-            # with open(os.path.join(folder_path, filename), 'a') as f:
-                # writer = csv.writer(f)
+            module_function_json = getNames(os.path.join(folder_path, filename))
+            module, function = module_function_json.split(';', 1)
+            # print (module)
+            # print (function)
             for json_file in os.listdir(folder_path):
                 if json_file.endswith('.json') and json_file.startswith(module_function):
                     # input_name = json_file.split('.')[0].split('_')[-1]
@@ -441,9 +459,10 @@ def dumpAvg(folder_path):
                                         total_num+=1
                             if total_num == 0:
                                 res_avg = 0
-                                print ("This file has no erl.exe: ",json_file)
+                                print ("This file has no erl.exe: ",json_file," in folder", folder_path, " ",module_function)
                             else:
-                                res_avg=total_val/total_num/(1000000)
+                                # res_avg=total_val/total_num/(1000000)
+                                res_avg=total_val/total_num
                             input_name = json_file.rsplit('_', 1)[1].split('.')[0]
                             row = [module, function,input_name,'msr','energy-cores',res_avg]
                             with open(os.path.join(folder_path, filename), 'a+') as f:

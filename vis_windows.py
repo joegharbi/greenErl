@@ -289,18 +289,18 @@ class GUI:
             return
         self.exporter.AttachResultHandler(self.resultHandler)
         filename = filedialog.asksaveasfilename(parent=self.window,title = "Select file",filetypes = (("tex files","*.tex"),("all files","*.*")))
-        if self.ramIsChecked.get():
-            self.exporter.ExportToFile(filename + '_ram',self.selectedOption.get(), Domain.RAM, self.logScaleIsChecked.get())
+        # if self.ramIsChecked.get():
+        #     self.exporter.ExportToFile(filename + '_ram',self.selectedOption.get(), Domain.RAM, self.logScaleIsChecked.get())
         if self.coreIsChecked.get():
             self.exporter.ExportToFile(filename + '_ram',self.selectedOption.get(), Domain.CORE, self.logScaleIsChecked.get())
-        if self.gpuIsChecked.get():
-            self.exporter.ExportToFile(filename + '_gpu',self.selectedOption.get(), Domain.GPU, self.logScaleIsChecked.get())
-        if self.pkgIsChecked.get():
-            self.exporter.ExportToFile(filename + '_pkg',self.selectedOption.get(), Domain.PKG, self.logScaleIsChecked.get())
+        # if self.gpuIsChecked.get():
+        #     self.exporter.ExportToFile(filename + '_gpu',self.selectedOption.get(), Domain.GPU, self.logScaleIsChecked.get())
+        # if self.pkgIsChecked.get():
+        #     self.exporter.ExportToFile(filename + '_pkg',self.selectedOption.get(), Domain.PKG, self.logScaleIsChecked.get())
         if self.timeIsChecked.get():
             self.exporter.ExportToFile(filename + '_time',self.selectedOption.get(), Domain.TIME, self.logScaleIsChecked.get())
-        if self.allIsChecked.get():
-            self.exporter.ExportToFile(filename + '_all',self.selectedOption.get(), Domain.ALL, self.logScaleIsChecked.get())
+        # if self.allIsChecked.get():
+        #     self.exporter.ExportToFile(filename + '_all',self.selectedOption.get(), Domain.ALL, self.logScaleIsChecked.get())
         self.errorLabel.configure(text='OK', fg='green')
         return
 
