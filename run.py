@@ -433,10 +433,32 @@ def getNames(file_path):
         module_function = ';'.join(module_function)
         # print (module_function)
         return module_function
+
+# def getPairs(pattern):
+#     # Check if pattern contains optional count tuple
+#     # if re.search(r'{\d+,\d+}', pattern):
+#     #     # print("Pattern contains optional count tuple")
+#     # else:
+#         # print("Pattern does not contain optional count tuple")
+    
+#     # Extract values from pattern
+#     values = re.findall(r'\d+', pattern)
+#     # print("Values extracted from pattern:", values)
+
+#     # Extract pairs from count tuple
+#     pairs = re.findall(r'{(\d+),(\d+)}', pattern)
+#     return pairs
     
 
-def dumpAvg(folder_path):
-     for filename in os.listdir(folder_path):
+
+def dumpAvg(folder_path,count,input):
+    if re.search(r'{\d+,\d+}', input):
+        pairs = re.findall(r'{(\d+),(\d+)}', input)
+        left = [int(pair[0]) for pair in pairs]
+        right = [int(pair[1]) for pair in pairs]
+        # print("Left values:", left)
+        # print("Right values:", right)
+    for filename in os.listdir(folder_path):
         if filename.endswith('.csv'):
             module_function = filename.split('.')[0]
             module_function_json = getNames(os.path.join(folder_path, filename))
@@ -445,7 +467,12 @@ def dumpAvg(folder_path):
             # print (function)
             for json_file in os.listdir(folder_path):
                 if json_file.endswith('.json') and json_file.startswith(module_function):
-                    # input_name = json_file.split('.')[0].split('_')[-1]
+                    # act_inp = json_file.split('.')[0].split('_')[-1]
+                    parts = json_file.split("_")
+                    act_inp = int(parts[-1].split(".")[0])
+                    # act_inp = json_file.rsplit('.', 1)[0].rsplit('_', 1)[-1]
+                    act_inpv = int(act_inp)
+                    # print("actual input values:", act_inpv)
                     with open(os.path.join(folder_path, json_file), 'r') as f:
                         if f.readable() and f.read(1):
                             f.seek(0)
@@ -458,17 +485,28 @@ def dumpAvg(folder_path):
                                         total_val+=consumer['consumption']
                                         total_num+=1
                             if total_num == 0:
+                                # f1 = open(logFile, "a")
+                                # f1.write("This file has no erl.exe: ",json_file)
+                                # f1.close()
                                 res_avg = 0
-                                print ("This file has no erl.exe: ",json_file," in folder", folder_path, " ",module_function)
+                                print ("This file has no erl.exe: ",json_file)
                             else:
                                 # res_avg=total_val/total_num/(1000000)
-                                res_avg=total_val/total_num
+                                # res_avg=total_val/total_num
+                                # print ("count", count)
+                                if re.search(r'{\d+,\d+}', input):
+                                    if act_inpv in left:
+                                        count = right[left.index(act_inpv)]
+                                        res_avg= total_val / count
+                                else:
+                                    res_avg= total_val / count                                
                             input_name = json_file.rsplit('_', 1)[1].split('.')[0]
                             row = [module, function,input_name,'msr','energy-cores',res_avg]
-                            with open(os.path.join(folder_path, filename), 'a+') as f:
+                            with open(os.path.join(folder_path, filename), 'r+') as f:
                                 reader = csv.reader(f)
                                 rows = list(reader)
-                                if row not in rows:
+                                new_row = ';'.join(row[:-1])
+                                if new_row not in [r[0].rsplit(';', 1)[0] for r in rows]:
                                     row_str = ';'.join(map(str, row))
                                     f.write(row_str + '\n')
                                 else: 
@@ -476,14 +514,14 @@ def dumpAvg(folder_path):
                         else:
                             print(f"{json_file} is empty")
 
-def cleanCSV(file_csv):
-    with open(file_csv, 'r') as input_file:
-        reader = csv.reader(input_file)
-        rows = [row for row in reader if 'time;time' in row]
+# def cleanCSV(file_csv):
+#     with open(file_csv, 'r') as input_file:
+#         reader = csv.reader(input_file)
+#         rows = [row for row in reader if 'time;time' in row]
 
-    with open(file_csv, 'w') as output_file:
-        writer = csv.writer(output_file)
-        writer.writerows(rows)
+#     with open(file_csv, 'w') as output_file:
+#         writer = csv.writer(output_file)
+#         writer.writerows(rows)
 
 def measure(measurement):
     compileTemplate = 'c("{0}"). '
@@ -505,7 +543,7 @@ def measure(measurement):
     erlangProc = subprocess.Popen(
         ['erl', '+P', '134217727'], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
     out, _ = erlangProc.communicate(input=erlangCommand.encode())
-    dumpAvg(measurement.resultPath)
+    dumpAvg(measurement.resultPath,measurement.numberOfMeasurements,measurement.inputDescs)
     # jsonFileTemplate = '{resultFolder}\\{moduleName}_{functionsToMeasure}'
     # jsonFile = jsonFileTemplate.format( resultFolder = measurement.resultPath,
     #                                     moduleName=measurement.moduleName,
