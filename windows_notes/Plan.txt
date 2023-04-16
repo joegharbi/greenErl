@@ -1,0 +1,18 @@
+----Abstract----
+I-  Introduction
+	0. Contribution
+	1. Structure of the paper
+II- Background
+	0. Green computing
+	1. Erlang
+	2. RefactorErl
+	3. GreenErl thesis TDK base of my work
+III- tools for Windows (inc Scaphandre)
+IV-Scaphandre based toolchain 
+	1. detailed desc of Scaphandre(framework edit)
+	2. reasons to choose Scaphandre
+	3. how to use it (GreenErl framework edit)
+V- measuring part (handle small inputs in subsection)
+VI- comparison res
+VII- related work (with or without Erlang) cross-platform tools or anything in between
+VIII-Conclusion

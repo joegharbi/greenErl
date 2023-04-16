@@ -1,0 +1,5 @@
+Erlang module: loggin the PID in text file is similar to the one in python => using pids is more precise
+
+python: logged the empty json files and no erl.exe failures in result_path\logs folder.
+
+=> framework ready for measurement

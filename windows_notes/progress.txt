@@ -1,0 +1,22 @@
+04-03-2023
+fixed: 
+	- hadling the csv files duplications
+	- found the statistics python script to generate the tables and graphs
+
+create:
+	- input description tuple handling in erlang measure module and the python script {input,count} or input, default_count
+	- dividing by the corresponding count for the input
+	
+
+
+next_dev:
+	- find an optimal count value for failing cases
+	- create a text file for all input functions and values (no erl.exe logfile, empty measurement.json file)
+	- start the measurement for all
+
+next_dissertation: 
+	- start by the first chapters in the plan
+
+
+Scaphandre finding with larger top consumers: 
+if we increase the maximum number of consumers in the scaphandre json samplings file we will have a larger sized json files but with lots of samplings of the process erl.exe even for the smallest input size like 100 with count 10 similar to the input size of the previous greenErl framework. However the samplings values were all equal to zero despite scaphandre is sampling in nanoseconds and also the values are in microwatts which means the consumption is litreally less than 1e-6 -> negligable. Similar to the 0 running time in nanoseconds from tc module. Are the values correct but negligibale as it looks like? Are zeros fine in the graph meaning the energy consumption was genuinly less than a microwatt (negligable)? obviously increasing the count will result in a higher enegry consumption as we saw, should I do it?
