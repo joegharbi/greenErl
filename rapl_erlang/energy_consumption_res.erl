@@ -35,6 +35,12 @@ measure({Module, Functions, [InputDesc|InputDescs]}, Count, ResultPath) ->
     end,
     measure({Module, Functions, InputDescs}, Count, ResultPath);
 measure({_, _, []}, _, _) -> 
+    % Pid = os:getpid(),
+    FileName = "pid.txt",
+    % File = file:open(FileName, [write]),
+    file:write_file(FileName, io_lib:fwrite("~p.\n", [os:getpid()])),
+    % io:write_file(File, "Process ID: ~p", [os:getpid()]),
+    % file:close(File),
     io:format("~nMeasurements finished succesfully~n", []),
     ok.
 
@@ -59,6 +65,7 @@ measureFunctions({Module, [Function|Functions], Attributes, InputDesc}, Count, R
     InputDesFile = "\"" ++ ResultPath  ++ atom_to_list(Module) ++ "_" ++ atom_to_list(Function) ++
                     "_" ++ integer_to_list(InputDesc) ++ ".json"++ "\"",
    io:format("~nCurrently measuring functions with input desctription ~p~n",[InputDesc]),
+    % Command = "scaphandre json -s 0 -n 100000000 -m 1000 -f " ++ InputDesFile,
     Command = "scaphandre json -s 0 -n 100000000 -f " ++ InputDesFile,
     Output = os:cmd("wmic process call create \""++ Command ++"\" | find \"ProcessId\""),
     {match, [PidString]} = re:run(Output, "ProcessId = ([0-9]+)", [{capture, all_but_first, list}]),
