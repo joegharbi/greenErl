@@ -257,18 +257,18 @@ class GUI:
             self.errorLabel.configure(text='Give me some files first', fg='red')
             return
         self.visualizer.AttachResultHandler(self.resultHandler)
-        if self.ramIsChecked.get():
-            self.visualizer.DrawFigure(self.selectedOption.get(), Domain.RAM, self.logScaleIsChecked.get())
+        # if self.ramIsChecked.get():
+        #     self.visualizer.DrawFigure(self.selectedOption.get(), Domain.RAM, self.logScaleIsChecked.get())
         if self.coreIsChecked.get():
             self.visualizer.DrawFigure(self.selectedOption.get(), Domain.CORE, self.logScaleIsChecked.get())
-        if self.gpuIsChecked.get():
-            self.visualizer.DrawFigure(self.selectedOption.get(), Domain.GPU, self.logScaleIsChecked.get())
-        if self.pkgIsChecked.get():
-            self.visualizer.DrawFigure(self.selectedOption.get(), Domain.PKG, self.logScaleIsChecked.get())
+        # if self.gpuIsChecked.get():
+        #     self.visualizer.DrawFigure(self.selectedOption.get(), Domain.GPU, self.logScaleIsChecked.get())
+        # if self.pkgIsChecked.get():
+        #     self.visualizer.DrawFigure(self.selectedOption.get(), Domain.PKG, self.logScaleIsChecked.get())
         if self.timeIsChecked.get():
             self.visualizer.DrawFigure(self.selectedOption.get(), Domain.TIME, self.logScaleIsChecked.get())
-        if self.allIsChecked.get():
-            self.visualizer.DrawFigure(self.selectedOption.get(), Domain.ALL, self.logScaleIsChecked.get())
+        # if self.allIsChecked.get():
+        #     self.visualizer.DrawFigure(self.selectedOption.get(), Domain.ALL, self.logScaleIsChecked.get())
         self.errorLabel.configure(text='OK', fg='green')
         return
     def QuickVis(self):
@@ -289,18 +289,18 @@ class GUI:
             return
         self.exporter.AttachResultHandler(self.resultHandler)
         filename = filedialog.asksaveasfilename(parent=self.window,title = "Select file",filetypes = (("tex files","*.tex"),("all files","*.*")))
-        if self.ramIsChecked.get():
-            self.exporter.ExportToFile(filename + '_ram',self.selectedOption.get(), Domain.RAM, self.logScaleIsChecked.get())
+        # if self.ramIsChecked.get():
+        #     self.exporter.ExportToFile(filename + '_ram',self.selectedOption.get(), Domain.RAM, self.logScaleIsChecked.get())
         if self.coreIsChecked.get():
             self.exporter.ExportToFile(filename + '_ram',self.selectedOption.get(), Domain.CORE, self.logScaleIsChecked.get())
-        if self.gpuIsChecked.get():
-            self.exporter.ExportToFile(filename + '_gpu',self.selectedOption.get(), Domain.GPU, self.logScaleIsChecked.get())
-        if self.pkgIsChecked.get():
-            self.exporter.ExportToFile(filename + '_pkg',self.selectedOption.get(), Domain.PKG, self.logScaleIsChecked.get())
+        # if self.gpuIsChecked.get():
+        #     self.exporter.ExportToFile(filename + '_gpu',self.selectedOption.get(), Domain.GPU, self.logScaleIsChecked.get())
+        # if self.pkgIsChecked.get():
+        #     self.exporter.ExportToFile(filename + '_pkg',self.selectedOption.get(), Domain.PKG, self.logScaleIsChecked.get())
         if self.timeIsChecked.get():
             self.exporter.ExportToFile(filename + '_time',self.selectedOption.get(), Domain.TIME, self.logScaleIsChecked.get())
-        if self.allIsChecked.get():
-            self.exporter.ExportToFile(filename + '_all',self.selectedOption.get(), Domain.ALL, self.logScaleIsChecked.get())
+        # if self.allIsChecked.get():
+        #     self.exporter.ExportToFile(filename + '_all',self.selectedOption.get(), Domain.ALL, self.logScaleIsChecked.get())
         self.errorLabel.configure(text='OK', fg='green')
         return
 
@@ -362,11 +362,21 @@ class ResultHandler:
             key = (row[0],row[1],row[2],row[3])
             valuetype = (row[4])
             value = Decimal(row[5])
+            # Without skipping zeros in the graph
             if(key in self.measurements):
                 self.measurements[key].Set(valuetype,value)
             else:
                 self.measurements[key] = Measurement()
                 self.measurements[key].Set(valuetype,value)
+            # with skipping zeros in the graph
+            # if value == 0:
+            #     continue
+            # else:
+            #     if(key in self.measurements):
+            #         self.measurements[key].Set(valuetype,value)
+            #     else:
+            #         self.measurements[key] = Measurement()
+            #         self.measurements[key].Set(valuetype,value)
         self.isEmpty = False
         return
     def CalculateResults(self):
@@ -457,7 +467,7 @@ class MeasurementVisualizer:
             raise Exception('Resulthandler is required')
         logstr = 'log' if logscale else ''
         fig = plt.figure(method + domain.value + logstr)
-        fig.canvas.set_window_title(method + ' - ' + str(domain.value))
+        # fig.canvas.set_window_title(method + ' - ' + str(domain.value))
         results = self.resultHandler.GetResults()
         keys = list(results[method][domain].keys())
         keys.sort()

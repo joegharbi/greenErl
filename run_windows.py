@@ -452,7 +452,6 @@ def getNames(file_path):
 
 
 def dumpAvg(folder_path,count,input,pid):
-    os.makedirs(f"{folder_path}\\logs")
     if re.search(r'{\d+,\d+}', input):
         pairs = re.findall(r'{(\d+),(\d+)}', input)
         left = [int(pair[0]) for pair in pairs]
@@ -491,9 +490,6 @@ def dumpAvg(folder_path,count,input,pid):
                                 # f1.write("This file has no erl.exe: ",json_file)
                                 # f1.close()
                                 res_avg = 0
-                                f = open(f"{folder_path}\\logs\\empty_logs.txt", "a")
-                                f.write(f"This file has no erl.exe: {json_file}\n")
-                                f.close()
                                 print ("This file has no erl.exe: ",json_file)
                             else:
                                 # res_avg=total_val/total_num/(1000000)
@@ -517,9 +513,6 @@ def dumpAvg(folder_path,count,input,pid):
                                 else: 
                                     continue
                         else:
-                            f = open(f"{folder_path}\\logs\\empty_files.txt", "a")
-                            f.write(f"{json_file} is empty\n")
-                            f.close()
                             print(f"{json_file} is empty")
 
 # def cleanCSV(file_csv):
