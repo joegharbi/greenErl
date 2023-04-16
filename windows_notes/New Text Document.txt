@@ -1,0 +1,74 @@
+bcdedit.exe -set TESTSIGNING ON
+
+
+bcdedit.exe -set TESTSIGNING OFF
+
+--------
+Pid = spawn(fun()-> os:cmd("scaphandre json -t 10 -s 0 -n 100000000 -f report.json") end).
+
+--------
+Pid = spawn(fun()-> os:cmd("scaphandre json -s 0 -n 100000000 -f report.json") end).
+
+exit(Pid,kill).
+---------
+"C:\erlab\lab_II\greenErl\green_erlang\measurements\higher_order_functions\results"
+
+energy_consumption:measure({"C:/Users/joegh/Downloads/branches/green_erlang/measurements/higher_order_functions/filter_map.erl","recursive",[1000, 5000]},10).
+
+
+scaphandre json -s 0 -n 100000000 -f "C:\erlab\lab_II\greenErl\green_erlang\measurements\higher_order_functions\results.json"
+
+--------------------------------------------------------
+Command = "scaphandre json -s 0 -n 100000000 -f \"C:\\erlab\\lab_II\\greenErl\\green_erlang\\measurements\\higher_order_functions\\results.json\"".
+os:cmd(Command).
+--------------------------------------------------------
+Command = "scaphandre json -s 0 -n 100000000 -f \"C:\\erlab\\lab_II\\greenErl\\green_erlang\\measurements\\test\\map_recursive_2_log.json\"".
+
+energy_consumption:measureFunction({"C:/Users/joegh/Downloads/branches/green_erlang/measurements/higher_order_functions/filter_map.erl","recursive",["10", "30"]},100).
+
+Command: "scaphandre json -s 0 -n 100000000 -f \"C:\\erlab\\lab_II\\greenErl\\green_erlang\\measurements\\test\\map_recursive_20_log.json\"".
+
+energy_consumption:measureFunction("rapl-read.c",{test_functions, fib_acc, [24], 24},10,result,avg,"log.txt").
+
+energy_consumption:measure("./rapl-read.out",{filter_map, [recursive], [10,30]},100,"log.txt").
+
+
+energy_consumption:measure({filter_map, [recursive], [10,30]},100,"log.txt").
+
+energy_consumption:measure({filter_map, [recursive], [10,30]},100).
+
+========================================================================================
+SPAWN IDEA:
+for each input discription we spawn a measure function with the name "result_Module_FunctionName_InputDesc.json"
+c("C:/erlab/lab_II/greenErl/green_erlang/rapl_erlang/energy_consumption.erl").
+c("C:/erlab/lab_II/greenErl/green_erlang/measurements/higher_order_functions/map.erl"). 
+energy_consumption:measure({map,[recursive,my_map_fun],[10,20]},1000).
+
+
+This should give: 
+	- result_map_recursive_10.json and result_map_recursive_20.json
+	- result_map_my_map_fun_10.json and result_map_my_map_fun_20.json
+
+
+FileName = "report_shell.json".
+Command = "scaphandre json -s 0 -n 100000000 -f " ++ FileName.
+Pid = spawn(fun() -> os:cmd(Command) end).
+exit(Pid,kill).
+
+"scaphandre json -s 0 -n 100000000 -f C:\erlablab_IIgreenErlgreen_erlangmeasurements\test//map_recursive_2_log.json"
+
+
+
+
+After the Vis.py is responsible for the csv files and the visualization part.
+=========================================================================================
+TIMESTAMP IDEA: is it running in a sequential order? and is scaphandre gathering the results in a sequential order?
+have a single json file and do the computations.
+	- get the timestamp before and after we run the functions.
+	- the values are between those timestamps.
+=========================================================================================
+OS:GETPID IDEA: spawn a process to run the function and get that Operating System level PID it is easy to get the exact process in the json file.
+
+
+
+
