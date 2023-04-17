@@ -452,7 +452,8 @@ def getNames(file_path):
 
 
 def dumpAvg(folder_path,count,input,pid):
-    os.makedirs(f"{folder_path}\\logs")
+    if not os.path.exists(f"{folder_path}\\logs"):
+        os.makedirs(f"{folder_path}\\logs")
     if re.search(r'{\d+,\d+}', input):
         pairs = re.findall(r'{(\d+),(\d+)}', input)
         left = [int(pair[0]) for pair in pairs]
