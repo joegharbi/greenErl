@@ -63,7 +63,7 @@ class Measurement:
     def setDefaultValues(self):
         self.erlangFile = ''
         # self.erlangMeasureFile = 'C:/erlab/lab_II/greenErl/green_erlang/rapl_erlang/energy_consumption_res.erl'
-        self.erlangMeasureFile = os.getcwd() + '\\rapl_erlang\\energy_consumption.erl'
+        self.erlangMeasureFile = os.getcwd().replace("\\", "/") + '/rapl_erlang/energy_consumption_res.erl'
         self.numberOfMeasurements = 10
         self.erlangMeasureModule = 'energy_consumption_res'
         self.moduleName = ''
@@ -482,7 +482,9 @@ def dumpAvg(folder_path,count,input,pid):
                     act_inpv = int(act_inp)
                     # print("actual input values:", act_inpv)
                     with open(os.path.join(folder_path, json_file), 'r') as f:
-                        if f.readable() and f.read(1):
+                        # if f.readable() and f.read(1):
+                        #     f.seek(0)
+                        if f.readable() and f.seek(0, 2) > 0:
                             f.seek(0)
                             data = json.load(f)
                             total_val = 0
@@ -527,6 +529,18 @@ def dumpAvg(folder_path,count,input,pid):
                             f = open(f"{folder_path}\\logs\\empty_files.txt", "a")
                             f.write(f"{json_file} is empty\n")
                             f.close()
+                            # res_avg = 0
+                            # input_name = json_file.rsplit('_', 1)[1].split('.')[0]
+                            # row = [module, function,input_name,'msr','energy-cores',res_avg]
+                            # with open(os.path.join(folder_path, filename), 'r+') as f:
+                            #     reader = csv.reader(f)
+                            #     rows = list(reader)
+                            #     new_row = ';'.join(row[:-1])
+                            #     if new_row not in [r[0].rsplit(';', 1)[0] for r in rows]:
+                            #         row_str = ';'.join(map(str, row))
+                            #         f.write(row_str + '\n')
+                            #     else: 
+                            #         continue
                             print(f"{json_file} is empty")
 
 # def cleanCSV(file_csv):

@@ -65,8 +65,10 @@ measureFunctions({Module, [Function|Functions], Attributes, InputDesc}, Count, R
     InputDesFile = "\"" ++ ResultPath  ++ atom_to_list(Module) ++ "_" ++ atom_to_list(Function) ++
                     "_" ++ integer_to_list(InputDesc) ++ ".json"++ "\"",
     io:format("~nCurrently measuring functions with input desctription ~p~n",[InputDesc]),
-    % Command = "scaphandre json -s 0 -n 100000000 -m 1000 -f " ++ InputDesFile,
-    Command = "scaphandre json -s 0 -n 1000000000 -m 100 -f " ++ InputDesFile,
+    % ms sampling
+    % Command = "scaphandre json -s 0 -n 100000 -m 100 -f " ++ InputDesFile,
+    % ns sampling
+    Command = "scaphandre json -s 0 -n 1 -m 100 -f " ++ InputDesFile,
     Output = os:cmd("wmic process call create \""++ Command ++"\" | find \"ProcessId\""),
     {match, [PidString]} = re:run(Output, "ProcessId = ([0-9]+)", [{capture, all_but_first, list}]),
     Pid = list_to_integer(PidString),

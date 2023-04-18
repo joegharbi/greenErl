@@ -7,3 +7,4 @@ with open("C:\erlab\lab_II\greenErl\green_erlang\measurements\higher_order_funct
         unique_elements.add(int(row[2]))
     sorted_elements = sorted(unique_elements)
     print(sorted_elements)
+    print(len(sorted_elements))
