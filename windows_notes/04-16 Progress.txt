@@ -2,4 +2,15 @@ Erlang module: loggin the PID in text file is similar to the one in python => us
 
 python: logged the empty json files and no erl.exe failures in result_path\logs folder.
 
-=> framework ready for measurement
+======================================================
+
+fixed logs folder and error files. 
+
+Created a python script to get all input descrptions from a csv file (sorted and unique).
+
+tested few functions ==> the behaviour is +/- similar.
+
+======================================================
+
+
+=> Framework ready to measure

@@ -62,10 +62,10 @@ class Measurement:
 
     def setDefaultValues(self):
         self.erlangFile = ''
-        self.erlangMeasureFile = 'C:/erlab/lab_II/greenErl/green_erlang/rapl_erlang/energy_consumption.erl'
+        self.erlangMeasureFile = 'C:\\erlab\\lab_II\\greenErl\\green_erlang\\rapl_erlang\\energy_consumption_res.erl'
         # self.erlangMeasureFile = os.getcwd() + '\\rapl_erlang\\energy_consumption.erl'
         self.numberOfMeasurements = 10
-        self.erlangMeasureModule = 'energy_consumption'
+        self.erlangMeasureModule = 'energy_consumption_res'
         self.moduleName = ''
         self.functionsToMeasure = ''
         self.resultPath = ''
@@ -266,6 +266,11 @@ class GUI:
         if not self.populateAndValidateMeasurementData():
             return False
         self.measurementList.append(copy.deepcopy(self.measurement))
+        print("Measurement added:")
+        print("Measure module:", self.measurement.erlangMeasureModule)
+        print("Module name:", self.measurement.moduleName)
+        print("Result path:", self.measurement.resultPath)
+        print("####################")
         self.measurement.clear()
         self.resetGUIData()
         return True
@@ -550,7 +555,7 @@ def measure(measurement):
     print(erlangCommand)
     # Create and run subprocess for Erlang
     erlangProc = subprocess.Popen(
-        ['erl', '+P', '134217727'], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+        ['erl', '+P', '134217727'], stdin=subprocess.PIPE, stdout=sys.stdout)
     out, _ = erlangProc.communicate(input=erlangCommand.encode())
     erl_pid=erlangProc.pid
     print(erl_pid)
