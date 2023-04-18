@@ -482,7 +482,9 @@ def dumpAvg(folder_path,count,input,pid):
                     act_inpv = int(act_inp)
                     # print("actual input values:", act_inpv)
                     with open(os.path.join(folder_path, json_file), 'r') as f:
-                        if f.readable() and f.read(1):
+                        # if f.readable() and f.read(1):
+                        #     f.seek(0)
+                        if f.readable() and f.seek(0, 2) > 0:
                             f.seek(0)
                             data = json.load(f)
                             total_val = 0
