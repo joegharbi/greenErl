@@ -529,6 +529,18 @@ def dumpAvg(folder_path,count,input,pid):
                             f = open(f"{folder_path}\\logs\\empty_files.txt", "a")
                             f.write(f"{json_file} is empty\n")
                             f.close()
+                            # res_avg = 0
+                            # input_name = json_file.rsplit('_', 1)[1].split('.')[0]
+                            # row = [module, function,input_name,'msr','energy-cores',res_avg]
+                            # with open(os.path.join(folder_path, filename), 'r+') as f:
+                            #     reader = csv.reader(f)
+                            #     rows = list(reader)
+                            #     new_row = ';'.join(row[:-1])
+                            #     if new_row not in [r[0].rsplit(';', 1)[0] for r in rows]:
+                            #         row_str = ';'.join(map(str, row))
+                            #         f.write(row_str + '\n')
+                            #     else: 
+                            #         continue
                             print(f"{json_file} is empty")
 
 # def cleanCSV(file_csv):
