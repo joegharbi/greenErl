@@ -266,7 +266,7 @@ class GUI:
         if not self.populateAndValidateMeasurementData():
             return False
         self.measurementList.append(copy.deepcopy(self.measurement))
-        print("Measurement added:")
+        print("------------Measurement added----------------")
         print("Measure module:", self.measurement.erlangMeasureModule)
         print("Module name:", self.measurement.moduleName)
         print("Input description:", self.measurement.inputDescs)
