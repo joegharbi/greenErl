@@ -36,9 +36,9 @@ measure({Module, Functions, [InputDesc|InputDescs]}, Count, ResultPath) ->
     measure({Module, Functions, InputDescs}, Count, ResultPath);
 measure({_, _, []}, _, _) -> 
     % Pid = os:getpid(),
-    FileName = "pid.txt",
+    % FileName = "pid.txt",
     % File = file:open(FileName, [write]),
-    file:write_file(FileName, io_lib:fwrite("~p.\n", [os:getpid()])),
+    % file:write_file(FileName, io_lib:fwrite("~p.\n", [os:getpid()])),
     % io:write_file(File, "Process ID: ~p", [os:getpid()]),
     % file:close(File),
     io:format("~nMeasurements finished succesfully~n", []),
@@ -64,7 +64,7 @@ measureFunctions({Module, [Function|Functions], Attributes, InputDesc}, Count, R
     io:format("~n Path: ~p~n",[ResultPath]),
     InputDesFile = "\"" ++ ResultPath  ++ atom_to_list(Module) ++ "_" ++ atom_to_list(Function) ++
                     "_" ++ integer_to_list(InputDesc) ++ ".json"++ "\"",
-   io:format("~nCurrently measuring functions with input desctription ~p~n",[InputDesc]),
+    io:format("~nCurrently measuring functions with input desctription ~p~n",[InputDesc]),
     % Command = "scaphandre json -s 0 -n 100000000 -m 1000 -f " ++ InputDesFile,
     Command = "scaphandre json -s 0 -n 1000000000 -m 100 -f " ++ InputDesFile,
     Output = os:cmd("wmic process call create \""++ Command ++"\" | find \"ProcessId\""),
