@@ -12,5 +12,13 @@ tested few functions ==> the behaviour is +/- similar.
 
 ======================================================
 
+fixed stdout in python console
+
+
+
+
+
+---------------------------------------------------------
+
 
 => Framework ready to measure
