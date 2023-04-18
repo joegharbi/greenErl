@@ -62,8 +62,8 @@ class Measurement:
 
     def setDefaultValues(self):
         self.erlangFile = ''
-        self.erlangMeasureFile = 'C:\\erlab\\lab_II\\greenErl\\green_erlang\\rapl_erlang\\energy_consumption_res.erl'
-        # self.erlangMeasureFile = os.getcwd() + '\\rapl_erlang\\energy_consumption.erl'
+        # self.erlangMeasureFile = 'C:/erlab/lab_II/greenErl/green_erlang/rapl_erlang/energy_consumption_res.erl'
+        self.erlangMeasureFile = os.getcwd() + '\\rapl_erlang\\energy_consumption.erl'
         self.numberOfMeasurements = 10
         self.erlangMeasureModule = 'energy_consumption_res'
         self.moduleName = ''
@@ -266,11 +266,12 @@ class GUI:
         if not self.populateAndValidateMeasurementData():
             return False
         self.measurementList.append(copy.deepcopy(self.measurement))
-        print("Measurement added:")
+        print("------------Measurement added----------------")
         print("Measure module:", self.measurement.erlangMeasureModule)
         print("Module name:", self.measurement.moduleName)
+        print("Input description:", self.measurement.inputDescs)
         print("Result path:", self.measurement.resultPath)
-        print("####################")
+        print("---------------------------------------------")
         self.measurement.clear()
         self.resetGUIData()
         return True
