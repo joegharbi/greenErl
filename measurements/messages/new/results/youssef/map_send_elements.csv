@@ -1,0 +1,16 @@
+map;send_elements;5000;time;time;4.70000000000000001110e-02
+map;send_elements;10000;time;time;7.79999999999999998890e-02
+map;send_elements;15000;time;time;1.25000000000000000000e-01
+map;send_elements;20000;time;time;1.55999999999999999778e-01
+map;send_elements;25000;time;time;2.03000000000000013767e-01
+map;send_elements;30000;time;time;2.34000000000000013545e-01
+map;send_elements;35000;time;time;2.81000000000000027534e-01
+map;send_elements;40000;time;time;3.28000000000000013767e-01
+map;send_elements;10000;msr;energy-cores;162024.31
+map;send_elements;15000;msr;energy-cores;425520.02
+map;send_elements;20000;msr;energy-cores;399068.29
+map;send_elements;25000;msr;energy-cores;771375.1799999999
+map;send_elements;30000;msr;energy-cores;153044.5
+map;send_elements;35000;msr;energy-cores;807307.48
+map;send_elements;40000;msr;energy-cores;0.0
+map;send_elements;5000;msr;energy-cores;0

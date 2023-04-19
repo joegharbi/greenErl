@@ -1,0 +1,16 @@
+list;send;5000;time;time;0.00000000000000000000e+00
+list;send;10000;time;time;0.00000000000000000000e+00
+list;send;15000;time;time;0.00000000000000000000e+00
+list;send;20000;time;time;0.00000000000000000000e+00
+list;send;25000;time;time;0.00000000000000000000e+00
+list;send;30000;time;time;1.60000000000000003331e-02
+list;send;35000;time;time;1.49999999999999994449e-02
+list;send;40000;time;time;1.49999999999999994449e-02
+list;send;10000;msr;energy-cores;0.0
+list;send;15000;msr;energy-cores;0
+list;send;20000;msr;energy-cores;0.0
+list;send;25000;msr;energy-cores;0
+list;send;30000;msr;energy-cores;0
+list;send;35000;msr;energy-cores;58788.35
+list;send;40000;msr;energy-cores;0.0
+list;send;5000;msr;energy-cores;0

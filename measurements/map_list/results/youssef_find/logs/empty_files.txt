@@ -1,0 +1,2 @@
+map_find_find_6000000.json is empty
+map_find_find_9000000.json is empty

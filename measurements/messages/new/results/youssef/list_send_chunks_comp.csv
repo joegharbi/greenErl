@@ -1,0 +1,16 @@
+list;send_chunks_comp;5000;time;time;0.00000000000000000000e+00
+list;send_chunks_comp;10000;time;time;1.49999999999999994449e-02
+list;send_chunks_comp;15000;time;time;3.09999999999999997780e-02
+list;send_chunks_comp;20000;time;time;4.70000000000000001110e-02
+list;send_chunks_comp;25000;time;time;7.79999999999999998890e-02
+list;send_chunks_comp;30000;time;time;1.08999999999999999667e-01
+list;send_chunks_comp;35000;time;time;1.40999999999999986455e-01
+list;send_chunks_comp;40000;time;time;1.71999999999999986233e-01
+list;send_chunks_comp;10000;msr;energy-cores;0.0
+list;send_chunks_comp;15000;msr;energy-cores;0
+list;send_chunks_comp;20000;msr;energy-cores;255939.0
+list;send_chunks_comp;25000;msr;energy-cores;139918.88
+list;send_chunks_comp;30000;msr;energy-cores;120444.18000000001
+list;send_chunks_comp;35000;msr;energy-cores;379749.07399999996
+list;send_chunks_comp;40000;msr;energy-cores;0.0
+list;send_chunks_comp;5000;msr;energy-cores;0.0

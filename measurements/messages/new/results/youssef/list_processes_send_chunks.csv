@@ -1,0 +1,16 @@
+list_processes;send_chunks;5000;time;time;1.82899999999999995914e+00
+list_processes;send_chunks;10000;time;time;4.63999999999999968026e+00
+list_processes;send_chunks;15000;time;time;9.93800000000000061107e+00
+list_processes;send_chunks;20000;time;time;1.28589999999999999858e+01
+list_processes;send_chunks;25000;time;time;1.35459999999999993747e+01
+list_processes;send_chunks;30000;time;time;2.04070000000000000284e+01
+list_processes;send_chunks;35000;time;time;2.86409999999999982379e+01
+list_processes;send_chunks;40000;time;time;2.46729999999999982663e+01
+list_processes;send_chunks;10000;msr;energy-cores;62258445.870000005
+list_processes;send_chunks;15000;msr;energy-cores;117075495.18999998
+list_processes;send_chunks;20000;msr;energy-cores;125104782.36000004
+list_processes;send_chunks;25000;msr;energy-cores;88889076.60000001
+list_processes;send_chunks;30000;msr;energy-cores;113826744.23400001
+list_processes;send_chunks;35000;msr;energy-cores;102069869.73400004
+list_processes;send_chunks;40000;msr;energy-cores;118695864.44999997
+list_processes;send_chunks;5000;msr;energy-cores;35869436.06

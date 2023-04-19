@@ -1,0 +1,16 @@
+bindict;send;5000;time;time;0.00000000000000000000e+00
+bindict;send;10000;time;time;0.00000000000000000000e+00
+bindict;send;15000;time;time;0.00000000000000000000e+00
+bindict;send;20000;time;time;0.00000000000000000000e+00
+bindict;send;25000;time;time;0.00000000000000000000e+00
+bindict;send;30000;time;time;0.00000000000000000000e+00
+bindict;send;35000;time;time;0.00000000000000000000e+00
+bindict;send;40000;time;time;0.00000000000000000000e+00
+bindict;send;10000;msr;energy-cores;0.0
+bindict;send;15000;msr;energy-cores;0.0
+bindict;send;20000;msr;energy-cores;0
+bindict;send;25000;msr;energy-cores;0.0
+bindict;send;30000;msr;energy-cores;0
+bindict;send;35000;msr;energy-cores;0
+bindict;send;40000;msr;energy-cores;0
+bindict;send;5000;msr;energy-cores;0.0
