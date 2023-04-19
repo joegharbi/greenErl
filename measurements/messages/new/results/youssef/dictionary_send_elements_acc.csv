@@ -1,0 +1,16 @@
+dictionary;send_elements_acc;5000;time;time;7.79999999999999998890e-02
+dictionary;send_elements_acc;10000;time;time;2.34999999999999986677e-01
+dictionary;send_elements_acc;15000;time;time;4.54000000000000014655e-01
+dictionary;send_elements_acc;20000;time;time;8.12999999999999944933e-01
+dictionary;send_elements_acc;25000;time;time;1.10899999999999998579e+00
+dictionary;send_elements_acc;30000;time;time;1.62500000000000000000e+00
+dictionary;send_elements_acc;35000;time;time;2.12400000000000011013e+00
+dictionary;send_elements_acc;40000;time;time;2.79700000000000015277e+00
+dictionary;send_elements_acc;10000;msr;energy-cores;1385504.19
+dictionary;send_elements_acc;15000;msr;energy-cores;2551139.0900000003
+dictionary;send_elements_acc;20000;msr;energy-cores;4980605.380000001
+dictionary;send_elements_acc;25000;msr;energy-cores;6920602.0200000005
+dictionary;send_elements_acc;30000;msr;energy-cores;8859298.38
+dictionary;send_elements_acc;35000;msr;energy-cores;13142161.03
+dictionary;send_elements_acc;40000;msr;energy-cores;12712881.680000002
+dictionary;send_elements_acc;5000;msr;energy-cores;132401.03999999998

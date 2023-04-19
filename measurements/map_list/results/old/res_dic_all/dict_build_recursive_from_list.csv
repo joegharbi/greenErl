@@ -1,0 +1,7 @@
+dict_build;recursive_from_list;100;time;time;0.00000000000000000000e+00
+dict_build;recursive_from_list;500;time;time;0.00000000000000000000e+00
+dict_build;recursive_from_list;1000;time;time;0.00000000000000000000e+00
+dict_build;recursive_from_list;5000;time;time;1.08999999999999999667e-01
+dict_build;recursive_from_list;10000;time;time;1.71999999999999986233e-01
+dict_build;recursive_from_list;20000;time;time;5.16000000000000014211e-01
+dict_build;recursive_from_list;30000;time;time;9.37999999999999944933e-01

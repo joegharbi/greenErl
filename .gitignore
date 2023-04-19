@@ -2,7 +2,7 @@
 .git/*
 **.beam
 erl_crash.dump
-*.json
-*.csv
+# *.json
+# *.csv
 *.dat
 *tex
