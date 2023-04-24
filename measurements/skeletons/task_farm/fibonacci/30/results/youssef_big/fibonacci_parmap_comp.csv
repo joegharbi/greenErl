@@ -1,0 +1,10 @@
+fibonacci;parmap_comp;500;time;time;4.03440000000000011937e+01
+fibonacci;parmap_comp;1000;time;time;8.07969999999999970441e+01
+fibonacci;parmap_comp;1500;time;time;1.22359718000000000870e+02
+fibonacci;parmap_comp;2000;time;time;1.62639970000000005257e+02
+fibonacci;parmap_comp;2500;time;time;2.03860883999999998650e+02
+fibonacci;parmap_comp;1000;msr;energy-cores;94321482.9
+fibonacci;parmap_comp;1500;msr;energy-cores;144773482.4
+fibonacci;parmap_comp;2000;msr;energy-cores;177348589.8
+fibonacci;parmap_comp;2500;msr;energy-cores;238767409.2
+fibonacci;parmap_comp;500;msr;energy-cores;56548501.4
