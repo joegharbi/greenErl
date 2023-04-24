@@ -1,0 +1,19 @@
+The time sampling for RAPL depends on the method of reading the RAPL values. If you use the /sys/class/powercap/intel-rapl interface, the time sampling is determined by the kernel update interval, which is typically 1 second². If you use the perf_event interface, the time sampling is determined by the perf_event_mlock_kb parameter, which is typically 512 KB³. This means that perf_event can sample RAPL values every 512 KB / (sample rate * number of events) seconds. For example, if you sample two RAPL events at 1000 Hz each, the time sampling would be 512 KB / (2000 * 8) = 32 ms. If you use the /dev/cpu/*/msr interface, the time sampling is determined by your own program that reads the MSR registers directly. You can set the time sampling as fast as you want, but you should consider the overhead of reading MSRs and the possibility of overflow. The RAPL energy counters can overflow in about 60 seconds or less, so you should sample them more often than that.
+
+Source: Conversation with Bing, 4/18/2023
+(1) Real-Time Versus Equivalent-Time Sampling | Tektronix. https://www.tek.com/en/documents/application-note/real-time-versus-equivalent-time-sampling.
+(2) Equivalent Time Sampling Oscilloscope vs. Real-Time Oscilloscope - Keysight. https://www.keysight.com/us/en/assets/7018-01852/application-notes/5989-8794.pdf.
+(3) Understanding sample rate. | EC&M. https://www.ecmweb.com/content/article/20889844/understanding-sample-rate.
+
+
+
+
+
+----------------------------------------------------------
+
+It is unlikely that you can sample RAPL values in nanoseconds, because the RAPL interface has a limited sampling rate, low sampling frequency, and low resolution¹. The RAPL energy reporting feature has been available for many generations on Intel SoC products, and energy reporting is standard practice for the industry¹. However, RAPL is not designed for high-precision power measurements, but rather for power limiting and monitoring purposes. Therefore, sampling RAPL values in nanoseconds would not provide accurate or meaningful information about the power consumption of the system. If you need to measure power consumption at a finer granularity, you may need to use external power meters or other tools.
+
+Source: Conversation with Bing, 4/18/2023
+(1) Running Average Power Limit Energy Reporting CVE-2020-8694,... - Intel. https://www.intel.com/content/www/us/en/developer/articles/technical/software-security-guidance/advisory-guidance/running-average-power-limit-energy-reporting.html.
+(2) RAPL in Action: Experiences in Using RAPL for Power Measurements. https://www.researchgate.net/publication/322308215_RAPL_in_Action_Experiences_in_Using_RAPL_for_Power_Measurements.
+(3) HPC Efficiency Gurus Grapple with AMD’s RAPL. https://www.nextplatform.com/2021/08/09/hpc-efficiency-gurus-grapple-with-amds-rapl/.

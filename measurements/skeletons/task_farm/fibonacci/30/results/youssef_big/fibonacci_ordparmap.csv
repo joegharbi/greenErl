@@ -1,0 +1,10 @@
+fibonacci;ordparmap;500;time;time;3.92969999999999970441e+01
+fibonacci;ordparmap;1000;time;time;8.12030000000000029559e+01
+fibonacci;ordparmap;1500;time;time;1.23218598999999997545e+02
+fibonacci;ordparmap;2000;time;time;1.62531846999999999070e+02
+fibonacci;ordparmap;2500;time;time;2.05546389000000004899e+02
+fibonacci;ordparmap;1000;msr;energy-cores;118138173.1
+fibonacci;ordparmap;1500;msr;energy-cores;147019180.7
+fibonacci;ordparmap;2000;msr;energy-cores;188562350.7
+fibonacci;ordparmap;2500;msr;energy-cores;228879991.45
+fibonacci;ordparmap;500;msr;energy-cores;66765083.3

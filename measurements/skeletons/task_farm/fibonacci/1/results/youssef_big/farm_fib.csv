@@ -1,0 +1,10 @@
+farm;fib;500;time;time;0.00000000000000000000e+00
+farm;fib;1000;time;time;0.00000000000000000000e+00
+farm;fib;1500;time;time;1.60000000000000003331e-02
+farm;fib;2000;time;time;1.60000000000000003331e-02
+farm;fib;2500;time;time;3.09999999999999997780e-02
+farm;fib;1000;msr;energy-cores;140931.91999999998
+farm;fib;1500;msr;energy-cores;316083.02
+farm;fib;2000;msr;energy-cores;112801.48999999999
+farm;fib;2500;msr;energy-cores;158000.46000000002
+farm;fib;500;msr;energy-cores;0
