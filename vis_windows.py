@@ -487,7 +487,8 @@ class LatexExporter:
         self.resultHandler = resultHandler
     def ExportToFile(self,filename, method, domain, logscale = False):
         datafilename = '{}.dat'.format(str(filename))
-        directory = os.path.dirname(datafilename)
+        # directory = os.path.dirname(datafilename)
+        directory = "latex_windows/"
         if not os.path.exists(directory):
             os.makedirs(directory)
         if(self.resultHandler is None):
@@ -524,7 +525,8 @@ class LatexExporter:
                     datafile.write("nan ")
             datafile.write("\n")
         datafile.close()
-        latexRawStart = [r"\begin{tikzpicture}",r"\begin{axis}[legend style={at={(0,1)},anchor=north west}, ylabel=Consumption (J), xlabel=N Values, width=\textwidth, height=0.4\textheight]"]
+        latexRawStart = [r"\begin{tikzpicture}",r"\begin{axis}[legend style={at={(0.5,1)},anchor=south}, ylabel=Consumption (J), xlabel=N Values, width=\textwidth, height=0.4\textheight]"]
+        # latexRawStart = [r"\begin{tikzpicture}",r"\begin{axis}[legend style={at={(0,1)},anchor=north west}, ylabel=Consumption (J), xlabel=N Values, width=\textwidth, height=0.4\textheight]"]
         latexRawStartLog = [r"\begin{tikzpicture}",r"\begin{axis}[legend style={at={(0,1)},anchor=north west}, ylabel=Consumption (J), xlabel=N Values, ymode=log, width=\textwidth, height=0.4\textheight]"]
         latexRawEnd = [r"\end{axis}",r"\end{tikzpicture}"]
         if(logscale): 
@@ -532,7 +534,7 @@ class LatexExporter:
         else:
             latexfile.writelines('\n'.join(latexRawStart) + '\n')
         for key, value  in results[method][domain].items(): 
-            latexfile.write("\\addplot table [x=N, y={}]{{{}}};".format((str)(key).replace('_','-'),datafilename) + "\n")
+            latexfile.write("\\addplot table [x=N, y={}]{{{}}};".format((str)(key).replace('_','-'),"latex_windows/"+datafilename.split('/')[-1]) + "\n")
             latexfile.write("\\addlegendentry{{{}}}".format(key).replace('_','-') + "\n")
         latexfile.writelines('\n'.join(latexRawEnd) + '\n')
         latexfile.close()
