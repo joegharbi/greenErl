@@ -1,0 +1,12 @@
+\begin{tikzpicture}
+\begin{axis}[legend style={at={(0.5,1)},anchor=south}, ylabel=Consumption (J), xlabel=N Values, width=\textwidth, height=0.4\textheight]
+\addplot table [x=N, y=map-update-one/update]{latex_windows/c_update_one_map_time.dat};
+\addlegendentry{map-update-one/update}
+\addplot table [x=N, y=map-update-one/pattern-match]{latex_windows/c_update_one_map_time.dat};
+\addlegendentry{map-update-one/pattern-match}
+\addplot table [x=N, y=map-update-one/update-with]{latex_windows/c_update_one_map_time.dat};
+\addlegendentry{map-update-one/update-with}
+\addplot table [x=N, y=map-update-one/overwrite]{latex_windows/c_update_one_map_time.dat};
+\addlegendentry{map-update-one/overwrite}
+\end{axis}
+\end{tikzpicture}

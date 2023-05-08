@@ -1,0 +1,12 @@
+\begin{tikzpicture}
+\begin{axis}[legend style={at={(0.5,1)},anchor=south}, ylabel=Consumption (J), xlabel=N Values, width=\textwidth, height=0.4\textheight]
+\addplot table [x=N, y=map-update-one/update]{latex_windows/c_update_one_time.dat};
+\addlegendentry{map-update-one/update}
+\addplot table [x=N, y=list-update-one/recursive]{latex_windows/c_update_one_time.dat};
+\addlegendentry{list-update-one/recursive}
+\addplot table [x=N, y=list-update-one/keyreplace]{latex_windows/c_update_one_time.dat};
+\addlegendentry{list-update-one/keyreplace}
+\addplot table [x=N, y=list-update-one/keystore]{latex_windows/c_update_one_time.dat};
+\addlegendentry{list-update-one/keystore}
+\end{axis}
+\end{tikzpicture}

@@ -1,0 +1,12 @@
+\begin{tikzpicture}
+\begin{axis}[legend style={at={(0.5,1)},anchor=south}, ylabel=Consumption (J), xlabel=N Values, width=\textwidth, height=0.4\textheight]
+\addplot table [x=N, y=map-delete/remove]{latex_windows/c_delete_dict_time.dat};
+\addlegendentry{map-delete/remove}
+\addplot table [x=N, y=map-delete/take]{latex_windows/c_delete_dict_time.dat};
+\addlegendentry{map-delete/take}
+\addplot table [x=N, y=dict-delete/take]{latex_windows/c_delete_dict_time.dat};
+\addlegendentry{dict-delete/take}
+\addplot table [x=N, y=map-delete/without]{latex_windows/c_delete_dict_time.dat};
+\addlegendentry{map-delete/without}
+\end{axis}
+\end{tikzpicture}

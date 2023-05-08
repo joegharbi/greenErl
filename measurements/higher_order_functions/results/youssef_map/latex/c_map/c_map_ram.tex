@@ -1,0 +1,14 @@
+\begin{tikzpicture}
+\begin{axis}[legend style={at={(0.5,1)},anchor=south}, ylabel=Consumption (J), xlabel=N Values, width=\textwidth, height=0.4\textheight]
+\addplot table [x=N, y=map/recursive]{latex_windows/c_map_ram.dat};
+\addlegendentry{map/recursive}
+\addplot table [x=N, y=map/list-comprehension]{latex_windows/c_map_ram.dat};
+\addlegendentry{map/list-comprehension}
+\addplot table [x=N, y=map/my-map-named]{latex_windows/c_map_ram.dat};
+\addlegendentry{map/my-map-named}
+\addplot table [x=N, y=map/map-named]{latex_windows/c_map_ram.dat};
+\addlegendentry{map/map-named}
+\addplot table [x=N, y=map/map-fun]{latex_windows/c_map_ram.dat};
+\addlegendentry{map/map-fun}
+\end{axis}
+\end{tikzpicture}

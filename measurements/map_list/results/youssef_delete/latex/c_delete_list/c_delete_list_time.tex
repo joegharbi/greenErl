@@ -1,0 +1,10 @@
+\begin{tikzpicture}
+\begin{axis}[legend style={at={(0.5,1)},anchor=south}, ylabel=Consumption (J), xlabel=N Values, width=\textwidth, height=0.4\textheight]
+\addplot table [x=N, y=list-delete/recursive]{latex_windows/c_delete_list_time.dat};
+\addlegendentry{list-delete/recursive}
+\addplot table [x=N, y=map-delete/remove]{latex_windows/c_delete_list_time.dat};
+\addlegendentry{map-delete/remove}
+\addplot table [x=N, y=list-delete/keytake]{latex_windows/c_delete_list_time.dat};
+\addlegendentry{list-delete/keytake}
+\end{axis}
+\end{tikzpicture}

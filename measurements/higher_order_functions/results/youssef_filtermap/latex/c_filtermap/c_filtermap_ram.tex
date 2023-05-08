@@ -1,0 +1,14 @@
+\begin{tikzpicture}
+\begin{axis}[legend style={at={(0.5,1)},anchor=south}, ylabel=Consumption (J), xlabel=N Values, width=\textwidth, height=0.4\textheight]
+\addplot table [x=N, y=filter-map/list-comprehension]{latex_windows/c_filtermap_ram.dat};
+\addlegendentry{filter-map/list-comprehension}
+\addplot table [x=N, y=filter-map/filtermap]{latex_windows/c_filtermap_ram.dat};
+\addlegendentry{filter-map/filtermap}
+\addplot table [x=N, y=filter-map/my-filter-map]{latex_windows/c_filtermap_ram.dat};
+\addlegendentry{filter-map/my-filter-map}
+\addplot table [x=N, y=filter-map/recursive]{latex_windows/c_filtermap_ram.dat};
+\addlegendentry{filter-map/recursive}
+\addplot table [x=N, y=filter-map/filter-map-comp]{latex_windows/c_filtermap_ram.dat};
+\addlegendentry{filter-map/filter-map-comp}
+\end{axis}
+\end{tikzpicture}

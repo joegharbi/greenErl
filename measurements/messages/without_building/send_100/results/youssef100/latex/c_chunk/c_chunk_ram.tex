@@ -1,0 +1,14 @@
+\begin{tikzpicture}
+\begin{axis}[legend style={at={(0.5,1)},anchor=south}, ylabel=Consumption (J), xlabel=N Values, width=\textwidth, height=0.4\textheight]
+\addplot table [x=N, y=list-chunks-1/send]{latex_windows/c_chunk_ram.dat};
+\addlegendentry{list-chunks-1/send}
+\addplot table [x=N, y=list-chunks/send]{latex_windows/c_chunk_ram.dat};
+\addlegendentry{list-chunks/send}
+\addplot table [x=N, y=list/send]{latex_windows/c_chunk_ram.dat};
+\addlegendentry{list/send}
+\addplot table [x=N, y=list/send-elements]{latex_windows/c_chunk_ram.dat};
+\addlegendentry{list/send-elements}
+\addplot table [x=N, y=list-chunks-5/send]{latex_windows/c_chunk_ram.dat};
+\addlegendentry{list-chunks-5/send}
+\end{axis}
+\end{tikzpicture}

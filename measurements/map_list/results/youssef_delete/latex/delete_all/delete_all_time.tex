@@ -1,0 +1,16 @@
+\begin{tikzpicture}
+\begin{axis}[legend style={at={(0.5,1)},anchor=south}, ylabel=Consumption (J), xlabel=N Values, width=\textwidth, height=0.4\textheight]
+\addplot table [x=N, y=map-delete/without]{latex_windows/delete_all_time.dat};
+\addlegendentry{map-delete/without}
+\addplot table [x=N, y=dict-delete/take]{latex_windows/delete_all_time.dat};
+\addlegendentry{dict-delete/take}
+\addplot table [x=N, y=list-delete/keytake]{latex_windows/delete_all_time.dat};
+\addlegendentry{list-delete/keytake}
+\addplot table [x=N, y=map-delete/remove]{latex_windows/delete_all_time.dat};
+\addlegendentry{map-delete/remove}
+\addplot table [x=N, y=map-delete/take]{latex_windows/delete_all_time.dat};
+\addlegendentry{map-delete/take}
+\addplot table [x=N, y=list-delete/recursive]{latex_windows/delete_all_time.dat};
+\addlegendentry{list-delete/recursive}
+\end{axis}
+\end{tikzpicture}

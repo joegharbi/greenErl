@@ -1,0 +1,60 @@
+\begin{tikzpicture}
+\begin{axis}[legend style={at={(0.5,1)},anchor=south}, ylabel=Consumption (J), xlabel=N Values, width=\textwidth, height=0.4\textheight]
+\addplot table [x=N, y=list/send]{latex_windows/message_all_time.dat};
+\addlegendentry{list/send}
+\addplot table [x=N, y=binlist/send]{latex_windows/message_all_time.dat};
+\addlegendentry{binlist/send}
+\addplot table [x=N, y=list-processes/send-elements]{latex_windows/message_all_time.dat};
+\addlegendentry{list-processes/send-elements}
+\addplot table [x=N, y=map-from/binary]{latex_windows/message_all_time.dat};
+\addlegendentry{map-from/binary}
+\addplot table [x=N, y=map/send-elements-acc]{latex_windows/message_all_time.dat};
+\addlegendentry{map/send-elements-acc}
+\addplot table [x=N, y=bindict/send]{latex_windows/message_all_time.dat};
+\addlegendentry{bindict/send}
+\addplot table [x=N, y=list-chunks-generated/send]{latex_windows/message_all_time.dat};
+\addlegendentry{list-chunks-generated/send}
+\addplot table [x=N, y=list/send-elements-comp]{latex_windows/message_all_time.dat};
+\addlegendentry{list/send-elements-comp}
+\addplot table [x=N, y=list-chunks-generated/send-acc]{latex_windows/message_all_time.dat};
+\addlegendentry{list-chunks-generated/send-acc}
+\addplot table [x=N, y=dictionary/send]{latex_windows/message_all_time.dat};
+\addlegendentry{dictionary/send}
+\addplot table [x=N, y=map/send]{latex_windows/message_all_time.dat};
+\addlegendentry{map/send}
+\addplot table [x=N, y=list/send-chunks]{latex_windows/message_all_time.dat};
+\addlegendentry{list/send-chunks}
+\addplot table [x=N, y=list/send-elements-acc]{latex_windows/message_all_time.dat};
+\addlegendentry{list/send-elements-acc}
+\addplot table [x=N, y=list/send-chunks-acc]{latex_windows/message_all_time.dat};
+\addlegendentry{list/send-chunks-acc}
+\addplot table [x=N, y=list-chunks-generated/send-comp]{latex_windows/message_all_time.dat};
+\addlegendentry{list-chunks-generated/send-comp}
+\addplot table [x=N, y=map/send-elements]{latex_windows/message_all_time.dat};
+\addlegendentry{map/send-elements}
+\addplot table [x=N, y=list-to/binary]{latex_windows/message_all_time.dat};
+\addlegendentry{list-to/binary}
+\addplot table [x=N, y=list/send-elements-rec]{latex_windows/message_all_time.dat};
+\addlegendentry{list/send-elements-rec}
+\addplot table [x=N, y=dict-from/binary]{latex_windows/message_all_time.dat};
+\addlegendentry{dict-from/binary}
+\addplot table [x=N, y=list-processes/send-chunks]{latex_windows/message_all_time.dat};
+\addlegendentry{list-processes/send-chunks}
+\addplot table [x=N, y=dictionary/send-elements]{latex_windows/message_all_time.dat};
+\addlegendentry{dictionary/send-elements}
+\addplot table [x=N, y=dictionary/send-elements-acc]{latex_windows/message_all_time.dat};
+\addlegendentry{dictionary/send-elements-acc}
+\addplot table [x=N, y=dict-to/binary]{latex_windows/message_all_time.dat};
+\addlegendentry{dict-to/binary}
+\addplot table [x=N, y=list-from/binary]{latex_windows/message_all_time.dat};
+\addlegendentry{list-from/binary}
+\addplot table [x=N, y=list-processes/send]{latex_windows/message_all_time.dat};
+\addlegendentry{list-processes/send}
+\addplot table [x=N, y=list/send-chunks-comp]{latex_windows/message_all_time.dat};
+\addlegendentry{list/send-chunks-comp}
+\addplot table [x=N, y=binmap/send]{latex_windows/message_all_time.dat};
+\addlegendentry{binmap/send}
+\addplot table [x=N, y=map-to/binary]{latex_windows/message_all_time.dat};
+\addlegendentry{map-to/binary}
+\end{axis}
+\end{tikzpicture}

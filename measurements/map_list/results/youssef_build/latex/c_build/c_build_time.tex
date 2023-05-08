@@ -1,0 +1,16 @@
+\begin{tikzpicture}
+\begin{axis}[legend style={at={(0.5,1)},anchor=south}, ylabel=Consumption (J), xlabel=N Values, width=\textwidth, height=0.4\textheight]
+\addplot table [x=N, y=dict-build/from-list]{latex_windows/c_build_time.dat};
+\addlegendentry{dict-build/from-list}
+\addplot table [x=N, y=build/list-recursive]{latex_windows/c_build_time.dat};
+\addlegendentry{build/list-recursive}
+\addplot table [x=N, y=dict-build/recursive-from-list]{latex_windows/c_build_time.dat};
+\addlegendentry{dict-build/recursive-from-list}
+\addplot table [x=N, y=build/map-pattern]{latex_windows/c_build_time.dat};
+\addlegendentry{build/map-pattern}
+\addplot table [x=N, y=map-build/from-list]{latex_windows/c_build_time.dat};
+\addlegendentry{map-build/from-list}
+\addplot table [x=N, y=build/map-put]{latex_windows/c_build_time.dat};
+\addlegendentry{build/map-put}
+\end{axis}
+\end{tikzpicture}

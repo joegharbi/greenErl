@@ -1,0 +1,10 @@
+\begin{tikzpicture}
+\begin{axis}[legend style={at={(0.5,1)},anchor=south}, ylabel=Consumption (J), xlabel=N Values, width=\textwidth, height=0.4\textheight]
+\addplot table [x=N, y=list/send]{latex_windows/c_send1_time.dat};
+\addlegendentry{list/send}
+\addplot table [x=N, y=map/send]{latex_windows/c_send1_time.dat};
+\addlegendentry{map/send}
+\addplot table [x=N, y=dictionary/send]{latex_windows/c_send1_time.dat};
+\addlegendentry{dictionary/send}
+\end{axis}
+\end{tikzpicture}

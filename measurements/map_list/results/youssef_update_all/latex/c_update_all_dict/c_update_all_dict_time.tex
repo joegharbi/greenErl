@@ -1,0 +1,12 @@
+\begin{tikzpicture}
+\begin{axis}[legend style={at={(0.5,1)},anchor=south}, ylabel=Consumption (J), xlabel=N Values, width=\textwidth, height=0.4\textheight]
+\addplot table [x=N, y=list-update-all/foldl]{latex_windows/c_update_all_dict_time.dat};
+\addlegendentry{list-update-all/foldl}
+\addplot table [x=N, y=dict-update-all/map]{latex_windows/c_update_all_dict_time.dat};
+\addlegendentry{dict-update-all/map}
+\addplot table [x=N, y=list-update-all/recursive]{latex_windows/c_update_all_dict_time.dat};
+\addlegendentry{list-update-all/recursive}
+\addplot table [x=N, y=list-update-all/map]{latex_windows/c_update_all_dict_time.dat};
+\addlegendentry{list-update-all/map}
+\end{axis}
+\end{tikzpicture}

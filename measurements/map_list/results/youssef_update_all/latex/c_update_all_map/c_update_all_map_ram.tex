@@ -1,0 +1,18 @@
+\begin{tikzpicture}
+\begin{axis}[legend style={at={(0.5,1)},anchor=south}, ylabel=Consumption (J), xlabel=N Values, width=\textwidth, height=0.4\textheight]
+\addplot table [x=N, y=list-update-all/recursive]{latex_windows/c_update_all_map_ram.dat};
+\addlegendentry{list-update-all/recursive}
+\addplot table [x=N, y=list-update-all/map]{latex_windows/c_update_all_map_ram.dat};
+\addlegendentry{list-update-all/map}
+\addplot table [x=N, y=map-update-all/fold-with-iter]{latex_windows/c_update_all_map_ram.dat};
+\addlegendentry{map-update-all/fold-with-iter}
+\addplot table [x=N, y=list-update-all/foldr]{latex_windows/c_update_all_map_ram.dat};
+\addlegendentry{list-update-all/foldr}
+\addplot table [x=N, y=map-update-all/fold-with-map]{latex_windows/c_update_all_map_ram.dat};
+\addlegendentry{map-update-all/fold-with-map}
+\addplot table [x=N, y=map-update-all/recursive]{latex_windows/c_update_all_map_ram.dat};
+\addlegendentry{map-update-all/recursive}
+\addplot table [x=N, y=list-update-all/foldl]{latex_windows/c_update_all_map_ram.dat};
+\addlegendentry{list-update-all/foldl}
+\end{axis}
+\end{tikzpicture}

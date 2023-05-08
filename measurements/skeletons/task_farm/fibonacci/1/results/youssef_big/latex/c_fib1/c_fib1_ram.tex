@@ -1,0 +1,10 @@
+\begin{tikzpicture}
+\begin{axis}[legend style={at={(0.5,1)},anchor=south}, ylabel=Consumption (J), xlabel=N Values, width=\textwidth, height=0.4\textheight]
+\addplot table [x=N, y=fibonacci/ordparmap]{latex_windows/c_fib1_ram.dat};
+\addlegendentry{fibonacci/ordparmap}
+\addplot table [x=N, y=fibonacci/parmap]{latex_windows/c_fib1_ram.dat};
+\addlegendentry{fibonacci/parmap}
+\addplot table [x=N, y=farm/fib]{latex_windows/c_fib1_ram.dat};
+\addlegendentry{farm/fib}
+\end{axis}
+\end{tikzpicture}

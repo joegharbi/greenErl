@@ -1,0 +1,8 @@
+\begin{tikzpicture}
+\begin{axis}[legend style={at={(0.5,1)},anchor=south}, ylabel=Consumption (J), xlabel=N Values, width=\textwidth, height=0.4\textheight]
+\addplot table [x=N, y=dict-build/recursive-from-list]{latex_windows/build_dict_ram.dat};
+\addlegendentry{dict-build/recursive-from-list}
+\addplot table [x=N, y=dict-build/from-list]{latex_windows/build_dict_ram.dat};
+\addlegendentry{dict-build/from-list}
+\end{axis}
+\end{tikzpicture}

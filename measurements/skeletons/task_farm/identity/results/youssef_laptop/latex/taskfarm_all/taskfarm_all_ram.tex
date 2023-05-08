@@ -1,0 +1,14 @@
+\begin{tikzpicture}
+\begin{axis}[legend style={at={(0.5,1)},anchor=south}, ylabel=Consumption (J), xlabel=N Values, width=\textwidth, height=0.4\textheight]
+\addplot table [x=N, y=farm/eliminate-all]{latex_windows/taskfarm_all_ram.dat};
+\addlegendentry{farm/eliminate-all}
+\addplot table [x=N, y=farm/worker-fun-expression]{latex_windows/taskfarm_all_ram.dat};
+\addlegendentry{farm/worker-fun-expression}
+\addplot table [x=N, y=farm/worker-named-function]{latex_windows/taskfarm_all_ram.dat};
+\addlegendentry{farm/worker-named-function}
+\addplot table [x=N, y=farm/fun-expression]{latex_windows/taskfarm_all_ram.dat};
+\addlegendentry{farm/fun-expression}
+\addplot table [x=N, y=farm/named-function]{latex_windows/taskfarm_all_ram.dat};
+\addlegendentry{farm/named-function}
+\end{axis}
+\end{tikzpicture}

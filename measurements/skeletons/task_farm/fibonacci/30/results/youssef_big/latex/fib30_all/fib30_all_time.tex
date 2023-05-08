@@ -1,0 +1,18 @@
+\begin{tikzpicture}
+\begin{axis}[legend style={at={(0.5,1)},anchor=south}, ylabel=Consumption (J), xlabel=N Values, width=\textwidth, height=0.4\textheight]
+\addplot table [x=N, y=farm/fib]{latex_windows/fib30_all_time.dat};
+\addlegendentry{farm/fib}
+\addplot table [x=N, y=fibonacci/ordparmap-comp]{latex_windows/fib30_all_time.dat};
+\addlegendentry{fibonacci/ordparmap-comp}
+\addplot table [x=N, y=fibonacci/parmap-comp]{latex_windows/fib30_all_time.dat};
+\addlegendentry{fibonacci/parmap-comp}
+\addplot table [x=N, y=fibonacci/ordparmap]{latex_windows/fib30_all_time.dat};
+\addlegendentry{fibonacci/ordparmap}
+\addplot table [x=N, y=fibonacci/parmap-hof]{latex_windows/fib30_all_time.dat};
+\addlegendentry{fibonacci/parmap-hof}
+\addplot table [x=N, y=fibonacci/parmap]{latex_windows/fib30_all_time.dat};
+\addlegendentry{fibonacci/parmap}
+\addplot table [x=N, y=fibonacci/ordparmap-hof]{latex_windows/fib30_all_time.dat};
+\addlegendentry{fibonacci/ordparmap-hof}
+\end{axis}
+\end{tikzpicture}

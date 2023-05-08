@@ -1,0 +1,14 @@
+\begin{tikzpicture}
+\begin{axis}[legend style={at={(0.5,1)},anchor=south}, ylabel=Consumption (J), xlabel=N Values, width=\textwidth, height=0.4\textheight]
+\addplot table [x=N, y=farm-32/named-function]{latex_windows/c_spawn_ram.dat};
+\addlegendentry{farm-32/named-function}
+\addplot table [x=N, y=farm-16/named-function]{latex_windows/c_spawn_ram.dat};
+\addlegendentry{farm-16/named-function}
+\addplot table [x=N, y=farm-8/named-function]{latex_windows/c_spawn_ram.dat};
+\addlegendentry{farm-8/named-function}
+\addplot table [x=N, y=farm-4/named-function]{latex_windows/c_spawn_ram.dat};
+\addlegendentry{farm-4/named-function}
+\addplot table [x=N, y=farm-2/named-function]{latex_windows/c_spawn_ram.dat};
+\addlegendentry{farm-2/named-function}
+\end{axis}
+\end{tikzpicture}

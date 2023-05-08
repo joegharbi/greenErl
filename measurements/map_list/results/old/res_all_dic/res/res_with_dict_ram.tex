@@ -1,0 +1,16 @@
+\begin{tikzpicture}
+\begin{axis}[legend style={at={(0,1)},anchor=north west}, ylabel=Consumption (J), xlabel=N Values, width=\textwidth, height=0.4\textheight]
+\addplot table [x=N, y=build/map-from-list]{C:/erlab/lab_II/greenErl/green_erlang/measurements/map_list/results/res_all_dic/res_with_dict_ram.dat};
+\addlegendentry{build/map-from-list}
+\addplot table [x=N, y=build/list-from-map]{C:/erlab/lab_II/greenErl/green_erlang/measurements/map_list/results/res_all_dic/res_with_dict_ram.dat};
+\addlegendentry{build/list-from-map}
+\addplot table [x=N, y=build/map-put]{C:/erlab/lab_II/greenErl/green_erlang/measurements/map_list/results/res_all_dic/res_with_dict_ram.dat};
+\addlegendentry{build/map-put}
+\addplot table [x=N, y=build/list-recursive]{C:/erlab/lab_II/greenErl/green_erlang/measurements/map_list/results/res_all_dic/res_with_dict_ram.dat};
+\addlegendentry{build/list-recursive}
+\addplot table [x=N, y=build/map-pattern]{C:/erlab/lab_II/greenErl/green_erlang/measurements/map_list/results/res_all_dic/res_with_dict_ram.dat};
+\addlegendentry{build/map-pattern}
+\addplot table [x=N, y=dict-build/recursive-from-list]{C:/erlab/lab_II/greenErl/green_erlang/measurements/map_list/results/res_all_dic/res_with_dict_ram.dat};
+\addlegendentry{dict-build/recursive-from-list}
+\end{axis}
+\end{tikzpicture}

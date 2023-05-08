@@ -1,0 +1,10 @@
+\begin{tikzpicture}
+\begin{axis}[legend style={at={(0.5,1)},anchor=south}, ylabel=Consumption (J), xlabel=N Values, width=\textwidth, height=0.4\textheight]
+\addplot table [x=N, y=map-update-one/update]{latex_windows/c_update_one_dict_ram.dat};
+\addlegendentry{map-update-one/update}
+\addplot table [x=N, y=dict-update-one/store]{latex_windows/c_update_one_dict_ram.dat};
+\addlegendentry{dict-update-one/store}
+\addplot table [x=N, y=dict-update-one/update]{latex_windows/c_update_one_dict_ram.dat};
+\addlegendentry{dict-update-one/update}
+\end{axis}
+\end{tikzpicture}

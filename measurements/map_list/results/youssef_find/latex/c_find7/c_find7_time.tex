@@ -1,0 +1,12 @@
+\begin{tikzpicture}
+\begin{axis}[legend style={at={(0.5,1)},anchor=south}, ylabel=Consumption (J), xlabel=N Values, width=\textwidth, height=0.4\textheight]
+\addplot table [x=N, y=list-find/recursive]{latex_windows/c_find7_time.dat};
+\addlegendentry{list-find/recursive}
+\addplot table [x=N, y=list-find/get-value]{latex_windows/c_find7_time.dat};
+\addlegendentry{list-find/get-value}
+\addplot table [x=N, y=map-find/find]{latex_windows/c_find7_time.dat};
+\addlegendentry{map-find/find}
+\addplot table [x=N, y=list-find/keyfind]{latex_windows/c_find7_time.dat};
+\addlegendentry{list-find/keyfind}
+\end{axis}
+\end{tikzpicture}

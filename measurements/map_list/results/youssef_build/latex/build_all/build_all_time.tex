@@ -1,0 +1,28 @@
+\begin{tikzpicture}
+\begin{axis}[legend style={at={(0.5,1)},anchor=south}, ylabel=Consumption (J), xlabel=N Values, width=\textwidth, height=0.4\textheight]
+\addplot table [x=N, y=build/list-from-map]{latex_windows/build_all_time.dat};
+\addlegendentry{build/list-from-map}
+\addplot table [x=N, y=list-build/iterated-from-map]{latex_windows/build_all_time.dat};
+\addlegendentry{list-build/iterated-from-map}
+\addplot table [x=N, y=map-build/from-list]{latex_windows/build_all_time.dat};
+\addlegendentry{map-build/from-list}
+\addplot table [x=N, y=build/map-pattern]{latex_windows/build_all_time.dat};
+\addlegendentry{build/map-pattern}
+\addplot table [x=N, y=build/map-from-list]{latex_windows/build_all_time.dat};
+\addlegendentry{build/map-from-list}
+\addplot table [x=N, y=map-build/recursive-from-list]{latex_windows/build_all_time.dat};
+\addlegendentry{map-build/recursive-from-list}
+\addplot table [x=N, y=dict-build/recursive-from-list]{latex_windows/build_all_time.dat};
+\addlegendentry{dict-build/recursive-from-list}
+\addplot table [x=N, y=build/map-put]{latex_windows/build_all_time.dat};
+\addlegendentry{build/map-put}
+\addplot table [x=N, y=map-build/recursive-from-list-put]{latex_windows/build_all_time.dat};
+\addlegendentry{map-build/recursive-from-list-put}
+\addplot table [x=N, y=list-build/from-map]{latex_windows/build_all_time.dat};
+\addlegendentry{list-build/from-map}
+\addplot table [x=N, y=dict-build/from-list]{latex_windows/build_all_time.dat};
+\addlegendentry{dict-build/from-list}
+\addplot table [x=N, y=build/list-recursive]{latex_windows/build_all_time.dat};
+\addlegendentry{build/list-recursive}
+\end{axis}
+\end{tikzpicture}

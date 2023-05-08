@@ -1,0 +1,10 @@
+\begin{tikzpicture}
+\begin{axis}[legend style={at={(0.5,1)},anchor=south}, ylabel=Consumption (J), xlabel=N Values, width=\textwidth, height=0.4\textheight]
+\addplot table [x=N, y=map/list-comprehension-named]{latex_windows/c_map_list_time.dat};
+\addlegendentry{map/list-comprehension-named}
+\addplot table [x=N, y=map/list-comprehension]{latex_windows/c_map_list_time.dat};
+\addlegendentry{map/list-comprehension}
+\addplot table [x=N, y=map/list-comprehension-fun]{latex_windows/c_map_list_time.dat};
+\addlegendentry{map/list-comprehension-fun}
+\end{axis}
+\end{tikzpicture}

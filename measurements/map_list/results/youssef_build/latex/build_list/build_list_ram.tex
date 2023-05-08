@@ -1,0 +1,12 @@
+\begin{tikzpicture}
+\begin{axis}[legend style={at={(0.5,1)},anchor=south}, ylabel=Consumption (J), xlabel=N Values, width=\textwidth, height=0.4\textheight]
+\addplot table [x=N, y=list-build/from-map]{latex_windows/build_list_ram.dat};
+\addlegendentry{list-build/from-map}
+\addplot table [x=N, y=build/list-recursive]{latex_windows/build_list_ram.dat};
+\addlegendentry{build/list-recursive}
+\addplot table [x=N, y=list-build/iterated-from-map]{latex_windows/build_list_ram.dat};
+\addlegendentry{list-build/iterated-from-map}
+\addplot table [x=N, y=build/list-from-map]{latex_windows/build_list_ram.dat};
+\addlegendentry{build/list-from-map}
+\end{axis}
+\end{tikzpicture}
