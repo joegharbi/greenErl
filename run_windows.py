@@ -491,7 +491,7 @@ def dumpAvg(folder_path,count,input,pid):
                             total_num = 0
                             for snapshot in data:
                                 for consumer in snapshot['consumers']:
-                                    if consumer['exe'] == 'C:\\Program Files\\erl-23.3.4.11\\bin\\erl.exe':
+                                    if consumer['exe'].endswith('\\bin\\erl.exe'):
                                         if consumer['pid'] == pid:
                                             total_val+=consumer['consumption']
                                             total_num+=1
@@ -553,8 +553,8 @@ def dumpAvg(folder_path,count,input,pid):
 #         writer.writerows(rows)
 
 def measure(measurement):
-    compileTemplate = 'c("{0}"). '
-    measureTemplate = '{erlangMeasureModule}:measure({{{moduleName}, {functionsToMeasure}, {inputDescs}}},{numberOfMeasurements},"{resultFolder}"). '
+    compileTemplate = 'c("{0}").\n'
+    measureTemplate = '{erlangMeasureModule}:measure({{{moduleName}, {functionsToMeasure}, {inputDescs}}},{numberOfMeasurements},"{resultFolder}").\n'
     erlangCommand = ''
     # Compile measuring program
     erlangCommand += compileTemplate.format(measurement.erlangMeasureFile)

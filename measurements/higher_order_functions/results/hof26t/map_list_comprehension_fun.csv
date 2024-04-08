@@ -1,0 +1,14 @@
+map;list_comprehension_fun;10000;time;time;2.65700000000000007352e-03
+map;list_comprehension_fun;50000;time;time;2.11930000000000000326e-02
+map;list_comprehension_fun;100000;time;time;2.84639999999999997182e-02
+map;list_comprehension_fun;500000;time;time;2.78115000000000001101e-01
+map;list_comprehension_fun;1000000;time;time;7.13826999999999989299e-01
+map;list_comprehension_fun;2000000;time;time;1.66758000000000006224e+00
+map;list_comprehension_fun;3000000;time;time;2.49456299999999986383e+00
+map;list_comprehension_fun;4000000;time;time;3.02233099999999987872e+00
+map;list_comprehension_fun;5000000;time;time;4.02820800000000023289e+00
+map;list_comprehension_fun;6000000;time;time;5.02046399999999959363e+00
+map;list_comprehension_fun;7000000;time;time;5.48986499999999999488e+00
+map;list_comprehension_fun;8000000;time;time;2.51319999999999987850e+00
+map;list_comprehension_fun;9000000;time;time;6.36804799999999993076e+00
+map;list_comprehension_fun;10000000;time;time;7.43188099999999973733e+00

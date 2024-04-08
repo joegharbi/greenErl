@@ -1,7 +1,8 @@
 -module(energy_consumption_res).
 -export([measure/3]).
 
-measure({Module, Functions, [_={V,C}|InputDescs]}, Count, ResultPath) ->
+measure({Module, Functions, [T={V,C}|InputDescs]}, Count, ResultPath) ->
+    io:format("cmd ~p ~p ~p ~n", [Module,Functions,T]),
     measure({Module, Functions, [V]}, C, ResultPath),
     measure({Module, Functions, InputDescs}, Count, ResultPath);
 measure({Module, Functions, [InputDesc|InputDescs]}, Count, ResultPath) -> 
@@ -70,6 +71,7 @@ measureFunctions({Module, [Function|Functions], Attributes, InputDesc}, Count, R
     % ns sampling
     Command = "scaphandre json -s 0 -n 1 -m 100 -f " ++ InputDesFile,
     Output = os:cmd("wmic process call create \""++ Command ++"\" | find \"ProcessId\""),
+    io:format("cmd ~p~n", [Output]),
     {match, [PidString]} = re:run(Output, "ProcessId = ([0-9]+)", [{capture, all_but_first, list}]),
     Pid = list_to_integer(PidString),
     io:format("OS PID: ~p~n", [Pid]),

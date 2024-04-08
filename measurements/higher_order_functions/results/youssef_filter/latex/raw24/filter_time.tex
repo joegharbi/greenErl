@@ -1,0 +1,12 @@
+\begin{tikzpicture}
+\begin{axis}[legend style={at={(0.5,1)},anchor=south}, ylabel=Consumption (J), xlabel=N Values, width=\textwidth, height=0.4\textheight]
+\addplot table [x=N, y=filter/list-comprehension]{latex_windows/filter_time.dat};
+\addlegendentry{filter/list-comprehension}
+\addplot table [x=N, y=filter/filter-fun]{latex_windows/filter_time.dat};
+\addlegendentry{filter/filter-fun}
+\addplot table [x=N, y=filter/filter-named]{latex_windows/filter_time.dat};
+\addlegendentry{filter/filter-named}
+\addplot table [x=N, y=filter/recursive]{latex_windows/filter_time.dat};
+\addlegendentry{filter/recursive}
+\end{axis}
+\end{tikzpicture}

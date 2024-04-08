@@ -1,0 +1,1 @@
+c("C:/PhD/greenErl/rapl_erlang/energy_consumption_res.erl"). c("C:/PhD/greenErl/measurements/higher_order_functions/map.erl"). energy_consumption_res:measure({map, all, [123]},10,"C:\\PhD\\greenErl\\measurements\\higher_order_functions\\results\\qwe123\\"). 
