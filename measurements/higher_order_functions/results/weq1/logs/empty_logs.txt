@@ -1,3 +1,0 @@
-This file has no erl.exe: map_map_fun_10000.json
-This file has no erl.exe: map_my_map_fun_10000.json
-This file has no erl.exe: map_my_map_named_10000.json
