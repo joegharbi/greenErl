@@ -1,7 +1,7 @@
 import pandas as pd
 import os
 
-file_path = 'C:\\PhD\\greenErl\\measurements\\raw24\\del\\map_delete_remove.csv'
+file_path = 'C:\\PhD\\greenErl\\measurements\\raw24\\par\\map_send.csv'
 # Assuming the data is in a CSV file named 'filter_filter_fun.csv'
 data = pd.read_csv(file_path, sep=';', header=None, names=['col1', 'col2', 'col3', 'col4', 'col5', 'col6'])
 

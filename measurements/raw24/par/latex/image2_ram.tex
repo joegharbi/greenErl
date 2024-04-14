@@ -1,0 +1,16 @@
+\begin{tikzpicture}
+\begin{axis}[legend style={at={(0.5,1)},anchor=south}, ylabel=Consumption (J), xlabel=N Values, width=\textwidth, height=0.4\textheight]
+\addplot table [x=N, y=list/send-elements-rec]{latex_windows/image2_ram.dat};
+\addlegendentry{list/send-elements-rec}
+\addplot table [x=N, y=list/send-elements-acc]{latex_windows/image2_ram.dat};
+\addlegendentry{list/send-elements-acc}
+\addplot table [x=N, y=map/send-elements]{latex_windows/image2_ram.dat};
+\addlegendentry{map/send-elements}
+\addplot table [x=N, y=dictionary/send-elements]{latex_windows/image2_ram.dat};
+\addlegendentry{dictionary/send-elements}
+\addplot table [x=N, y=list-processes/send-elements]{latex_windows/image2_ram.dat};
+\addlegendentry{list-processes/send-elements}
+\addplot table [x=N, y=list/send-elements-comp]{latex_windows/image2_ram.dat};
+\addlegendentry{list/send-elements-comp}
+\end{axis}
+\end{tikzpicture}
