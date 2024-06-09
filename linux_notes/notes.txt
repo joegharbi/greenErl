@@ -1,0 +1,3 @@
+c("/home/youssef/greenErl/rapl_erlang/energy_consumption_res.erl").
+c("/home/youssef/greenErl/measurements/higher_order_functions/map.erl").
+energy_consumption_res:measure({map, [recursive], [10,20,30]},10,"/home/youssef/greenErl/measurements/higher_order_functions/results/res_p_t").

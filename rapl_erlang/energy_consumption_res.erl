@@ -70,11 +70,13 @@ measureFunctions({Module, [Function|Functions], Attributes, InputDesc}, Count, R
     % Command = "scaphandre json -s 0 -n 100000 -m 100 -f " ++ InputDesFile,
     % ns sampling
     Command = "scaphandre json -s 0 -n 1 -m 100 -f " ++ InputDesFile,
-    Output = os:cmd("wmic process call create \""++ Command ++"\" | find \"ProcessId\""),
-    io:format("cmd ~p~n", [Output]),
-    {match, [PidString]} = re:run(Output, "ProcessId = ([0-9]+)", [{capture, all_but_first, list}]),
-    Pid = list_to_integer(PidString),
-    io:format("OS PID: ~p~n", [Pid]),
+    os:cmd(Command),
+    io:format("~n Started scaphandre ~p~n",[Command]),
+    % Output = os:cmd("wmic process call create \""++ Command ++"\" | find \"ProcessId\""),
+    % io:format("cmd ~p~n", [Output]),
+    % {match, [PidString]} = re:run(Output, "ProcessId = ([0-9]+)", [{capture, all_but_first, list}]),
+    % Pid = list_to_integer(PidString),
+    % io:format("OS PID: ~p~n", [Pid]),
     % Sleep for 1 sec the time needed for scaphandre to start dumping values into the json files
     % If not, we will not be able to measure the values for small input size
     timer:sleep(1000),
@@ -86,9 +88,13 @@ measureFunctions({Module, [Function|Functions], Attributes, InputDesc}, Count, R
     receive
         stop ->  
             timer:sleep(1000),
-            Command1 = "taskkill /F /PID " ++ integer_to_list(Pid),
-            os:cmd(Command1),
+            % Command1 = "taskkill /F /PID " ++ integer_to_list(Pid),
+            % os:cmd(Command1),
+            StopCommand = "pkill -f 'scaphandre'",
+            os:cmd(StopCommand),
+            io:format("~n killed scaphandre ~n",[]),
             Data = Val ++ ";" ++ float_to_list(Time/1000000),
+            io:format("~nData ~p~n",[Data]),
             dumpTime(ResultPath,FileName,Data),
             io:format("Time elapsed: ~p~n", [Time/1000000]),
             io:format("~n killed ~n"),
@@ -119,7 +125,15 @@ measureFunction({M,F,A,O}, Count, Me, InputDesFile, Time) ->
     measureFunction({M,F,A,O},Count-1, Me, InputDesFile, Time+NewTime).
 
 dumpTime(FilePath, FileName, Data) ->
-    FullPath = filename:join(FilePath, FileName),     
-    {ok, File} = file:open(FullPath, [append]),        
-    io:format(File, "~s~n", [Data]),                  
-    file:close(File).
+    FullPath = filename:join(FilePath, FileName),
+    case filelib:ensure_dir(FullPath) of
+        ok ->
+            % Directory ensured, proceed to append data
+            {ok, File} = file:open(FullPath, [append]),
+            io:format(File, "~s~n", [Data]),
+            file:close(File);
+        {error, Reason} ->
+            % Error ensuring directory, handle accordingly
+            io:format("Error ensuring directory: ~p~n", [Reason])
+    end.
+    

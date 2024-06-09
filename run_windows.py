@@ -42,7 +42,6 @@ from tkinter import ttk
 import subprocess
 import sys
 import os
-import vis
 import time
 import pdb
 import os
@@ -63,7 +62,7 @@ class Measurement:
     def setDefaultValues(self):
         self.erlangFile = ''
         # self.erlangMeasureFile = 'C:/erlab/lab_II/greenErl/green_erlang/rapl_erlang/energy_consumption_res.erl'
-        self.erlangMeasureFile = os.getcwd().replace("\\", "/") + '/rapl_erlang/energy_consumption_res.erl'
+        self.erlangMeasureFile = 'rapl_erlang/energy_consumption_res.erl'
         self.numberOfMeasurements = 10
         self.erlangMeasureModule = 'energy_consumption_res'
         self.moduleName = ''
@@ -235,7 +234,7 @@ class GUI:
 
         resultRelativePath = self.resultFolderEntry.get()
         self.measurement.resultPath = removeFilenameFromPath(
-            self.measurement.erlangFile) + '\\\\results\\\\' + resultRelativePath +'\\\\'
+            self.measurement.erlangFile) + '/results/' + resultRelativePath + '/'
         if resultRelativePath == '':
             errorStr += 'No folder for results specified\n'
         else:
@@ -402,26 +401,32 @@ class GUI:
     #         self.selectedOption.get(), self.logScaleIsChecked.get())
 
 
+# def removeFilenameFromPath(fullPath):
+#     path = '\\\\'.join(fullPath.split('/')[:-1])
+#     return path
 def removeFilenameFromPath(fullPath):
-    path = '\\\\'.join(fullPath.split('/')[:-1])
+    path = '/'.join(fullPath.split('/')[:-1])
+    print("path is " + path)
     return path
 
 
 def getRelativePath(fullPath):
     if fullPath == '':
         return ''
-    currentDir = os.getcwd().split('\\')
+    currentDir = os.getcwd().split('/')
     filePath = fullPath.split('/')
     i = 0
     while i < len(currentDir) and i < len(filePath) and currentDir[i] == filePath[i]:
         i += 1
     relativePath = '/'*(len(currentDir) - i) + '/'.join(filePath[i:])
+    print("relative path "+ relativePath)
     return relativePath
 
 
 def getModuleNameFromPath(fullPath):
     fileName = fullPath.split('/')[-1]
     moduleName = '.'.join(fileName.split('.')[:-1])
+    print("module name "+ moduleName)
     return moduleName
 
 # def restartFunction(filename):
@@ -438,6 +443,7 @@ def getNames(file_path):
         module_function = row1.split(';')[:2]
         module_function = ';'.join(module_function)
         # print (module_function)
+        print("module function is "+ module_function)
         return module_function
 
 # def getPairs(pattern):
@@ -458,8 +464,13 @@ def getNames(file_path):
 
 
 def dumpAvg(folder_path,count,input,pid):
-    if not os.path.exists(f"{folder_path}\\logs"):
-        os.makedirs(f"{folder_path}\\logs")
+    print(folder_path)
+    print(count)
+    print(input)
+    print(pid)
+
+    if not os.path.exists(f"{folder_path}/logs"):
+        os.makedirs(f"{folder_path}/logs")
     if re.search(r'{\d+,\d+}', input):
         pairs = re.findall(r'{(\d+),(\d+)}', input)
         left = [int(pair[0]) for pair in pairs]
@@ -471,12 +482,13 @@ def dumpAvg(folder_path,count,input,pid):
             module_function = filename.split('.')[0]
             module_function_json = getNames(os.path.join(folder_path, filename))
             module, function = module_function_json.split(';', 1)
-            # print (module)
-            # print (function)
+            print (module)
+            print (function)
             for json_file in os.listdir(folder_path):
                 if json_file.endswith('.json') and json_file.startswith(module_function):
                     # act_inp = json_file.split('.')[0].split('_')[-1]
                     parts = json_file.split("_")
+                    print("parts " + parts)
                     act_inp = int(parts[-1].split(".")[0])
                     # act_inp = json_file.rsplit('.', 1)[0].rsplit('_', 1)[-1]
                     act_inpv = int(act_inp)
@@ -491,7 +503,7 @@ def dumpAvg(folder_path,count,input,pid):
                             total_num = 0
                             for snapshot in data:
                                 for consumer in snapshot['consumers']:
-                                    if consumer['exe'].endswith('\\bin\\erl.exe'):
+                                    if consumer['exe'].endswith('/bin/erl'):
                                         if consumer['pid'] == pid:
                                             total_val+=consumer['consumption']
                                             total_num+=1
@@ -500,7 +512,7 @@ def dumpAvg(folder_path,count,input,pid):
                                 # f1.write("This file has no erl.exe: ",json_file)
                                 # f1.close()
                                 res_avg = 0
-                                f = open(f"{folder_path}\\logs\\empty_logs.txt", "a")
+                                f = open(f"{folder_path}/logs/empty_logs.txt", "a")
                                 f.write(f"This file has no erl.exe: {json_file}\n")
                                 f.close()
                                 print ("This file has no erl.exe: ",json_file)
@@ -526,7 +538,7 @@ def dumpAvg(folder_path,count,input,pid):
                                 else: 
                                     continue
                         else:
-                            f = open(f"{folder_path}\\logs\\empty_files.txt", "a")
+                            f = open(f"{folder_path}/logs/empty_files.txt", "a")
                             f.write(f"{json_file} is empty\n")
                             f.close()
                             # res_avg = 0

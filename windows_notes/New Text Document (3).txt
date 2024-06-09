@@ -12,7 +12,9 @@ c("C:/erlab/lab_II/greenErl/green_erlang/rapl_erlang/energy_consumption_res.erl"
 
 c("C:/erlab/lab_II/greenErl/green_erlang/rapl_erlang/energy_consumption_res.erl"). c("C:/erlab/lab_II/greenErl/green_erlang/measurements/higher_order_functions/map.erl"). energy_consumption_res:measure({map,[recursive,my_map_fun], [10,20,30]},1000,"C:\\erlab\\lab_II\\greenErl\\green_erlang\\measurements\\test_new_q1t1213\\").
 
-c("C:/erlab/lab_II/greenErl/green_erlang/rapl_erlang/energy_consumption_res.erl"). c("C:/erlab/lab_II/greenErl/green_erlang/measurements/higher_order_functions/map.erl"). energy_consumption_res:measure({map, [recursive], [10,20,30]},10,"C:\\erlab\\lab_II\\greenErl\\green_erlang\\measurements\\higher_order_functions\results\res_p_t"). 
+c("C:/erlab/lab_II/greenErl/green_erlang/rapl_erlang/energy_consumption_res.erl").
+c("/measurements/higher_order_functions/map.erl").
+energy_consumption_res:measure({map, [recursive], [10,20,30]},10,"C:\\erlab\\lab_II\\greenErl\\green_erlang\\measurements\\higher_order_functions\results\res_p_t"). 
 
 c("C:/erlab/lab_II/greenErl/green_erlang/rapl_erlang/energy_consumption_res.erl"). c("C:/erlab/lab_II/greenErl/green_erlang/measurements/skeletons/task_farm/fibonacci/farm_fib.erl"). energy_consumption_res:measure({map,[recursive], [10000]},1000,"C:\\erlab\\lab_II\\greenErl\\green_erlang\\measurements\\test_new_farm\\").
 
