@@ -63,14 +63,15 @@ measureFunctions({Module, all, Attributes, InputDesc}, Count, ResultPath) ->
 measureFunctions({Module, [Function|Functions], Attributes, InputDesc}, Count, ResultPath) ->
     filelib:ensure_dir(ResultPath),
     io:format("~n Path: ~p~n",[ResultPath]),
-    InputDesFile = "\"" ++ ResultPath  ++ atom_to_list(Module) ++ "_" ++ atom_to_list(Function) ++
-                    "_" ++ integer_to_list(InputDesc) ++ ".json"++ "\"",
+    InputDesFile = ResultPath  ++ atom_to_list(Module) ++ "_" ++ atom_to_list(Function) ++
+                    "_" ++ integer_to_list(InputDesc) ++ ".json",
     io:format("~nCurrently measuring functions with input desctription ~p~n",[InputDesc]),
     % ms sampling
-    % Command = "scaphandre json -s 0 -n 100000 -m 100 -f " ++ InputDesFile,
+    Command = "scaphandre json -s 0 -n 100000 -m 100 -f " ++ InputDesFile,
     % ns sampling
-    Command = "scaphandre json -s 0 -n 1 -m 100 -f " ++ InputDesFile,
-    os:cmd(Command),
+    % Command = "sudo scaphandre json -s 0 --step-nano 1 -f " ++ InputDesFile,
+    io:format("~n Starting scaphandre ~p~n",[Command]),
+    spawn(fun() -> os:cmd(Command) end),
     io:format("~n Started scaphandre ~p~n",[Command]),
     % Output = os:cmd("wmic process call create \""++ Command ++"\" | find \"ProcessId\""),
     % io:format("cmd ~p~n", [Output]),
@@ -90,7 +91,7 @@ measureFunctions({Module, [Function|Functions], Attributes, InputDesc}, Count, R
             timer:sleep(1000),
             % Command1 = "taskkill /F /PID " ++ integer_to_list(Pid),
             % os:cmd(Command1),
-            StopCommand = "pkill -f 'scaphandre'",
+            StopCommand = "sudo pkill 'scaphandre'",
             os:cmd(StopCommand),
             io:format("~n killed scaphandre ~n",[]),
             Data = Val ++ ";" ++ float_to_list(Time/1000000),

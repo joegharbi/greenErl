@@ -488,12 +488,13 @@ def dumpAvg(folder_path,count,input,pid):
                 if json_file.endswith('.json') and json_file.startswith(module_function):
                     # act_inp = json_file.split('.')[0].split('_')[-1]
                     parts = json_file.split("_")
-                    print("parts " + parts)
+                    # print("parts " + parts)
                     act_inp = int(parts[-1].split(".")[0])
                     # act_inp = json_file.rsplit('.', 1)[0].rsplit('_', 1)[-1]
                     act_inpv = int(act_inp)
                     # print("actual input values:", act_inpv)
                     with open(os.path.join(folder_path, json_file), 'r') as f:
+                        print(f)
                         # if f.readable() and f.read(1):
                         #     f.seek(0)
                         if f.readable() and f.seek(0, 2) > 0:
