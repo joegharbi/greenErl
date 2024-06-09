@@ -464,10 +464,10 @@ def getNames(file_path):
 
 
 def dumpAvg(folder_path,count,input,pid):
-    print(folder_path)
-    print(count)
-    print(input)
-    print(pid)
+    # print(folder_path)
+    # print(count)
+    # print(input)
+    # print(pid)
 
     if not os.path.exists(f"{folder_path}/logs"):
         os.makedirs(f"{folder_path}/logs")
@@ -482,8 +482,8 @@ def dumpAvg(folder_path,count,input,pid):
             module_function = filename.split('.')[0]
             module_function_json = getNames(os.path.join(folder_path, filename))
             module, function = module_function_json.split(';', 1)
-            print (module)
-            print (function)
+            # print (module)
+            # print (function)
             for json_file in os.listdir(folder_path):
                 if json_file.endswith('.json') and json_file.startswith(module_function):
                     # act_inp = json_file.split('.')[0].split('_')[-1]
@@ -494,7 +494,7 @@ def dumpAvg(folder_path,count,input,pid):
                     act_inpv = int(act_inp)
                     # print("actual input values:", act_inpv)
                     with open(os.path.join(folder_path, json_file), 'r') as f:
-                        print(f)
+                        # print(f)
                         # if f.readable() and f.read(1):
                         #     f.seek(0)
                         if f.readable() and f.seek(0, 2) > 0:
@@ -504,7 +504,7 @@ def dumpAvg(folder_path,count,input,pid):
                             total_num = 0
                             for snapshot in data:
                                 for consumer in snapshot['consumers']:
-                                    if consumer['exe'].endswith('/bin/erl'):
+                                    if consumer['exe'] == 'beam.smp':
                                         if consumer['pid'] == pid:
                                             total_val+=consumer['consumption']
                                             total_num+=1
